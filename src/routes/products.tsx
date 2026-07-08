@@ -1,14 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import residential from "@/assets/aldrops.png";
-import commercial from "@/assets/hydraulic_hinges.png";
-import industrial from "@/assets/telescopic.png";
 
-// Feel free to update these static asset imports later with actual product images!
-import pull from "@/assets/ball_bearing_hinges.png";
-import gate from "@/assets/concealed_hinges.png";
-import furniture from "@/assets/tower_bolts.png";
+// Perfectly aligned import mappings point directly to lowercase file formats
+import ballBearingImg from "@/assets/ball_bearing_hinges.png";
+import concealedImg from "@/assets/concealed_hinges.png";
+import towerBoltImg from "@/assets/tower_bolts.png";
+import aldropsImg from "@/assets/aldrops.png";
+import hydraulicImg from "@/assets/hydraulic_hinges.png";
+import telescopicImg from "@/assets/telescopic.png";
+import softCloseImg from "@/assets/soft_close.png";
+import kitchenImg from "@/assets/kitchen_accessories.jpg";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -27,7 +29,7 @@ const collections = [
     tag: "Series 01",
     name: "Ball Bearing Hinges",
     desc: "Premium ball-bearing hinges designed for smooth, stable, and long-lasting door movement. Manufactured from high-quality stainless steel, they ensure effortless operation and noise-free performance in high-traffic areas.",
-    image: pull,
+    image: ballBearingImg,
     items: [
       "Smooth & friction-free door movement",
       "Heavy-duty load-bearing performance",
@@ -43,7 +45,7 @@ const collections = [
     tag: "Series 02",
     name: "Concealed Hinges",
     desc: "Designed to provide a clean, modern, and seamless furniture appearance. Hidden entirely inside the cabinet when closed, they enhance the aesthetics of modular interiors, wardrobes, and contemporary kitchens.",
-    image: gate,
+    image: concealedImg,
     items: [
       "Hidden design for elegant appearance",
       "Smooth & effortless door movement",
@@ -59,7 +61,7 @@ const collections = [
     tag: "Series 03",
     name: "Tower Bolts",
     desc: "Reliable, high-strength door and gate locking configurations engineered using premium materials for maximum security in residential and commercial spaces.",
-    image: furniture,
+    image: towerBoltImg,
     isComplex: true,
     subsections: [
       {
@@ -78,7 +80,7 @@ const collections = [
     tag: "Series 04",
     name: "Aldrops",
     desc: "Premium-quality hardware units explicitly designed to provide enhanced structural security and reliable latching mechanisms for residential and commercial entry doors or structural gates.",
-    image: residential,
+    image: aldropsImg,
     sizes: "Available Sizes: 8 Inch to 24 Inch",
     items: [
       "Strong and durable construction",
@@ -92,7 +94,7 @@ const collections = [
     tag: "Series 05",
     name: "Hydraulic Hinges",
     desc: "Built using advanced soft-close hydraulic damping technology to completely eliminate hard slamming, reduce noise impact, and cushion furniture surfaces during operation.",
-    image: commercial,
+    image: hydraulicImg,
     items: [
       "Advanced soft-close hydraulic tech",
       "Smooth & noiseless door closing",
@@ -106,7 +108,7 @@ const collections = [
     tag: "Series 06",
     name: "Telescopic Drawer Slides",
     desc: "Precision ball-bearing channel infrastructure providing heavy-duty structural load limits alongside quiet, frictionless guidance across premium cabinetry layouts.",
-    image: industrial,
+    image: telescopicImg,
     items: [
       "Frictionless sliding mechanism",
       "Heavy-duty load-bearing capacity",
@@ -120,7 +122,7 @@ const collections = [
     tag: "Series 07",
     name: "Soft Close Channels",
     desc: "Engineered with integrated fluid dampers that provide quiet, controlled drawer closing functionality, adding luxury and modern convenience to any storage system.",
-    image: pull,
+    image: softCloseImg,
     items: [
       "Silent controlled closing action",
       "Prevents hardware impacts & wear",
@@ -134,7 +136,7 @@ const collections = [
     tag: "Series 08",
     name: "Kitchen Accessories",
     desc: "Smart multi-tier storage configurations, organizers, and dynamic space-saving components engineered specifically to maximize spatial efficiency throughout residential and hotel kitchens.",
-    image: furniture,
+    image: kitchenImg,
     items: [
       "Space-saving smart storage solutions",
       "Modern and stylish configurations",
@@ -155,9 +157,9 @@ const finishes = [
 ];
 
 const applications = [
-  { t: "Modular Kitchens & Wardrobes", img: residential },
-  { t: "Commercial Interiors & Offices", img: commercial },
-  { t: "Residential Architecture", img: industrial },
+  { t: "Modular Kitchens & Wardrobes", img: kitchenImg },
+  { t: "Commercial Interiors & Offices", img: hydraulicImg },
+  { t: "Residential Architecture", img: aldropsImg },
 ];
 
 function Products() {
@@ -192,12 +194,10 @@ function Products() {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl">{c.name}</h2>
                 <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{c.desc}</p>
                 
-                {/* Custom Sizing label if explicitly defined */}
                 {c.sizes && (
                   <p className="mt-4 text-sm font-semibold text-mustard-deep uppercase tracking-wider">{c.sizes}</p>
                 )}
 
-                {/* Render Complex sections (for Tower Bolts) or standard bullets */}
                 {c.isComplex && c.subsections ? (
                   <div className="mt-6 grid grid-cols-1 gap-4 rounded-md border border-border p-4 bg-muted/20">
                     {c.subsections.map((sub, idx) => (
