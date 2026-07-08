@@ -77,17 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "DRG Hinges & Architectural Hardware" },
+      { title: "DRG Hinges & Architectural Hardware — Where Metal Meets Craft" },
       {
         name: "description",
         content:
-          "Precision-engineered hinges, handles and ironmongery for architects and builders worldwide.",
+          "DRG Hinges & Architectural Hardware — precision-engineered hinges, handles, gate & fencing hardware and ironmongery for architects, builders and global exporters.",
       },
       { name: "author", content: "DRG Hardware" },
       { property: "og:title", content: "DRG Hinges & Architectural Hardware" },
       {
         property: "og:description",
-        content: "Crafted for a lifetime — hinges, handles and ironmongery since 1992.",
+        content: "Where metal meets craft — hinges, handles and ironmongery exported worldwide.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -99,7 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500;600&display=swap",
       },
     ],
   }),
