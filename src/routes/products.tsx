@@ -1,46 +1,163 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import furniture from "@/assets/furniture-fittings.jpg";
-import gate from "@/assets/gate-hardware.jpg";
-import pull from "@/assets/pull-handles.jpg";
-import residential from "@/assets/residential.jpg";
-import commercial from "@/assets/commercial.jpg";
-import industrial from "@/assets/industrial.jpg";
+import residential from "@/assets/aldrops.png";
+import commercial from "@/assets/hydraulic_hinges.png";
+import industrial from "@/assets/telescopic.png";
+
+// Feel free to update these static asset imports later with actual product images!
+import pull from "@/assets/ball_bearing_hinges.png";
+import gate from "@/assets/concealed_hinges.png";
+import furniture from "@/assets/tower_bolts.png";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Product — DRG Hinges & Architectural Hardware" },
-      { name: "description", content: "Complete DRG catalogue — stainless steel, cast iron, gate & fencing hardware, ironmongery and bathroom fittings." },
-      { property: "og:title", content: "Product — DRG Architectural Hardware" },
-      { property: "og:description", content: "The complete DRG collection." },
+      { title: "Products — DRG Premium SS Hinges & Architectural Hardware" },
+      { name: "description", content: "Explore the premium collection of DRG hardware including Ball Bearing Hinges, Concealed Hinges, Tower Bolts, Aldrops, and Hydraulic fittings." },
+      { property: "og:title", content: "Products — DRG Architectural Hardware" },
+      { property: "og:description", content: "The premium collection from DRG Hinges (Goel Industries)." },
     ],
   }),
   component: Products,
 });
 
 const collections = [
-  { tag: "Series 01", name: "Stainless Steel Hardware", desc: "Precision-machined SS 304/316 fittings — furniture, cabinet and bathroom hardware crafted for coastal and heavy-use environments.", image: pull, items: ["Bathroom Accessories", "Furniture Fittings", "Pull Handles", "Lever Handles", "Cabinet Handles", "Furniture Knobs", "Privacy Sets", "Door Stops"] },
-  { tag: "Series 02", name: "Cast Iron & Gate Hardware", desc: "Sand-cast iron gate fittings, brackets and antique-finish ironmongery for heritage restoration and outdoor architecture.", image: gate, items: ["Strap Hinges", "Tee Hinges", "Field Gate Fittings", "Trailer Fittings", "Brackets", "Antique Cast Iron", "Fencing Hardware", "Fasteners & Fixings"] },
-  { tag: "Series 03", name: "Furniture & Joinery", desc: "Turned brass and stainless knobs, cabinet pulls and joinery hardware — the small details a piece is remembered by.", image: furniture, items: ["Beehive Knobs", "Bar Pulls", "Edge Pulls", "Knurled Series", "Cup Pulls", "Ring Pulls", "Numerals", "Alphabets"] },
+  {
+    tag: "Series 01",
+    name: "Ball Bearing Hinges",
+    desc: "Premium ball-bearing hinges designed for smooth, stable, and long-lasting door movement. Manufactured from high-quality stainless steel, they ensure effortless operation and noise-free performance in high-traffic areas.",
+    image: pull,
+    items: [
+      "Smooth & friction-free door movement",
+      "Heavy-duty load-bearing performance",
+      "Durable ball-bearing mechanism",
+      "Corrosion & rust-resistant finish",
+      "Noise-free and stable operation",
+      "Strong construction for long life",
+      "Suitable for wooden & metal doors",
+      "Easy installation & low maintenance"
+    ]
+  },
+  {
+    tag: "Series 02",
+    name: "Concealed Hinges",
+    desc: "Designed to provide a clean, modern, and seamless furniture appearance. Hidden entirely inside the cabinet when closed, they enhance the aesthetics of modular interiors, wardrobes, and contemporary kitchens.",
+    image: gate,
+    items: [
+      "Hidden design for elegant appearance",
+      "Smooth & effortless door movement",
+      "Strong & durable steel construction",
+      "Corrosion & rust-resistant finish",
+      "Easy installation & adjustable fitting",
+      "Noise-free opening/closing mechanism",
+      "Ideal for modular kitchens & cabinets",
+      "Precision-engineered alignment"
+    ]
+  },
+  {
+    tag: "Series 03",
+    name: "Tower Bolts",
+    desc: "Reliable, high-strength door and gate locking configurations engineered using premium materials for maximum security in residential and commercial spaces.",
+    image: furniture,
+    isComplex: true,
+    subsections: [
+      {
+        title: "Steel Tower Bolts",
+        info: "Variants: 2 Piece, 10mm Rod, 12mm Rod",
+        finishes: "Finishes: Matte, Antique, Black Finish"
+      },
+      {
+        title: "Aluminium Tower Bolts",
+        info: "Designs: Hex Round, Xylo, Pyramid, Royale, Regal, Crown",
+        sizes: "Available Sizes: 4 Inch to 36 Inch"
+      }
+    ]
+  },
+  {
+    tag: "Series 04",
+    name: "Aldrops",
+    desc: "Premium-quality hardware units explicitly designed to provide enhanced structural security and reliable latching mechanisms for residential and commercial entry doors or structural gates.",
+    image: residential,
+    sizes: "Available Sizes: 8 Inch to 24 Inch",
+    items: [
+      "Strong and durable construction",
+      "Easy installation setup",
+      "Corrosion-resistant metal finish",
+      "Smooth structural locking mechanism",
+      "Suitable for doors & heavy gates"
+    ]
+  },
+  {
+    tag: "Series 05",
+    name: "Hydraulic Hinges",
+    desc: "Built using advanced soft-close hydraulic damping technology to completely eliminate hard slamming, reduce noise impact, and cushion furniture surfaces during operation.",
+    image: commercial,
+    items: [
+      "Advanced soft-close hydraulic tech",
+      "Smooth & noiseless door closing",
+      "High-quality stainless steel build",
+      "Corrosion and rust-resistant finish",
+      "High load-bearing stability support",
+      "Protects delicate furniture surfaces"
+    ]
+  },
+  {
+    tag: "Series 06",
+    name: "Telescopic Drawer Slides",
+    desc: "Precision ball-bearing channel infrastructure providing heavy-duty structural load limits alongside quiet, frictionless guidance across premium cabinetry layouts.",
+    image: industrial,
+    items: [
+      "Frictionless sliding mechanism",
+      "Heavy-duty load-bearing capacity",
+      "Soft close technology integrated",
+      "Noise-free & vibration-free travel",
+      "Precision-engineered stability",
+      "Long operational engineering lifespan"
+    ]
+  },
+  {
+    tag: "Series 07",
+    name: "Soft Close Channels",
+    desc: "Engineered with integrated fluid dampers that provide quiet, controlled drawer closing functionality, adding luxury and modern convenience to any storage system.",
+    image: pull,
+    items: [
+      "Silent controlled closing action",
+      "Prevents hardware impacts & wear",
+      "Premium corrosion-resistant treatment",
+      "Precision ball-bearing slide path",
+      "Low upkeep & simple installation",
+      "Ideal for modern modular setups"
+    ]
+  },
+  {
+    tag: "Series 08",
+    name: "Kitchen Accessories",
+    desc: "Smart multi-tier storage configurations, organizers, and dynamic space-saving components engineered specifically to maximize spatial efficiency throughout residential and hotel kitchens.",
+    image: furniture,
+    items: [
+      "Space-saving smart storage solutions",
+      "Modern and stylish configurations",
+      "High-quality durable construction",
+      "Corrosion-resistant layer coating",
+      "Smooth and user-friendly operation",
+      "Maximizes small corner utility paths"
+    ]
+  }
 ];
 
 const finishes = [
-  { name: "Polished Brass", swatch: "linear-gradient(135deg,#d4a44a,#f0d484)" },
-  { name: "Satin Brass", swatch: "linear-gradient(135deg,#b18c48,#d4b26a)" },
-  { name: "Antique Brass", swatch: "linear-gradient(135deg,#7a5a2c,#b3853e)" },
-  { name: "Matte Black", swatch: "linear-gradient(135deg,#0a0a0a,#2a2a2a)" },
-  { name: "Satin Nickel", swatch: "linear-gradient(135deg,#8a8a8e,#c8c8cc)" },
-  { name: "Polished Chrome", swatch: "linear-gradient(135deg,#a8b0b6,#e4e8ec)" },
-  { name: "Oil-Rubbed Bronze", swatch: "linear-gradient(135deg,#2a1a12,#5c3a24)" },
-  { name: "Mustard Gold", swatch: "linear-gradient(135deg,#c9922e,#e8bd5c)" },
+  { name: "Matte Finish", swatch: "linear-gradient(135deg,#1c1c1c,#3a3a3a)" },
+  { name: "Antique Finish", swatch: "linear-gradient(135deg,#6e5531,#947447)" },
+  { name: "Black Finish", swatch: "linear-gradient(135deg,#050505,#1a1a1a)" },
+  { name: "Satin Finish", swatch: "linear-gradient(135deg,#8a8a8e,#c8c8cc)" },
+  { name: "Polished Steel", swatch: "linear-gradient(135deg,#a8b0b6,#e4e8ec)" },
 ];
 
 const applications = [
-  { t: "Residential", img: residential },
-  { t: "Commercial", img: commercial },
-  { t: "Industrial", img: industrial },
+  { t: "Modular Kitchens & Wardrobes", img: residential },
+  { t: "Commercial Interiors & Offices", img: commercial },
+  { t: "Residential Architecture", img: industrial },
 ];
 
 function Products() {
@@ -52,11 +169,10 @@ function Products() {
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <p className="eyebrow mb-6">The Catalogue</p>
           <h1 className="max-w-4xl text-6xl leading-[0.95] md:text-8xl">
-            Three series. <span className="italic text-gradient-mustard">Endless possibility.</span>
+            Eight series. <span className="italic text-gradient-mustard">Premium hardware.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
-            Browse the complete DRG collection — from architectural hinges to bathroom fittings.
-            Every piece available in the finish and dimension your project demands.
+            Browse the complete collection from DRG Hinges (Goel Industries) — engineered to meet strict quality and durability standards across India.
           </p>
         </div>
       </section>
@@ -75,14 +191,35 @@ function Products() {
                 <p className="eyebrow mb-4">{c.tag}</p>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl">{c.name}</h2>
                 <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{c.desc}</p>
-                <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3">
-                  {c.items.map((it) => (
-                    <li key={it} className="flex items-center gap-3 border-b border-border pb-3 text-sm">
-                      <span className="h-1.5 w-1.5 rounded-full bg-mustard" />
-                      {it}
-                    </li>
-                  ))}
-                </ul>
+                
+                {/* Custom Sizing label if explicitly defined */}
+                {c.sizes && (
+                  <p className="mt-4 text-sm font-semibold text-mustard-deep uppercase tracking-wider">{c.sizes}</p>
+                )}
+
+                {/* Render Complex sections (for Tower Bolts) or standard bullets */}
+                {c.isComplex && c.subsections ? (
+                  <div className="mt-6 grid grid-cols-1 gap-4 rounded-md border border-border p-4 bg-muted/20">
+                    {c.subsections.map((sub, idx) => (
+                      <div key={idx} className="border-b border-border last:border-0 pb-2 last:pb-0">
+                        <h4 className="font-semibold text-sm text-foreground">{sub.title}</h4>
+                        <p className="text-xs text-muted-foreground mt-0.5">{sub.info}</p>
+                        {sub.finishes && <p className="text-xs text-muted-foreground">{sub.finishes}</p>}
+                        {sub.sizes && <p className="text-xs text-mustard-deep font-medium">{sub.sizes}</p>}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3">
+                    {c.items?.map((it) => (
+                      <li key={it} className="flex items-center gap-3 border-b border-border pb-3 text-sm">
+                        <span className="h-1.5 w-1.5 rounded-full bg-mustard" />
+                        {it}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
                 <Link to="/contact" className="mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-cream hover:bg-mustard">
                   Request Specification →
                 </Link>
@@ -97,10 +234,10 @@ function Products() {
           <div className="mb-14 max-w-2xl">
             <p className="eyebrow mb-6">Finishes</p>
             <h2 className="text-5xl md:text-6xl">
-              Eight signature finishes, <span className="italic text-gradient-mustard">hand-applied.</span>
+              Signature finishes, <span className="italic text-gradient-mustard">precision applied.</span>
             </h2>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-5">
             {finishes.map((f) => (
               <div key={f.name} className="group">
                 <div className="aspect-square w-full rounded-lg transition-transform duration-700 group-hover:scale-[1.03] shadow-soft" style={{ background: f.swatch }} />
