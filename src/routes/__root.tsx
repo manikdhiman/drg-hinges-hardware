@@ -110,9 +110,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 
+// Look right near the bottom of src/routes/__root.tsx and update this section:
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    // Added suppressHydrationWarning to safe-fence browser extension HTML manipulation bugs
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

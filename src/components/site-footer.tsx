@@ -4,10 +4,28 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export function SiteFooter() {
+  
+  // Cleanly redirects to singular /product route and forces viewport scrolling
+  const handleProductJump = (targetSection: string) => {
+    if (typeof window !== "undefined") {
+      const targetUrl = `/product#${targetSection}`;
+      
+      if (window.location.pathname === "/product") {
+        const element = document.getElementById(targetSection);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          window.location.hash = targetSection;
+        }
+      } else {
+        // Force native window redirection to bypass router intercept errors
+        window.location.href = targetUrl;
+      }
+    }
+  };
+
   return (
     <footer className="bg-[#110E0B] text-[#A69E94] border-t border-white/5 font-sans relative overflow-hidden">
       
-      {/* Ambient Highlight */}
       <div className="absolute right-0 bottom-0 w-96 h-96 bg-[#D49A5B]/5 blur-[120px] rounded-full pointer-events-none" />
 
       {/* --- TOP CTA SECTION --- */}
@@ -31,10 +49,10 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* --- EXPORT DIRECTORY SECTOR GRID --- */}
+      {/* --- DIRECTORY GRID --- */}
       <div className="mx-auto max-w-7xl px-6 md:px-10 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 text-sm">
         
-        {/* Brand Summary */}
+        {/* Column 1: Brand Info */}
         <div className="lg:col-span-5 space-y-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[#D49A5B] flex items-center justify-center font-serif text-black font-black text-lg shadow-sm">
@@ -50,34 +68,65 @@ export function SiteFooter() {
           </p>
         </div>
 
-        {/* Dynamic Explore Navigation */}
+        {/* Column 2: Explore Links (Matches image_824b7f.png exactly to /product singular) */}
         <div className="lg:col-span-2 space-y-4">
           <h5 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#D49A5B]">Explore</h5>
           <ul className="space-y-2.5 text-xs font-light text-[#FAF9F5]/80">
             <li><Link to="/" className="hover:text-[#D49A5B] transition-colors">Home</Link></li>
             <li><Link to="/about" className="hover:text-[#D49A5B] transition-colors">About</Link></li>
-            <li><Link to="/products" className="hover:text-[#D49A5B] transition-colors">Products & Specs</Link></li>
-            <li><Link to="/engineering" className="hover:text-[#D49A5B] transition-colors">Engineering & QA</Link></li>
-            <li><Link to="/applications" className="hover:text-[#D49A5B] transition-colors">Applications</Link></li>
+            <li><Link to="/product" className="hover:text-[#D49A5B] transition-colors">Product</Link></li>
+            <li><Link to="/contact" className="hover:text-[#D49A5B] transition-colors">Contact</Link></li>
           </ul>
         </div>
 
-        {/* --- ALL 8 COMPLIANT HARDWARE PRODUCTS --- */}
+        {/* Column 3: Product Subcategories targeting /product singular */}
         <div className="lg:col-span-2 space-y-4">
           <h5 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#D49A5B]">Product</h5>
           <ul className="space-y-2.5 text-xs font-light text-[#FAF9F5]/80">
-            <li><Link to="/products" className="hover:text-[#D49A5B] transition-colors">Ball Bearing Hinges</Link></li>
-            <li><Link to="/products" className="hover:text-[#D49A5B] transition-colors">Concealed Hinges</Link></li>
-            <li><Link to="/products" className="hover:text-[#D49A5B] transition-colors">Hydraulic Hinges</Link></li>
-            <li><Link to="/products" className="hover:text-[#D49A5B] transition-colors">Premium Tower Bolts</Link></li>
-            <li><Link to="/products" className="hover:text-[#D49A5B] transition-colors">Aldrops</Link></li>
-            <li><Link to="/products" className="hover:text-[#D49A5B] transition-colors">Drawer Slides</Link></li>
-            <li><Link to="/products" className="hover:text-[#D49A5B] transition-colors">Soft Close Channels</Link></li>
-            <li><Link to="/products" className="hover:text-[#D49A5B] transition-colors">Kitchen Accessories</Link></li>
+            <li>
+              <button onClick={() => handleProductJump("ball-bearing")} className="hover:text-[#D49A5B] transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
+                Ball Bearing Hinges
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleProductJump("concealed")} className="hover:text-[#D49A5B] transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
+                Concealed Hinges
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleProductJump("hydraulic")} className="hover:text-[#D49A5B] transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
+                Hydraulic Hinges
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleProductJump("tower-bolts")} className="hover:text-[#D49A5B] transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
+                Premium Tower Bolts
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleProductJump("aldrops")} className="hover:text-[#D49A5B] transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
+                Aldrops
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleProductJump("drawer-slides")} className="hover:text-[#D49A5B] transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
+                Drawer Slides
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleProductJump("soft-close")} className="hover:text-[#D49A5B] transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
+                Soft Close Channels
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleProductJump("kitchen")} className="hover:text-[#D49A5B] transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
+                Kitchen Accessories
+              </button>
+            </li>
           </ul>
         </div>
 
-        {/* Real-World Coordinates */}
+        {/* Column 4: Get In Touch Credentials */}
         <div className="lg:col-span-3 space-y-4 font-light text-xs">
           <h5 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#D49A5B]">Get In Touch</h5>
           <div className="space-y-3 text-[#FAF9F5]/80">
@@ -119,7 +168,6 @@ export function SiteFooter() {
 
       </div>
 
-      {/* --- FOOTER RUNNER --- */}
       <div className="border-t border-white/5 bg-black/20 py-6 font-mono text-[10px]">
         <div className="mx-auto max-w-7xl px-6 md:px-10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[#6E6861]">
           <p>© 2026 DRG Hinges & Architectural Hardware.</p>
