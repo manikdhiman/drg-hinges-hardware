@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-// Perfectly aligned import mappings point directly to lowercase file formats
 import ballBearingImg from "@/assets/ball_bearing_hinges.png";
 import concealedImg from "@/assets/concealed_hinges.png";
 import towerBoltImg from "@/assets/tower_bolts.png";
@@ -180,53 +179,63 @@ function Products() {
       </section>
 
       <section>
-        {collections.map((c, i) => (
-          <div key={c.name} className="border-b border-border">
-            <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:gap-20 md:px-10 md:py-32">
-              <div className={`relative aspect-[4/5] overflow-hidden rounded-lg ${i % 2 ? "md:order-2" : ""}`}>
-                <img src={c.image} alt={c.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1500ms] hover:scale-105" />
-                <span className="absolute left-6 top-6 rounded-full bg-cream/90 px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] text-mustard-deep backdrop-blur">
-                  {c.tag}
-                </span>
-              </div>
-              <div>
-                <p className="eyebrow mb-4">{c.tag}</p>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl">{c.name}</h2>
-                <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{c.desc}</p>
-                
-                {c.sizes && (
-                  <p className="mt-4 text-sm font-semibold text-mustard-deep uppercase tracking-wider">{c.sizes}</p>
-                )}
+        {collections.map((c, i) => {
+          // Generates precise anchor targets: "ball-bearing", "concealed", "drawer-slides", etc.
+          const sectionId = c.name
+            .toLowerCase()
+            .replace(" hinges", "")
+            .replace(" premium ", "")
+            .replace(" telescopic ", "")
+            .replace(" ", "-");
 
-                {c.isComplex && c.subsections ? (
-                  <div className="mt-6 grid grid-cols-1 gap-4 rounded-md border border-border p-4 bg-muted/20">
-                    {c.subsections.map((sub, idx) => (
-                      <div key={idx} className="border-b border-border last:border-0 pb-2 last:pb-0">
-                        <h4 className="font-semibold text-sm text-foreground">{sub.title}</h4>
-                        <p className="text-xs text-muted-foreground mt-0.5">{sub.info}</p>
-                        {sub.finishes && <p className="text-xs text-muted-foreground">{sub.finishes}</p>}
-                        {sub.sizes && <p className="text-xs text-mustard-deep font-medium">{sub.sizes}</p>}
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3">
-                    {c.items?.map((it) => (
-                      <li key={it} className="flex items-center gap-3 border-b border-border pb-3 text-sm">
-                        <span className="h-1.5 w-1.5 rounded-full bg-mustard" />
-                        {it}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+          return (
+            <div key={c.name} id={sectionId} className="border-b border-border scroll-mt-24">
+              <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:gap-20 md:px-10 md:py-32">
+                <div className={`relative aspect-[4/5] overflow-hidden rounded-lg ${i % 2 ? "md:order-2" : ""}`}>
+                  <img src={c.image} alt={c.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1500ms] hover:scale-105" />
+                  <span className="absolute left-6 top-6 rounded-full bg-cream/90 px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] text-mustard-deep backdrop-blur">
+                    {c.tag}
+                  </span>
+                </div>
+                <div>
+                  <p className="eyebrow mb-4">{c.tag}</p>
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl">{c.name}</h2>
+                  <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{c.desc}</p>
+                  
+                  {c.sizes && (
+                    <p className="mt-4 text-sm font-semibold text-mustard-deep uppercase tracking-wider">{c.sizes}</p>
+                  )}
 
-                <Link to="/contact" className="mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-cream hover:bg-mustard">
-                  Request Specification →
-                </Link>
+                  {c.isComplex && c.subsections ? (
+                    <div className="mt-6 grid grid-cols-1 gap-4 rounded-md border border-border p-4 bg-muted/20">
+                      {c.subsections.map((sub, idx) => (
+                        <div key={idx} className="border-b border-border last:border-0 pb-2 last:pb-0">
+                          <h4 className="font-semibold text-sm text-foreground">{sub.title}</h4>
+                          <p className="text-xs text-muted-foreground mt-0.5">{sub.info}</p>
+                          {sub.finishes && <p className="text-xs text-muted-foreground">{sub.finishes}</p>}
+                          {sub.sizes && <p className="text-xs text-mustard-deep font-medium">{sub.sizes}</p>}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3">
+                      {c.items?.map((it) => (
+                        <li key={it} className="flex items-center gap-3 border-b border-border pb-3 text-sm">
+                          <span className="h-1.5 w-1.5 rounded-full bg-mustard" />
+                          {it}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <Link to="/contact" className="mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-cream hover:bg-mustard">
+                    Request Specification →
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </section>
 
       <section className="border-b border-border bg-gradient-cream py-28 md:py-36">

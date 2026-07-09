@@ -6,22 +6,20 @@ import { ArrowRight, Mail, Phone, MapPin, Clock } from "lucide-react";
 export function SiteFooter() {
   const navigate = useNavigate();
   
+  // Safe navigation handler pointing exactly to your pluralized TanStack Route path ("/products")
   const handleProductJump = (targetSection: string) => {
     if (typeof window !== "undefined") {
-      // Automatically read current location path to preserve matching routing styles
-      const isPluralPath = window.location.pathname.includes("/products");
-      const basePath = isPluralPath ? "/products" : "/product";
-      const targetUrl = `${basePath}#${targetSection}`;
+      const targetUrl = `/products#${targetSection}`;
       
-      if (window.location.pathname === "/product" || window.location.pathname === "/products") {
+      if (window.location.pathname === "/products") {
         const element = document.getElementById(targetSection);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
           window.location.hash = targetSection;
         }
       } else {
-        // Try passing through TanStack first, fallback to hard window move if layout tree intercepts
-        navigate({ to: basePath }).then(() => {
+        // Navigate via router, with fallback to hard window move if layout tree intercepts
+        navigate({ to: "/products" }).then(() => {
           setTimeout(() => {
             const element = document.getElementById(targetSection);
             if (element) {
@@ -30,7 +28,6 @@ export function SiteFooter() {
             }
           }, 150);
         }).catch(() => {
-          // Absolute fallback escape hatch to handle structural mismatches safely without 404 crashes
           window.location.href = targetUrl;
         });
       }
@@ -82,18 +79,18 @@ export function SiteFooter() {
           </p>
         </div>
 
-        {/* Column 2: Explore Links */}
+        {/* Column 2: Explore Navigation */}
         <div className="lg:col-span-2 space-y-4">
           <h5 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#D49A5B]">Explore</h5>
           <ul className="space-y-2.5 text-xs font-light text-[#FAF9F5]/80">
             <li><Link to="/" className="hover:text-[#D49A5B] transition-colors">Home</Link></li>
             <li><Link to="/about" className="hover:text-[#D49A5B] transition-colors">About</Link></li>
-            <li><Link to="/product" className="hover:text-[#D49A5B] transition-colors">Product</Link></li>
+            <li><Link to="/products" className="hover:text-[#D49A5B] transition-colors">Product</Link></li>
             <li><Link to="/contact" className="hover:text-[#D49A5B] transition-colors">Contact</Link></li>
           </ul>
         </div>
 
-        {/* Column 3: Product Subcategories */}
+        {/* Column 3: Product Subcategories with Exact Target Element IDs */}
         <div className="lg:col-span-2 space-y-4">
           <h5 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#D49A5B]">Product</h5>
           <ul className="space-y-2.5 text-xs font-light text-[#FAF9F5]/80">
@@ -140,7 +137,7 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        {/* Column 4: Contact Credentials */}
+        {/* Column 4: Get In Touch Credentials */}
         <div className="lg:col-span-3 space-y-4 font-light text-xs">
           <h5 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#D49A5B]">Get In Touch</h5>
           <div className="space-y-3 text-[#FAF9F5]/80">
