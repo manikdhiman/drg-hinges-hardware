@@ -45,9 +45,9 @@ function Contact() {
             </p>
 
             <div className="mt-12 space-y-8">
-              <ContactBlock label="Workshop" lines={["DRG Industries", "Industrial Estate, Aligarh", "Uttar Pradesh 202001, India"]} />
-              <ContactBlock label="Email" lines={["hello@drghardware.com", "exports@drghardware.com"]} />
-              <ContactBlock label="Phone" lines={["+91 000 000 0000", "Mon–Sat, 9am – 7pm IST"]} />
+              <ContactBlock label="Workshop" lines={["DRG Hinges & Hardware Architecture", "Plot No. 204, Sector 16, HSIIDC Bhadurgarh,","Haryana - 124507 India"]} />
+              <ContactBlock label="Email" lines={["drghinges@rediffmail.com", "www.drghinges.com"]} />
+              <ContactBlock label="Phone" lines={["+91 9080222398", "+91 9812540303", "Mon–Sat, 9am – 7pm IST"]} />
             </div>
           </div>
 
