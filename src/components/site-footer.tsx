@@ -1,24 +1,38 @@
 "use client";
 
-import { Link } from "@tanstack/react-router"; 
+import { Link, useNavigate } from "@tanstack/react-router"; 
 import { ArrowRight, Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export function SiteFooter() {
+  const navigate = useNavigate();
   
-  // Cleanly redirects to singular /product route and forces viewport scrolling
   const handleProductJump = (targetSection: string) => {
     if (typeof window !== "undefined") {
-      const targetUrl = `/product#${targetSection}`;
+      // Automatically read current location path to preserve matching routing styles
+      const isPluralPath = window.location.pathname.includes("/products");
+      const basePath = isPluralPath ? "/products" : "/product";
+      const targetUrl = `${basePath}#${targetSection}`;
       
-      if (window.location.pathname === "/product") {
+      if (window.location.pathname === "/product" || window.location.pathname === "/products") {
         const element = document.getElementById(targetSection);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
           window.location.hash = targetSection;
         }
       } else {
-        // Force native window redirection to bypass router intercept errors
-        window.location.href = targetUrl;
+        // Try passing through TanStack first, fallback to hard window move if layout tree intercepts
+        navigate({ to: basePath }).then(() => {
+          setTimeout(() => {
+            const element = document.getElementById(targetSection);
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+              window.location.hash = targetSection;
+            }
+          }, 150);
+        }).catch(() => {
+          // Absolute fallback escape hatch to handle structural mismatches safely without 404 crashes
+          window.location.href = targetUrl;
+        });
       }
     }
   };
@@ -68,7 +82,7 @@ export function SiteFooter() {
           </p>
         </div>
 
-        {/* Column 2: Explore Links (Matches image_824b7f.png exactly to /product singular) */}
+        {/* Column 2: Explore Links */}
         <div className="lg:col-span-2 space-y-4">
           <h5 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#D49A5B]">Explore</h5>
           <ul className="space-y-2.5 text-xs font-light text-[#FAF9F5]/80">
@@ -79,7 +93,7 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        {/* Column 3: Product Subcategories targeting /product singular */}
+        {/* Column 3: Product Subcategories */}
         <div className="lg:col-span-2 space-y-4">
           <h5 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#D49A5B]">Product</h5>
           <ul className="space-y-2.5 text-xs font-light text-[#FAF9F5]/80">
@@ -126,11 +140,10 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        {/* Column 4: Get In Touch Credentials */}
+        {/* Column 4: Contact Credentials */}
         <div className="lg:col-span-3 space-y-4 font-light text-xs">
           <h5 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#D49A5B]">Get In Touch</h5>
           <div className="space-y-3 text-[#FAF9F5]/80">
-            
             <div className="flex items-start gap-2.5">
               <MapPin className="w-4 h-4 text-[#D49A5B] shrink-0 mt-0.5" />
               <div className="leading-normal">
@@ -140,16 +153,13 @@ export function SiteFooter() {
                 Haryana - 124507 India
               </div>
             </div>
-
             <div className="flex items-start gap-2.5 pt-1">
               <Mail className="w-4 h-4 text-[#D49A5B] shrink-0 mt-0.5" />
               <div>
                 <span className="font-bold text-white block text-[11px] mb-0.5">EMAIL</span>
                 <a href="mailto:drghinges@rediffmail.com" className="hover:text-[#D49A5B] transition-colors block">drghinges@rediffmail.com</a>
-                <a href="https://www.drghinges.com" target="_blank" rel="noreferrer" className="hover:text-[#D49A5B] transition-colors text-[11px] opacity-60 block">www.drghinges.com</a>
               </div>
             </div>
-
             <div className="flex items-start gap-2.5 pt-1">
               <Phone className="w-4 h-4 text-[#D49A5B] shrink-0 mt-0.5" />
               <div>
@@ -162,7 +172,6 @@ export function SiteFooter() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
 
