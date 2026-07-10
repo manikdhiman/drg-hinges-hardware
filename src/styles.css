@@ -28,6 +28,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  
+  /* Retain mapping names to avoid breaking component bindings, but assign pure navy blue */
   --color-mustard: var(--mustard);
   --color-mustard-deep: var(--mustard-deep);
   --color-ink: var(--ink);
@@ -42,29 +44,41 @@
   --foreground: oklch(0.22 0.02 60);
   --cream: oklch(0.97 0.015 88);
   --ink: oklch(0.18 0.015 60);
+  
   --card: oklch(0.99 0.008 88);
   --card-foreground: oklch(0.22 0.02 60);
   --popover: oklch(0.99 0.008 88);
   --popover-foreground: oklch(0.22 0.02 60);
-  --primary: oklch(0.68 0.14 78);
+  
+  /* --- REBRANDED OVERLAYS: OKLCH ARCHITECTURAL NAVY THEME CORRECTIONS --- */
+  --primary: oklch(0.35 0.12 245);            /* Core Classic Navy Blue Accent */
   --primary-foreground: oklch(0.99 0.005 88);
-  --secondary: oklch(0.93 0.02 85);
-  --secondary-foreground: oklch(0.22 0.02 60);
+  --accent: oklch(0.35 0.12 245);             /* Match Navy primary */
+  --accent-foreground: oklch(0.99 0.005 88);
+  --ring: oklch(0.35 0.12 245);
+  
+  --secondary: oklch(0.92 0.015 240);          /* Very light washed blue for secondary buttons */
+  --secondary-foreground: oklch(0.20 0.06 245);
+  
   --muted: oklch(0.94 0.015 85);
   --muted-foreground: oklch(0.48 0.03 70);
-  --accent: oklch(0.68 0.14 78);
-  --accent-foreground: oklch(0.99 0.005 88);
+  
   --destructive: oklch(0.6 0.2 25);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.85 0.02 82 / 70%);
   --input: oklch(0.85 0.02 82);
-  --ring: oklch(0.68 0.14 78);
-  --mustard: oklch(0.72 0.15 82);
-  --mustard-deep: oklch(0.58 0.15 72);
-  --gradient-mustard: linear-gradient(135deg, oklch(0.72 0.15 82), oklch(0.58 0.15 72));
+  
+  /* Mapping original tokens to their new navy equivalents to keep design systems unified */
+  --mustard: oklch(0.42 0.14 245);            /* High-fidelity Navy Blue */
+  --mustard-deep: oklch(0.25 0.09 250);       /* Midnight Corporate Navy Deep */
+  
+  /* Crisp deep sapphire/slate navy gradient matrix */
+  --gradient-mustard: linear-gradient(135deg, oklch(0.45 0.15 245), oklch(0.22 0.08 250));
   --gradient-cream: linear-gradient(180deg, oklch(0.98 0.012 88), oklch(0.94 0.02 85));
+  
   --shadow-soft: 0 30px 60px -30px oklch(0.4 0.05 70 / 0.25);
-  --shadow-mustard: 0 20px 50px -15px oklch(0.68 0.14 78 / 0.35);
+  /* Navy shadow glow tint */
+  --shadow-mustard: 0 20px 50px -15px oklch(0.35 0.12 245 / 0.15);
 }
 
 @layer base {
@@ -88,7 +102,7 @@
   }
   ::selection {
     background: var(--mustard);
-    color: var(--ink);
+    color: white; /* High contrast text overlay selection background */
   }
 }
 

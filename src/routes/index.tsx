@@ -4,6 +4,7 @@ import heroFlow from "@/assets/hero-flow.jpg";
 import globe from "@/assets/globe.jpg";
 import sustainability from "@/assets/sustainability.jpg";
 import worldMap from "@/assets/world-map.jpg";
+import silver from "@/assets/silver.png";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -100,7 +101,7 @@ function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-ink">
       <img
-        src={heroFlow}
+        src={silver}
         alt="Molten brass flowing over textured earth"
         width={1920}
         height={1080}

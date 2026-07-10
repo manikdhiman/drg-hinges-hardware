@@ -35,7 +35,7 @@ export function SiteHeader() {
           <span className="flex flex-col leading-none">
             <span className="font-display text-xl tracking-tight text-ink">DRG</span>
             <span className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground">
-              Hinges & Hardware
+              Hinges & Hardware Accessories
             </span>
           </span>
         </Link>
