@@ -1,10 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import heroFlow from "@/assets/hero-flow.jpg";
 import globe from "@/assets/globe.jpg";
 import sustainability from "@/assets/sustainability.jpg";
 import worldMap from "@/assets/world-map.jpg";
-import silver from "@/assets/silver.png";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -84,7 +82,6 @@ function Home() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <Hero />
-      <About />
       <Awards />
       <ProductPortfolio tag="Our Product Range" title="Premium Hardware & Furniture Fittings" items={mainCategories} />
       <Services />
@@ -99,17 +96,22 @@ function Home() {
 
 function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-ink">
-      <img
-        src={silver}
-        alt="Molten brass flowing over textured earth"
-        width={1920}
-        height={1080}
-        className="absolute inset-0 h-full w-full object-cover opacity-90 animate-reveal-in"
+    <section className="relative min-h-screen w-full overflow-hidden bg-ink flex flex-col justify-end">
+      {/* 🎥 Fully Layered Backing Video Frame Setup */}
+      <video
+        src="/silvervideo.mp4" 
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 z-0 h-full w-full object-cover pointer-events-none opacity-90 animate-reveal-in"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-background" />
+      
+      {/* Dark overlay protection vignette (Lifted z-index slightly to step cleanly over the media track) */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-ink/50 via-ink/20 to-background pointer-events-none" />
 
-      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-6 pb-24 pt-40 md:px-10 md:pb-32">
+      {/* Content Canvas (Enforced relative layout stack layer with z-20) */}
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 md:px-10 md:pb-32 flex flex-col items-start">
         <p className="eyebrow mb-6 text-mustard animate-reveal" style={{ animationDelay: "0.2s" }}>
           Premium Door Hardware Manufacturer
         </p>
@@ -121,7 +123,7 @@ function Hero() {
         <div className="mt-10 flex flex-wrap items-center gap-6 animate-reveal" style={{ animationDelay: "0.55s" }}>
           <Link
             to="/products"
-            className="group inline-flex items-center gap-3 rounded-full bg-mustard px-8 py-4 text-xs uppercase tracking-[0.3em] text-primary-foreground transition-all hover:bg-cream hover:text-ink"
+            className="group inline-flex items-center gap-3 rounded-full bg-mustard px-8 py-4 text-xs uppercase tracking-[0.3em] text-primary-foreground transition-all hover:bg-cream hover:text-ink shadow-lg"
           >
             Explore Portfolio
             <span className="transition-transform group-hover:translate-x-1">→</span>
@@ -131,50 +133,18 @@ function Hero() {
           </Link>
         </div>
       </div>
-      <div className="absolute bottom-8 right-8 hidden items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/60 md:flex">
+      
+      <div className="absolute bottom-8 right-8 z-20 hidden items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/60 md:flex">
         <span className="h-px w-10 bg-cream/40" /> Scroll
       </div>
     </section>
   );
 }
-
-function About() {
-  const { ref, seen } = useReveal();
-  return (
-    <section ref={ref} className="relative py-28 md:py-40">
-      <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-12 md:px-10">
-        <div className={`md:col-span-5 transition-all duration-1000 ${seen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <div className="relative aspect-square overflow-hidden rounded-full bg-gradient-to-br from-mustard/30 to-mustard-deep/20 p-6">
-            <div className="relative h-full w-full overflow-hidden rounded-full animate-float">
-              <img src={globe} alt="World globe" width={1200} height={1200} loading="lazy" className="h-full w-full object-cover" />
-            </div>
-          </div>
-        </div>
-        <div className={`md:col-span-7 transition-all duration-1000 delay-200 ${seen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <p className="eyebrow mb-6">About Us</p>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl">
-            About <span className="italic text-gradient-mustard">DRG Hinges</span>
-          </h2>
-          <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-            At DRG Hinges, we are committed to delivering high-quality architectural hardware and furniture fittings that combine durability, functionality, and modern design[cite: 1]. With a strong focus on quality manufacturing and customer satisfaction, we offer a comprehensive structural range built for elite modern living[cite: 1].
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Operating under **Goel Industries** out of our advanced industrial facility located in **Plot No. 204, Sector 16, HSIIDC, Bahadurgarh, Haryana**, we implement strict quality assurance practices to deliver hardware safety layouts trusted across regions[cite: 1].
-          </p>
-          <Link to="/products" className="mt-10 inline-flex items-center gap-3 border-b border-mustard pb-1 text-xs uppercase tracking-[0.3em] text-mustard-deep">
-            View Catalogue Range →
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Awards() {
   const items = [
-    { t: "ISO 9001:2015 Certified", d: "Formally evaluated for compliance under strict manufacturing standard systems for architectural hardware development[cite: 1]." },
-    { t: "Quality Assurance Priority", d: "Manufactured using premium-quality materials and advanced technology to ensure reliable quality through strict testing processes[cite: 1]." },
-    { t: "Advanced Engineering", d: "Incorporating precision ball-bearing sliding pathways and custom hydraulic damping configurations across products[cite: 1]." },
+    { t: "ISO 9001:2015 Certified", d: "Formally evaluated for compliance under strict manufacturing standard systems for architectural hardware development." },
+    { t: "Quality Assurance Priority", d: "Manufactured using premium-quality materials and advanced technology to ensure reliable quality through strict testing processes." },
+    { t: "Advanced Engineering", d: "Incorporating precision ball-bearing sliding pathways and custom hydraulic damping configurations across products." },
   ];
   return (
     <section className="relative border-y border-border bg-gradient-cream py-28 md:py-36">
@@ -186,7 +156,7 @@ function Awards() {
               Manufacturing & <span className="italic text-gradient-mustard">Compliance</span>
             </h2>
             <p className="mt-6 max-w-xl text-muted-foreground">
-              Driven by excellence and trust, our hardware configurations undergo strict inspections to maintain structural service life across operations[cite: 1].
+              Driven by excellence and trust, our hardware configurations undergo strict inspections to maintain structural service life across operations.
             </p>
           </div>
         </div>
@@ -248,7 +218,7 @@ function Services() {
           <p className="eyebrow mb-6">Applications</p>
           <h2 className="text-5xl md:text-6xl">Engineered for <span className="italic text-gradient-mustard">every application.</span></h2>
           <p className="mt-6 max-w-xl text-muted-foreground">
-            Our premium architectural fittings are widely integrated across high-end commercial spaces, offices, and residential landscapes[cite: 1].
+            Our premium architectural fittings are widely integrated across high-end commercial spaces, offices, and residential landscapes.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-3">
@@ -299,7 +269,7 @@ function WhyChoose() {
           <p className="eyebrow mb-6">Our Advantages</p>
           <h2 className="text-5xl md:text-6xl">Why customers <span className="italic text-gradient-mustard">trust us.</span></h2>
           <p className="mt-6 text-muted-foreground">
-            We focus on delivering premium-quality hardware solutions that combine innovation, performance, and durability flawlessly[cite: 1].
+            We focus on delivering premium-quality hardware solutions that combine innovation, performance, and durability flawlessly.
           </p>
         </div>
         <ul className="md:col-span-7 grid gap-px overflow-hidden rounded-lg bg-border sm:grid-cols-2 md:grid-cols-3">
@@ -323,7 +293,16 @@ function Sustainability() {
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-12 md:px-10">
         <div className="md:col-span-6">
           <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
-            <img src={heroFlow} alt="Quality testing inspection layout" width={1200} height={900} loading="lazy" className="h-full w-full object-cover" />
+            {/* Kept background setup clean and safely structured with native asset layout */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-ink/20 z-10 pointer-events-none" />
+            <video
+              src="/silvervideo.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="h-full w-full object-cover"
+            />
             <div className="absolute inset-0 ring-1 ring-mustard/20" />
           </div>
         </div>
@@ -331,7 +310,7 @@ function Sustainability() {
           <p className="eyebrow mb-6">Continuous Innovation</p>
           <h2 className="text-5xl md:text-6xl">Advanced Material <span className="italic text-gradient-mustard">Testing.</span></h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Through advanced manufacturing processes and strict hardware testing inspection stages, our team guarantees everyday operational reliability for residential systems[cite: 1].
+            Through advanced manufacturing processes and strict hardware testing inspection stages, our team guarantees everyday operational reliability for residential systems.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {["High Load Stability", "Modular Kitchen Fits", "Rust Protective Cores", "Noise-Free Mechanisms", "ISO 9001:2015 Inspections"].map((v) => (
@@ -354,7 +333,7 @@ function GlobalReach() {
           <p className="eyebrow mb-6">Our Factory Location</p>
           <h2 className="text-5xl md:text-6xl">National <span className="italic text-gradient-mustard">Presence.</span></h2>
           <p className="mt-6 max-w-xl text-muted-foreground">
-            Supplying premium hardware configurations reliably across the entire country directly from our manufacturing facility in Haryana, India[cite: 1].
+            Supplying premium hardware configurations reliably across the entire country directly from our manufacturing facility in Haryana, India.
           </p>
         </div>
         <div className="relative overflow-hidden rounded-lg">
