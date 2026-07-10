@@ -100,8 +100,8 @@ export function SiteFooter() {
               </button>
             </li>
             <li>
-              <button onClick={() => handleProductJump("concealed")} className="hover:text-primary transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
-                Concealed Hinges
+              <button onClick={() => handleProductJump("Butt")} className="hover:text-primary transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
+                Butt Hinges
               </button>
             </li>
             <li>

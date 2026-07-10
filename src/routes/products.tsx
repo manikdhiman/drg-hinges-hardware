@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/site-footer";
 
 import ballBearingImg from "@/assets/ball_bearing_hinges.png";
 import concealedImg from "@/assets/concealed_hinges.png";
-import towerBoltImg from "@/assets/tower_bolts.png";
+import towerBoltImg from "@/assets/new_tower.jpeg";
 import aldropsImg from "@/assets/aldrops.png";
 import hydraulicImg from "@/assets/hydraulic_hinges.png";
 import telescopicImg from "@/assets/telescopic.png";
@@ -42,7 +42,7 @@ const collections = [
   },
   {
     tag: "Series 02",
-    name: "Concealed Hinges",
+    name: "Butt Hinges",
     desc: "Designed to provide a clean, modern, and seamless furniture appearance. Hidden entirely inside the cabinet when closed, they enhance the aesthetics of modular interiors, wardrobes, and contemporary kitchens.",
     image: concealedImg,
     items: [

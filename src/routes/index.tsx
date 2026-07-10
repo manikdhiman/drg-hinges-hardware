@@ -12,7 +12,7 @@ import silverVideoAsset from "@/assets/silvervideo.mp4";
 // Unified 100% correct local asset imports matching your asset filenames exactly
 import ballBearingImg from "@/assets/ball_bearing_hinges.png";
 import concealedImg from "@/assets/concealed_hinges.png";
-import towerBoltImg from "@/assets/tower_bolts.png";
+import towerBoltImg from "@/assets/new_tower.jpeg";
 import aldropsImg from "@/assets/aldrops.png";
 import hydraulicImg from "@/assets/hydraulic_hinges.png";
 import telescopicImg from "@/assets/telescopic.png";
@@ -53,7 +53,7 @@ function useReveal() {
 
 const mainCategories = [
   { name: "Ball Bearing Hinges", img: ballBearingImg },
-  { name: "Concealed Hinges", img: concealedImg },
+  { name: "Butt Hinges", img: concealedImg },
   { name: "Tower Bolts", img: towerBoltImg },
   { name: "Aldrops", img: aldropsImg },
   { name: "Hydraulic Hinges", img: hydraulicImg },
