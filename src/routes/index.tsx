@@ -6,6 +6,9 @@ import worldMap from "@/assets/world-map.jpg";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
+// 1. IMPORT YOUR VIDEO AT THE TOP SO VITE CAN PROCESS IT:
+import silverVideoAsset from "@/assets/silvervideo.mp4"; 
+
 // Unified 100% correct local asset imports matching your asset filenames exactly
 import ballBearingImg from "@/assets/ball_bearing_hinges.png";
 import concealedImg from "@/assets/concealed_hinges.png";
@@ -97,24 +100,31 @@ function Home() {
 function Hero() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-ink flex flex-col justify-end">
-      {/* 🎥 Fully Layered Backing Video Frame Setup */}
+      {/* 🎥 Video setup using the dynamic variable variable imported from assets */}
       <video
-        src="/silvervideo.mp4" 
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
         className="absolute inset-0 z-0 h-full w-full object-cover pointer-events-none opacity-90 animate-reveal-in"
-      />
+      >
+        <source src={silverVideoAsset} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       
-      {/* Dark overlay protection vignette (Lifted z-index slightly to step cleanly over the media track) */}
+      {/* Dark overlay protection vignette */}
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-ink/50 via-ink/20 to-background pointer-events-none" />
 
-      {/* Content Canvas (Enforced relative layout stack layer with z-20) */}
+      {/* Content Canvas */}
       <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 md:px-10 md:pb-32 flex flex-col items-start">
-        <p className="eyebrow mb-6 text-mustard animate-reveal" style={{ animationDelay: "0.2s" }}>
-          Premium Door Hardware Manufacturer
-        </p>
+        <div 
+  className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-2 mb-6 shadow-sm animate-reveal" 
+  style={{ animationDelay: "0.2s" }}>
+  <p className="font-sans text-[10px] font-bold uppercase tracking-[0.35em] text-mustard-deep">
+    Premium Door Hardware Manufacturer
+  </p>
+      </div>
         <h1 className="max-w-5xl text-6xl leading-[0.95] text-cream md:text-8xl lg:text-[8.5rem] animate-reveal" style={{ animationDelay: "0.35s" }}>
           Where Metal
           <br />
@@ -140,6 +150,7 @@ function Hero() {
     </section>
   );
 }
+
 function Awards() {
   const items = [
     { t: "ISO 9001:2015 Certified", d: "Formally evaluated for compliance under strict manufacturing standard systems for architectural hardware development." },
@@ -210,6 +221,7 @@ function ProductPortfolio({ tag, title, items }: { tag: string; title: string; i
   );
 }
 
+// Fixed nested video asset reference inside the lower Sustainability array card block as well:
 function Services() {
   return (
     <section className="relative border-y border-border bg-gradient-cream py-28 md:py-36">
@@ -293,10 +305,9 @@ function Sustainability() {
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-12 md:px-10">
         <div className="md:col-span-6">
           <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
-            {/* Kept background setup clean and safely structured with native asset layout */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-ink/20 z-10 pointer-events-none" />
             <video
-              src="/silvervideo.mp4"
+              src={silverVideoAsset}
               autoPlay
               muted
               loop
