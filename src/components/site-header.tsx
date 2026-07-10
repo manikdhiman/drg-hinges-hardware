@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
-// ⚠️ CHANGE "your_logo_name.png" TO YOUR EXACT FILENAME IN YOUR ASSETS FOLDER:
 import logoAsset from "@/assets/logo.png";
 
 const nav = [
@@ -22,7 +21,6 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on window resize if it spans to desktop view
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setOpen(false);
@@ -35,22 +33,22 @@ export function SiteHeader() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "border-b border-border/60 bg-cream/85 backdrop-blur-xl py-3"
+          ? "border-b border-border/60 bg-cream/85 backdrop-blur-xl py-2"
           : "bg-transparent py-5"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
-        <Link to="/" className="flex items-center gap-3 group">
-          {/* ✨ High-Fidelity Custom Brand Logo Asset */}
+        <Link to="/" className="flex items-center gap-4 group">
+          {/* ✨ Increased Logo Size (h-10 -> h-16) */}
           <img 
             src={logoAsset} 
             alt="DRG Premium SS Hinges Logo" 
-            className="h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+            className="h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-103" 
           />
           
           <span className="flex flex-col leading-none">
-            <span className="font-display text-xl tracking-tight text-ink">DRG</span>
-            <span className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground">
+            <span className="font-display text-2xl tracking-tight text-ink font-bold">DRG</span>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-0.5">
               Hinges & Hardware Accessories
             </span>
           </span>
