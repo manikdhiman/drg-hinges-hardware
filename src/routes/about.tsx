@@ -10,31 +10,31 @@ import industrial from "@/assets/industrial.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — DRG Hinges & Architectural Hardware" },
-      { name: "description", content: "Three decades of manufacturing architectural hardware in Aligarh, India. Learn about DRG's craft, values and global reach." },
-      { property: "og:title", content: "About DRG Hardware" },
-      { property: "og:description", content: "Three decades of hinges, handles and ironmongery." },
+      { title: "About Us — Goel Industries & Goel Enterprises" },
+      { name: "description", content: "Established in 2020, Goel Industries is a trusted manufacturer and OEM partner in premium architectural hardware, operating out of Bahadurgarh, Haryana." },
+      { property: "og:title", content: "About Goel Industries" },
+      { property: "og:description", content: "Precision engineering, OEM expertise, and premium architectural hardware manufacturing." },
     ],
   }),
   component: About,
 });
 
 const timeline = [
-  { y: "1992", t: "Foundation", d: "DRG founded in Aligarh — India's historic hardware capital." },
-  { y: "2001", t: "First Export", d: "Shipped our first container to the United Kingdom." },
-  { y: "2010", t: "ISO 9001", d: "Certified for quality management across all operations." },
-  { y: "2016", t: "New Foundry", d: "Commissioned an in-house brass foundry to control every stage." },
-  { y: "2024", t: "30 Countries", d: "Serving architects and distributors across five continents." },
+  { y: "2020", t: "Foundation", d: "Goel Industries established, rapidly emerging as a trusted architectural hardware manufacturer and OEM partner." },
+  { y: "2022", t: "Tech Investment", d: "Continuous investment in advanced manufacturing technologies and stringent quality control systems." },
+  { y: "2024", t: "Portfolio Expansion", d: "Expanded portfolio to a comprehensive range of architectural hardware for residential and commercial layouts." },
+  { y: "2025", t: "Global Sourcing", d: "Strategic diversification into premium kitchen accessory imports from trusted international partners." },
+  { y: "2026", t: "Goel Enterprises", d: "Established our second manufacturing division at Plot No. 196, HSIIDC, Bahadurgarh, Haryana." },
 ];
 
 const values = [
-  { t: "Craft over Volume", d: "We would rather ship one hundred perfect hinges than one thousand adequate ones." },
-  { t: "Material Honesty", d: "Solid brass. Real steel. No plating over pot metal — ever." },
-  { t: "Lifetime Warranty", d: "Every mechanical piece is guaranteed for the life of the installation." },
+  { t: "Precision Engineering", d: "Driven by innovation, precision engineering, and an unwavering commitment to industrial quality." },
+  { t: "OEM Customization", d: "Collaborating with leading brands, providing customized manufacturing solutions tailored to exact brand specs." },
+  { t: "Unified Excellence", d: "Combining advanced production, domestic and international standards, and flexible, fast logistics." },
 ];
 
 function About() {
-  const [activeMilestone, setActiveMilestone] = useState<string>("1992");
+  const [activeMilestone, setActiveMilestone] = useState<string>("2020");
 
   return (
     <div className="min-h-screen bg-[#FAF9F5] text-[#2B2927] antialiased">
@@ -44,43 +44,51 @@ function About() {
       <section className="relative pt-40 pb-12 bg-[#FAF9F5]">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#D49A5B] font-bold mb-6 flex items-center gap-2">
-            <HardHat className="w-3.5 h-3.5 text-[#D49A5B]" /> ESTABLISHED 1992
+            <HardHat className="w-3.5 h-3.5 text-[#D49A5B]" /> ESTABLISHED 2020
           </p>
           <h1 className="max-w-5xl text-6xl font-black tracking-tight leading-[0.95] md:text-8xl text-[#1C1A19]">
-            A family of makers,
-            <span className="italic font-normal text-[#D49A5B] block mt-2 md:inline md:mt-0 md:ml-4">in the city of hardware.</span>
+            Advanced manufacturing,
+            <span className="italic font-normal text-[#D49A5B] block mt-2 md:inline md:mt-0 md:ml-4">engineered with precision.</span>
           </h1>
         </div>
       </section>
 
-      {/* --- UNIFIED MANIFESTO STRUCTURE (FIXES IMAGE_72ED24.PNG MISALIGNMENT) --- */}
+      {/* --- UNIFIED MANIFESTO STRUCTURE --- */}
       <section className="pb-24 bg-[#FAF9F5] border-b border-[#E6E2D8]">
         <div className="mx-auto max-w-4xl px-6 md:px-10 space-y-10">
           
-          {/* Realigned Lead Intro Paragraph */}
+          {/* Lead Intro Paragraph */}
           <p className="text-base md:text-lg text-[#6E6861] font-light leading-relaxed pl-6">
-            DRG began in a small workshop in Aligarh — a city that has forged locks and hinges for
-            over four centuries. Three decades later, our craft remains rooted in the same soil,
-            refined by high-precision machinery but always guided by hand.
+            Established in 2020, Goel Industries has rapidly emerged as a trusted manufacturer and OEM partner in the architectural hardware industry. Driven by innovation, precision engineering, and an unwavering commitment to quality, the company specializes in manufacturing premium architectural hardware solutions that meet the evolving demands of modern construction and interior design.
           </p>
           
           {/* Mustard Accent Highlight Card */}
           <div className="border-l-2 border-[#E0A96D] pl-6 py-1">
             <p className="text-base md:text-lg text-[#4A4540] leading-relaxed font-light">
-              At DRG Hinges, we are committed to delivering high-quality architectural hardware and furniture fittings that combine durability, functionality, and modern design. With a strong focus on quality manufacturing and customer satisfaction, we offer a comprehensive range of products including Ball Bearing Hinges, Concealed Hinges, Hydraulic Hinges, Tower Bolts, Aldrops, Drawer Slides, Soft Close Channels, and Kitchen Accessories.
+              With continuous investment in advanced manufacturing technologies and stringent quality control systems, we have expanded our portfolio beyond door hinges to offer a comprehensive range of architectural door hardware fittings for residential, commercial, hospitality, and institutional applications. Every product is engineered to meet the highest standards of performance, reliability, and aesthetics.
             </p>
           </div>
 
           {/* Standard Informational Block */}
           <p className="text-base md:text-lg text-[#4A4540] leading-relaxed font-light pl-6">
-            Our products are designed to meet the evolving needs of residential, commercial, and industrial applications while ensuring superior performance, reliability, and long service life. Through continuous innovation, advanced manufacturing processes, and stringent quality standards, we strive to provide hardware solutions that enhance safety, convenience, and everyday living.
+            As a trusted OEM manufacturing partner, Goel Industries collaborates with leading brands, distributors, wholesalers, and project suppliers by providing customized manufacturing solutions tailored to their product specifications and branding requirements. Our integrated manufacturing capabilities, experienced workforce, and commitment to operational excellence enable us to consistently deliver products that meet both domestic and international quality standards.
+          </p>
+
+          {/* Infrastructure Expansion Subsection Banner */}
+          <p className="text-base md:text-lg text-[#4A4540] leading-relaxed font-light pl-6">
+            As part of our continued growth strategy, we have expanded our manufacturing infrastructure with the establishment of our second manufacturing division, Goel Enterprises, located at Plot No. 196, HSIIDC, Bahadurgarh, Haryana. Equipped with modern production facilities and advanced manufacturing capabilities, Goel Enterprises strengthens our production capacity, enhances operational efficiency, and enables us to serve our OEM partners and customers with greater flexibility, faster deliveries, and consistent quality.
+          </p>
+
+          {/* Diversification block */}
+          <p className="text-base md:text-lg text-[#4A4540] leading-relaxed font-light pl-6">
+            Further strengthening our product portfolio, we have also expanded into the import business by offering premium kitchen accessories sourced from trusted international partners. This strategic diversification enables us to provide a complete range of architectural and interior hardware solutions under one roof, delivering greater value and convenience to our customers.
           </p>
 
           {/* Bottom Certified Badge Frame */}
           <div className="ml-6 font-medium text-[#1C1A19] bg-white border border-[#E6E2D8] p-6 rounded-xs shadow-xs flex items-start gap-4">
             <Award className="w-5 h-5 text-[#D49A5B] shrink-0 mt-0.5" />
             <p className="text-sm md:text-base font-bold tracking-tight">
-              Driven by excellence and trust, DRG Hinges aims to be a preferred partner for customers seeking premium hardware solutions across India and beyond.
+              Today, Goel Industries and Goel Enterprises together represent a unified commitment to excellence, combining advanced manufacturing, OEM expertise, and an expanding product portfolio to meet the evolving needs of the architectural and interior hardware industry across India and international markets.
             </p>
           </div>
 
@@ -93,13 +101,13 @@ function About() {
           <div className="md:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden rounded-xs border border-[#E6E2D8] bg-neutral-100">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(212,154,91,0.05)_1px,transparent_1px)] bg-[size:20px_20px]" />
-              <img src={industrial} alt="DRG workshop" loading="lazy" className="h-full w-full object-cover relative z-10" />
+              <img src={industrial} alt="Goel Industries Manufacturing Facility" loading="lazy" className="h-full w-full object-cover relative z-10" />
             </div>
           </div>
           <div className="md:col-span-7 flex flex-col justify-center space-y-6">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A69E94] font-bold">Our Philosophy</p>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A69E94] font-bold">Our Pillars</p>
             <h2 className="text-4xl md:text-5xl font-black text-[#1C1A19] tracking-tight">
-              Hardware is architecture <span className="italic font-normal text-[#D49A5B]">at its smallest scale.</span>
+              Setting new benchmarks <span className="italic font-normal text-[#D49A5B]">in hardware reliability.</span>
             </h2>
             <div className="space-y-4 pt-4">
               {values.map((v) => (
@@ -120,7 +128,7 @@ function About() {
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A69E94] font-bold mb-3">Chronology</p>
           <h2 className="text-4xl md:text-5xl font-black text-[#1C1A19] tracking-tight">
-            Three decades, <span className="italic font-normal text-[#D49A5B]">five milestones.</span>
+            Our corporate growth, <span className="italic font-normal text-[#D49A5B]">strategic milestones.</span>
           </h2>
           <div className="mt-12 grid gap-px overflow-hidden rounded-xs bg-[#E6E2D8] border border-[#E6E2D8] md:grid-cols-5">
             {timeline.map((t) => {
@@ -130,7 +138,7 @@ function About() {
                   key={t.y} 
                   onMouseEnter={() => setActiveMilestone(t.y)}
                   onClick={() => setActiveMilestone(t.y)}
-                  className={`p-6 transition-all duration-300 bg-white min-h-[200px] flex flex-col justify-between ${
+                  className={`p-6 transition-all duration-300 bg-white min-h-[200px] flex flex-col justify-between cursor-pointer ${
                     isActive ? "shadow-md translate-y-[-1px]" : "opacity-90"
                   }`}
                 >
@@ -146,25 +154,24 @@ function About() {
         </div>
       </section>
 
-      {/* --- SECTION 5: SUSTAINABILITY METRICS --- */}
+      {/* --- SECTION 5: OPERATIONAL IMPACT METRICS --- */}
       <section className="border-b border-[#E6E2D8] bg-white py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-12 md:px-10">
           <div className="md:col-span-6 space-y-4">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A69E94] font-bold">Sustainability</p>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#A69E94] font-bold">Innovation & Future</p>
             <h2 className="text-4xl md:text-5xl font-black text-[#1C1A19] tracking-tight">
-              Greener workshops, <span className="italic font-normal text-[#D49A5B] block mt-1">stronger communities.</span>
+              Modern facilities, <span className="italic font-normal text-[#D49A5B] block mt-1">global parameters.</span>
             </h2>
             <p className="text-sm leading-relaxed text-[#6E6861] font-light pt-2">
-              As a 100% export-focused brand, we adhere to global sustainability standards — from
-              solar-powered polishing lines to fair-wage workshops and community welfare programs.
+              Our vision is to become a globally trusted name in architectural hardware by delivering world-class products, building long-term partnerships, and setting new benchmarks in quality, reliability, and service.
             </p>
             <div className="inline-flex items-center gap-2 text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-xs">
-              <ShieldCheck className="w-3.5 h-3.5" /> VERIFIED SUSTAINABLE PRODUCTION
+              <ShieldCheck className="w-3.5 h-3.5" /> STRICTOR ISO QUALITY ASSURANCE SYSTEMS
             </div>
           </div>
           <div className="md:col-span-6">
             <div className="relative aspect-[4/3] overflow-hidden rounded-xs border border-[#E6E2D8]">
-              <img src={sustainability} alt="Sustainable operations" loading="lazy" className="h-full w-full object-cover" />
+              <img src={sustainability} alt="Goel Industries Industrial Plant Operations" loading="lazy" className="h-full w-full object-cover" />
             </div>
           </div>
         </div>
@@ -175,14 +182,14 @@ function About() {
         <img src={globe} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-10" />
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <h2 className="text-4xl md:text-6xl font-black tracking-tight text-white">
-            Interested in visiting <span className="italic font-normal text-[#D49A5B] block mt-2">the workshop?</span>
+            Looking for an OEM partner <span className="italic font-normal text-[#D49A5B] block mt-2">for custom specs?</span>
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-xs font-light text-neutral-400 leading-relaxed">
-            Architects and buyers are welcome. We'll walk you from the foundry to the polish room.
+            Collaborate directly with our Bahadurgarh plants to establish rapid custom component runs and bespoke hardware branding.
           </p>
           <div className="mt-8">
             <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-[#D49A5B] hover:bg-white hover:text-[#1C1A19] px-6 py-3.5 font-mono text-xs uppercase tracking-wider font-bold transition-all text-white">
-              Arrange a Visit →
+              Connect With OEM Desk →
             </Link>
           </div>
         </div>
