@@ -3,6 +3,9 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { useState, type FormEvent } from "react";
 
+// ⚠️ MAKE SURE YOU HAVE CREATED THIS FILE (See Step 4 from previous message)
+import { supabase } from "@/lib/supabaseClient";
+
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
@@ -17,9 +20,51 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
-  const onSubmit = (e: FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  // Form states tracking your exact field fields
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    country: "",
+    message: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    setErrorMsg(null);
+
+    try {
+      const { error } = await supabase
+        .from("contact_submissions")
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            country: formData.country,
+            message: formData.message,
+          },
+        ]);
+
+      if (error) throw error;
+
+      setSent(true);
+      setFormData({ name: "", email: "", company: "", country: "", message: "" });
+    } catch (err: any) {
+      console.error("Supabase dynamic submission block error:", err);
+      setErrorMsg("Failed to deliver submission. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -45,9 +90,11 @@ function Contact() {
             </p>
 
             <div className="mt-12 space-y-8">
-              <ContactBlock label="Workshop" lines={["DRG Hinges & Hardware Architecture", "Plot No. 204, Sector 16, HSIIDC Bhadurgarh,","Haryana - 124507 India"]} />
+              <ContactBlock label="Workshop" lines={["Goel Industries", "Plot No. 204, Sector 16, HSIIDC Bahadurgarh,","Haryana - 124507 India"]} />
               <ContactBlock label="Email" lines={["drghinges@rediffmail.com", "www.drghinges.com"]} />
+              <ContactBlock label="Website" lines={["www.drghinges.com"]} />
               <ContactBlock label="Phone" lines={["+91 9080222398", "+91 9812540303", "Mon–Sat, 9am – 7pm IST"]} />
+              <ContactBlock label="GST No." lines={["06BMFPG6947L1ZN"]} />
             </div>
           </div>
 
@@ -61,25 +108,33 @@ function Contact() {
                 </div>
               ) : (
                 <div className="space-y-6">
-                  <Field label="Name" name="name" />
-                  <Field label="Email" name="email" type="email" />
-                  <Field label="Company / Practice" name="company" />
-                  <Field label="Country" name="country" />
+                  <Field label="Name" name="name" value={formData.name} onChange={handleInputChange} />
+                  <Field label="Email" name="email" type="email" value={formData.email} onChange={handleInputChange} />
+                  <Field label="Company / Practice" name="company" value={formData.company} onChange={handleInputChange} />
+                  <Field label="Country" name="country" value={formData.country} onChange={handleInputChange} />
                   <div>
                     <label className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mustard-deep">Enquiry</label>
                     <textarea
                       required
                       rows={5}
                       name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       className="w-full border-b border-border bg-transparent py-3 text-foreground outline-none transition-colors focus:border-mustard"
                       placeholder="Tell us about your project…"
                     />
                   </div>
+                  
+                  {errorMsg && (
+                    <p className="text-xs text-red-500 font-medium tracking-wide mt-2">{errorMsg}</p>
+                  )}
+
                   <button
                     type="submit"
-                    className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-full bg-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-cream transition-all hover:bg-mustard hover:text-primary-foreground md:w-auto"
+                    disabled={loading}
+                    className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-full bg-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-cream transition-all hover:bg-mustard hover:text-primary-foreground md:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Enquiry →
+                    {loading ? "Sending..." : "Send Enquiry →"}
                   </button>
                 </div>
               )}
@@ -93,11 +148,31 @@ function Contact() {
   );
 }
 
-function Field({ label, name, type = "text" }: { label: string; name: string; type?: string }) {
+// Fixed custom inline component bindings mapping values directly into props
+function Field({ 
+  label, 
+  name, 
+  type = "text", 
+  value, 
+  onChange 
+}: { 
+  label: string; 
+  name: string; 
+  type?: string; 
+  value: string; 
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void 
+}) {
   return (
     <div>
       <label className="mb-2 block text-[10px] uppercase tracking-[0.3em] text-mustard-deep">{label}</label>
-      <input required type={type} name={name} className="w-full border-b border-border bg-transparent py-3 text-foreground outline-none transition-colors focus:border-mustard" />
+      <input 
+        required 
+        type={type} 
+        name={name} 
+        value={value}
+        onChange={onChange}
+        className="w-full border-b border-border bg-transparent py-3 text-foreground outline-none transition-colors focus:border-mustard" 
+      />
     </div>
   );
 }

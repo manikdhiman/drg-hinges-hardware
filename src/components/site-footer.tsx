@@ -2,6 +2,7 @@
 
 import { Link, useNavigate } from "@tanstack/react-router"; 
 import { ArrowRight, Mail, Phone, MapPin, Clock } from "lucide-react";
+import logoAsset from "@/assets/newlogo.png";
 
 export function SiteFooter() {
   const navigate = useNavigate();
@@ -33,10 +34,10 @@ export function SiteFooter() {
   };
 
   return (
-    /* Restored original rich dark matte background color background */
+    /* Rich dark matte background color background */
     <footer className="bg-[#110E0B] text-[#A69E94] border-t border-white/5 font-sans relative overflow-hidden">
       
-      {/* Subtle Ambient Navy Accent Glow */}
+      {/* Subtle Ambient Accent Glow */}
       <div className="absolute right-0 bottom-0 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
       {/* --- TOP CTA SECTION --- */}
@@ -65,17 +66,19 @@ export function SiteFooter() {
         
         {/* Column 1: Brand Info */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center font-serif text-white font-black text-lg shadow-sm">
-              D
-            </div>
+          <div className="flex items-center gap-4 group">
+            <img 
+              src={logoAsset} 
+              alt="DRG Premium SS Hinges Logo" 
+              className="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-103" 
+            />
             <div>
               <h4 className="font-black text-white tracking-wider uppercase text-base">DRG</h4>
               <p className="text-[10px] font-mono tracking-widest text-primary uppercase font-bold">HINGES & ARCHITECTURAL HARDWARE</p>
             </div>
           </div>
           <p className="text-[#8E867E] text-xs font-light leading-relaxed max-w-sm">
-            Precision-engineered architectural hardware — supplying architects, builders and distributors across five continents.
+            Precision-engineered architectural hardware — supplying premium components providing maximum structural safety for modern infrastructures.
           </p>
         </div>
 
@@ -90,7 +93,7 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        {/* Column 3: Fixed Product Subcategories with Exact Target Element IDs */}
+        {/* Column 3: Product Subcategories */}
         <div className="lg:col-span-2 space-y-4">
           <h5 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">Product</h5>
           <ul className="space-y-2.5 text-xs font-light text-[#FAF9F5]/80">
@@ -120,25 +123,23 @@ export function SiteFooter() {
               </button>
             </li>
             <li>
-              {/* FIXED ID STRING */}
               <button onClick={() => handleProductJump("telescopic-drawer-slides")} className="hover:text-primary transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
                 Drawer Slides
               </button>
             </li>
             <li>
-              {/* FIXED ID STRING */}
               <button onClick={() => handleProductJump("soft-close-channels")} className="hover:text-primary transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
                 Soft Close Channels
               </button>
             </li>
             <li>
-              {/* FIXED ID STRING */}
               <button onClick={() => handleProductJump("kitchen-accessories")} className="hover:text-primary transition-colors text-left block w-full bg-transparent border-none p-0 cursor-pointer">
                 Kitchen Accessories
               </button>
             </li>
           </ul>
         </div>
+
         {/* Column 4: Contact Credentials */}
         <div className="lg:col-span-3 space-y-4 font-light text-xs">
           <h5 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">Get In Touch</h5>
@@ -176,6 +177,7 @@ export function SiteFooter() {
 
       </div>
 
+      {/* --- SUB-FOOTER BOTTOM BANNER --- */}
       <div className="border-t border-white/5 bg-black/20 py-6 font-mono text-[10px]">
         <div className="mx-auto max-w-7xl px-6 md:px-10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[#6E6861]">
           <p>© 2026 DRG Hinges & Architectural Hardware.</p>

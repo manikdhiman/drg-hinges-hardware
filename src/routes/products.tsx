@@ -29,6 +29,7 @@ const collections = [
     name: "Ball Bearing Hinges",
     desc: "Premium ball-bearing hinges designed for smooth, stable, and long-lasting door movement. Manufactured from high-quality stainless steel, they ensure effortless operation and noise-free performance in high-traffic areas.",
     image: ballBearingImg,
+    sizesChart: ["4\" x 3\" x 2.5mm", "4\" x 3\" x 3.0mm", "5\" x 3\" x 3.0mm", "5\" x 4\" x 3.0mm"],
     items: [
       "Smooth & friction-free door movement",
       "Heavy-duty load-bearing performance",
@@ -45,6 +46,7 @@ const collections = [
     name: "Butt Hinges",
     desc: "Designed to provide a clean, modern, and seamless furniture appearance. Hidden entirely inside the cabinet when closed, they enhance the aesthetics of modular interiors, wardrobes, and contemporary kitchens.",
     image: concealedImg,
+    sizesChart: ["3\" x 2\" x 2.0mm", "4\" x 2.5\" x 2.5mm", "4\" x 3\" x 2.5mm"],
     items: [
       "Hidden design for elegant appearance",
       "Smooth & effortless door movement",
@@ -62,6 +64,7 @@ const collections = [
     desc: "Reliable, high-strength door and gate locking configurations engineered using premium materials for maximum security in residential and commercial spaces.",
     image: towerBoltImg,
     isComplex: true,
+    sizesChart: ["4 Inch", "6 Inch", "8 Inch", "10 Inch", "12 Inch", "18 Inch", "24 Inch", "36 Inch"],
     subsections: [
       {
         title: "Steel Tower Bolts",
@@ -81,6 +84,7 @@ const collections = [
     desc: "Premium-quality hardware units explicitly designed to provide enhanced structural security and reliable latching mechanisms for residential and commercial entry doors or structural gates.",
     image: aldropsImg,
     sizes: "Available Sizes: 8 Inch to 24 Inch",
+    sizesChart: ["8 Inch", "10 Inch", "12 Inch", "14 Inch", "16 Inch", "18 Inch", "24 Inch"],
     items: [
       "Strong and durable construction",
       "Easy installation setup",
@@ -94,6 +98,7 @@ const collections = [
     name: "Hydraulic Hinges",
     desc: "Built using advanced soft-close hydraulic damping technology to completely eliminate hard slamming, reduce noise impact, and cushion furniture surfaces during operation.",
     image: hydraulicImg,
+    sizesChart: ["Full Overlay (0 Crank)", "Half Overlay (8 Crank)", "Inset (16 Crank)"],
     items: [
       "Advanced soft-close hydraulic tech",
       "Smooth & noiseless door closing",
@@ -108,6 +113,7 @@ const collections = [
     name: "Telescopic Drawer Slides",
     desc: "Precision ball-bearing channel infrastructure providing heavy-duty structural load limits alongside quiet, frictionless guidance across premium cabinetry layouts.",
     image: telescopicImg,
+    sizesChart: ["10 Inch (250mm)", "12 Inch (300mm)", "14 Inch (350mm)", "16 Inch (400mm)", "18 Inch (450mm)", "20 Inch (500mm)", "22 Inch (550mm)"],
     items: [
       "Frictionless sliding mechanism",
       "Heavy-duty load-bearing capacity",
@@ -122,6 +128,7 @@ const collections = [
     name: "Soft Close Channels",
     desc: "Engineered with integrated fluid dampers that provide quiet, controlled drawer closing functionality, adding luxury and modern convenience to any storage system.",
     image: softCloseImg,
+    sizesChart: ["12 Inch", "14 Inch", "16 Inch", "18 Inch", "20 Inch", "22 Inch"],
     items: [
       "Silent controlled closing action",
       "Prevents hardware impacts & wear",
@@ -136,6 +143,7 @@ const collections = [
     name: "Kitchen Accessories",
     desc: "Smart multi-tier storage configurations, organizers, and dynamic space-saving components engineered specifically to maximize spatial efficiency throughout residential and hotel kitchens.",
     image: kitchenImg,
+    sizesChart: ["Standard 6\" Width", "Standard 8\" Width", "Standard 9\" Width", "Custom Corner Pull-Out Panels"],
     items: [
       "Space-saving smart storage solutions",
       "Modern and stylish configurations",
@@ -180,7 +188,6 @@ function Products() {
 
       <section>
         {collections.map((c, i) => {
-          // Generates precise anchor targets: "ball-bearing", "concealed", "drawer-slides", etc.
           const sectionId = c.name
             .toLowerCase()
             .replace(" hinges", "")
@@ -228,9 +235,38 @@ function Products() {
                     </ul>
                   )}
 
-                  <Link to="/contact" className="mt-10 inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-cream hover:bg-mustard">
-                    Request Specification →
-                  </Link>
+                  {/* Button Action Wrapper Grid */}
+                  <div className="mt-10 flex flex-wrap items-center gap-4">
+                    <Link to="/contact" className="inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-cream hover:bg-mustard transition-colors duration-300">
+                      Request Specification →
+                    </Link>
+
+                    {/* ✨ Size Chart Hover Button with Pure CSS Tooltip Panel */}
+                    <div className="relative group/size">
+                      <button className="inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-6 py-4 text-xs uppercase tracking-[0.3em] text-ink hover:bg-muted/40 transition-colors duration-300 cursor-default">
+                        Size Chart
+                      </button>
+                      
+                      {/* Tooltip Hover Overlay Canvas */}
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-30 w-56 p-4 rounded-xl border border-border bg-white shadow-xl opacity-0 scale-95 pointer-events-none transition-all duration-300 ease-out group-hover/size:opacity-100 group-hover/size:scale-100">
+                        <p className="font-mono text-[9px] uppercase tracking-wider text-mustard-deep font-bold mb-2 pb-1 border-b border-border">
+                          Available Specs
+                        </p>
+                        <ul className="space-y-1">
+                          {c.sizesChart?.map((size, sIdx) => (
+                            <li key={sIdx} className="text-xs font-medium text-ink/90 flex items-center gap-2">
+                              <span className="h-1 w-1 rounded-full bg-ink/40" />
+                              {size}
+                            </li>
+                          ))}
+                        </ul>
+                        {/* Little triangle pointer at the bottom of the tooltip layout */}
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white" />
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-border -z-10 mt-[1px]" />
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -238,26 +274,7 @@ function Products() {
         })}
       </section>
 
-      <section className="border-b border-border bg-gradient-cream py-28 md:py-36">
-        <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="mb-14 max-w-2xl">
-            <p className="eyebrow mb-6">Finishes</p>
-            <h2 className="text-5xl md:text-6xl">
-              Signature finishes, <span className="italic text-gradient-mustard">precision applied.</span>
-            </h2>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-5">
-            {finishes.map((f) => (
-              <div key={f.name} className="group">
-                <div className="aspect-square w-full rounded-lg transition-transform duration-700 group-hover:scale-[1.03] shadow-soft" style={{ background: f.swatch }} />
-                <p className="mt-4 text-sm uppercase tracking-[0.2em]">{f.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-28 md:py-36">
+           <section className="py-28 md:py-36">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="mb-14 max-w-2xl">
             <p className="eyebrow mb-6">Applications</p>
