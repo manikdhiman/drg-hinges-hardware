@@ -9,7 +9,7 @@ import { SiteFooter } from "@/components/site-footer";
 // 1. IMPORT YOUR VIDEO AT THE TOP SO VITE CAN PROCESS IT:
 import silverVideoAsset from "@/assets/silvervideo.mp4"; 
 
-// Unified 100% correct local asset imports matching your asset filenames exactly
+// Unified local asset imports matching your asset filenames exactly
 import ballBearingImg from "@/assets/ball_bearing_hinges.png";
 import concealedImg from "@/assets/concealed_hinges.png";
 import towerBoltImg from "@/assets/new_tower.jpeg";
@@ -18,6 +18,11 @@ import hydraulicImg from "@/assets/hydraulic_hinges.png";
 import telescopicImg from "@/assets/telescopic.png";
 import softCloseImg from "@/assets/soft_close.png";
 import kitchenImg from "@/assets/kitchen_accessories.jpg";
+
+// 2. CERTIFICATE ASSET IMPORTS (Ensure these exist in your assets folder):
+import cert1 from "@/assets/certificate1.jpeg";
+import cert2 from "@/assets/certificate2.jpeg";
+import cert3 from "@/assets/certificate3.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -80,6 +85,34 @@ const advantages = [
   "100% Quality Assurance & Testing Standards",
 ];
 
+interface Certificate {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+}
+
+const certificates: Certificate[] = [
+  {
+    id: 1,
+    title: "ISO 9001:2015 Certified",
+    description: "International standard for premium quality management systems.",
+    image: cert1,
+  },
+  {
+    id: 2,
+    title: "CE Compliance",
+    description: "Certified conformance with health, safety, and environmental protection standards.",
+    image: cert2,
+  },
+  {
+    id: 3,
+    title: "SS Premium Grade Assurance",
+    description: "Material authenticity and high-durability load testing certification.",
+    image: cert3,
+  },
+];
+
 function Home() {
   return (
     <div className="min-h-screen bg-background">
@@ -90,6 +123,8 @@ function Home() {
       <Services />
       <Marquee />
       <WhyChoose />
+      {/* ✨ Certifications section positioned directly after WhyChoose */}
+      <Certifications />
       <Sustainability />
       <GlobalReach />
       <SiteFooter />
@@ -100,7 +135,7 @@ function Home() {
 function Hero() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-ink flex flex-col justify-end">
-      {/* 🎥 Video setup using the dynamic variable variable imported from assets */}
+      {/* 🎥 Video setup using the dynamic variable imported from assets */}
       <video
         autoPlay
         muted
@@ -119,12 +154,13 @@ function Hero() {
       {/* Content Canvas */}
       <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 md:px-10 md:pb-32 flex flex-col items-start">
         <div 
-  className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-2 mb-6 shadow-sm animate-reveal" 
-  style={{ animationDelay: "0.2s" }}>
-  <p className="font-sans text-[10px] font-bold uppercase tracking-[0.35em] text-mustard-deep">
-    Premium Door Hardware Manufacturer
-  </p>
-      </div>
+          className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-2 mb-6 shadow-sm animate-reveal" 
+          style={{ animationDelay: "0.2s" }}
+        >
+          <p className="font-sans text-[10px] font-bold uppercase tracking-[0.35em] text-mustard-deep">
+            Premium Door Hardware Manufacturer
+          </p>
+        </div>
         <h1 className="max-w-5xl text-6xl leading-[0.95] text-cream md:text-8xl lg:text-[8.5rem] animate-reveal" style={{ animationDelay: "0.35s" }}>
           Where Metal
           <br />
@@ -221,7 +257,6 @@ function ProductPortfolio({ tag, title, items }: { tag: string; title: string; i
   );
 }
 
-// Fixed nested video asset reference inside the lower Sustainability array card block as well:
 function Services() {
   return (
     <section className="relative border-y border-border bg-gradient-cream py-28 md:py-36">
@@ -295,6 +330,100 @@ function WhyChoose() {
           ))}
         </ul>
       </div>
+    </section>
+  );
+}
+
+{/* ✨ CERTIFICATIONS COMPONENT WITH LIGHTBOX MODAL */}
+function Certifications() {
+  const [activeCert, setActiveCert] = useState<Certificate | null>(null);
+
+  return (
+    <section className="relative border-y border-border bg-gradient-cream py-28 md:py-36">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        
+        {/* Section Header */}
+        <div className="mb-16 max-w-3xl">
+          <p className="eyebrow mb-6">Quality Guaranteed</p>
+          <h2 className="text-5xl md:text-6xl">
+            Our Official <span className="italic text-gradient-mustard">Certifications.</span>
+          </h2>
+          <p className="mt-6 max-w-xl text-muted-foreground">
+            At DRG, structural reliability and engineering precision are non-negotiable. 
+            Our hardware undergoes rigorous testing protocols to hit absolute industrial benchmarks.
+          </p>
+        </div>
+
+        {/* Certificates Grid */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {certificates.map((cert) => (
+            <div
+              key={cert.id}
+              onClick={() => setActiveCert(cert)}
+              className="group cursor-pointer rounded-xl border border-border bg-background p-5 transition-all duration-500 hover:shadow-soft hover:-translate-y-2 flex flex-col justify-between"
+            >
+              {/* Image Container with Custom Glass Overlay */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-muted border border-border/40">
+                <img
+                  src={cert.image}
+                  alt={cert.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-105"
+                />
+                
+                {/* Micro-interaction Hover Mask */}
+                <div className="absolute inset-0 bg-ink/50 backdrop-blur-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">
+                  <span className="rounded-full bg-cream px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.25em] text-ink shadow-lg transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
+                    Expand Certificate
+                  </span>
+                </div>
+              </div>
+
+              {/* Certificate Details */}
+              <div className="mt-6 pt-2">
+                <h3 className="font-display text-2xl text-ink group-hover:text-mustard-deep transition-colors">
+                  {cert.title}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  {cert.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ✨ Full Screen Lightbox Modal Layer */}
+      {activeCert && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 backdrop-blur-md p-4 transition-opacity duration-300"
+          onClick={() => setActiveCert(null)}
+        >
+          {/* Close Button */}
+          <button
+            className="absolute top-6 right-6 text-cream/70 hover:text-cream text-xs uppercase tracking-[0.25em] bg-white/10 px-5 py-2.5 rounded-full backdrop-blur transition-all hover:bg-white/20"
+            onClick={() => setActiveCert(null)}
+          >
+            ✕ Close
+          </button>
+
+          {/* Modal Container */}
+          <div
+            className="relative max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl bg-background p-4 shadow-2xl animate-in fade-in zoom-in-95 duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={activeCert.image}
+              alt={activeCert.title}
+              className="w-auto max-h-[70vh] object-contain rounded-lg mx-auto"
+            />
+            <div className="mt-4 px-4 py-2 text-center">
+              <h4 className="font-display text-2xl text-ink">{activeCert.title}</h4>
+              <p className="text-sm text-muted-foreground mt-1">{activeCert.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

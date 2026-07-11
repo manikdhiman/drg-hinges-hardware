@@ -147,7 +147,7 @@ export function SiteFooter() {
               <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
               <div className="leading-normal">
                 <span className="font-bold text-white block text-[11px] mb-0.5">WORKSHOP</span>
-                DRG Hinges & Hardware Architecture<br />
+                Goel Industries<br />
                 Plot No. 204, Sector 16, HSIIDC Bahadurgarh,<br />
                 Haryana - 124507 India
               </div>
