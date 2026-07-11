@@ -49,7 +49,7 @@ export function SiteHeader() {
           <span className="flex flex-col leading-none">
             <span className="font-display text-2xl tracking-tight text-ink font-bold">DRG</span>
             <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mt-0.5">
-              Hinges & Hardware Accessories
+              Hinges & Hardware Architecture
             </span>
           </span>
         </Link>
