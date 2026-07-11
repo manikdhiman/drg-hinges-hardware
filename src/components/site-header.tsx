@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
-import logoAsset from "@/assets/logo.png";
+import logoAsset from "@/assets/newlogo.png";
 
 const nav = [
   { to: "/", label: "Home" },
