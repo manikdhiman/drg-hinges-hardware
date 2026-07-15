@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 // 1. IMPORT YOUR VIDEO AT THE TOP SO VITE CAN PROCESS IT:
-import silverVideoAsset from "@/assets/silvervideo.mp4"; 
+import silverVideoAsset from "@/assets/finalvideo.mp4"; 
 
 // Unified local asset imports matching your asset filenames exactly
 import ballBearingImg from "@/assets/ball_bearing_hinges.png";
@@ -135,7 +135,7 @@ function Home() {
 function Hero() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-ink flex flex-col justify-end">
-      {/* 🎥 Video setup using the dynamic variable imported from assets */}
+      
       <video
         autoPlay
         muted
