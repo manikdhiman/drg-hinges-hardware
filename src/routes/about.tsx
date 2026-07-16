@@ -4,8 +4,10 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ShieldCheck, HardHat, Award } from "lucide-react";
 import globe from "@/assets/globe.jpg";
-import sustainability from "@/assets/sustainability.jpg";
 import industrial from "@/assets/industrial.jpg";
+
+// 1. Import your uploaded video asset here (adjust the file extension if it's .mov or another format)
+import ideAaVideo from "@/assets/newvideo.mp4"; 
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -56,42 +58,34 @@ function About() {
       {/* --- UNIFIED MANIFESTO STRUCTURE --- */}
       <section className="pb-24 bg-[#FAF9F5] border-b border-[#E6E2D8]">
         <div className="mx-auto max-w-4xl px-6 md:px-10 space-y-10">
-          
-          {/* Lead Intro Paragraph */}
           <p className="text-base md:text-lg text-[#6E6861] font-light leading-relaxed pl-6">
             Established in 2020, Goel Industries has rapidly emerged as a trusted manufacturer and OEM partner in the architectural hardware industry. Driven by innovation, precision engineering, and an unwavering commitment to quality, the company specializes in manufacturing premium architectural hardware solutions that meet the evolving demands of modern construction and interior design.
           </p>
           
-          {/* Mustard Accent Highlight Card */}
           <div className="border-l-2 border-[#E0A96D] pl-6 py-1">
             <p className="text-base md:text-lg text-[#4A4540] leading-relaxed font-light">
               With continuous investment in advanced manufacturing technologies and stringent quality control systems, we have expanded our portfolio beyond door hinges to offer a comprehensive range of architectural door hardware fittings for residential, commercial, hospitality, and institutional applications. Every product is engineered to meet the highest standards of performance, reliability, and aesthetics.
             </p>
           </div>
 
-          {/* Standard Informational Block */}
           <p className="text-base md:text-lg text-[#4A4540] leading-relaxed font-light pl-6">
             As a trusted OEM manufacturing partner, Goel Industries collaborates with leading brands, distributors, wholesalers, and project suppliers by providing customized manufacturing solutions tailored to their product specifications and branding requirements. Our integrated manufacturing capabilities, experienced workforce, and commitment to operational excellence enable us to consistently deliver products that meet both domestic and international quality standards.
           </p>
 
-          {/* Infrastructure Expansion Subsection Banner */}
           <p className="text-base md:text-lg text-[#4A4540] leading-relaxed font-light pl-6">
             As part of our continued growth strategy, we have expanded our manufacturing infrastructure with the establishment of our second manufacturing division, Goel Enterprises, located at Plot No. 196, HSIIDC, Bahadurgarh, Haryana. Equipped with modern production facilities and advanced manufacturing capabilities, Goel Enterprises strengthens our production capacity, enhances operational efficiency, and enables us to serve our OEM partners and customers with greater flexibility, faster deliveries, and consistent quality.
           </p>
 
-          {/* Diversification block */}
           <p className="text-base md:text-lg text-[#4A4540] leading-relaxed font-light pl-6">
             Further strengthening our product portfolio, we have also expanded into the import business by offering premium kitchen accessories sourced from trusted international partners. This strategic diversification enables us to provide a complete range of architectural and interior hardware solutions under one roof, delivering greater value and convenience to our customers.
           </p>
 
-          {/* Bottom Certified Badge Frame */}
           <div className="ml-6 font-medium text-[#1C1A19] bg-white border border-[#E6E2D8] p-6 rounded-xs shadow-xs flex items-start gap-4">
             <Award className="w-5 h-5 text-[#D49A5B] shrink-0 mt-0.5" />
             <p className="text-sm md:text-base font-bold tracking-tight">
               Today, Goel Industries and Goel Enterprises together represent a unified commitment to excellence, combining advanced manufacturing, OEM expertise, and an expanding product portfolio to meet the evolving needs of the architectural and interior hardware industry across India and international markets.
             </p>
           </div>
-
         </div>
       </section>
 
@@ -154,7 +148,7 @@ function About() {
         </div>
       </section>
 
-      {/* --- SECTION 5: OPERATIONAL IMPACT METRICS --- */}
+      {/* --- SECTION 5: OPERATIONAL IMPACT METRICS WITH INTERACTIVE VIDEO --- */}
       <section className="border-b border-[#E6E2D8] bg-white py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-12 md:px-10">
           <div className="md:col-span-6 space-y-4">
@@ -169,9 +163,19 @@ function About() {
               <ShieldCheck className="w-3.5 h-3.5" /> STRICTOR ISO QUALITY ASSURANCE SYSTEMS
             </div>
           </div>
+          
+          {/* Replaced standard image card with a continuous loop web-optimized video frame */}
           <div className="md:col-span-6">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xs border border-[#E6E2D8]">
-              <img src={sustainability} alt="Goel Industries Industrial Plant Operations" loading="lazy" className="h-full w-full object-cover" />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xs border border-[#E6E2D8] bg-black">
+              <video 
+                src={ideAaVideo} 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                controls
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
         </div>

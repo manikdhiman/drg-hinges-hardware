@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 import ballBearingImg from "@/assets/ball_bearing_hinges.png";
-import concealedImg from "@/assets/concealed_hinges.png";
+import concealedImg from "@/assets/newaldrops.jpeg";
 import towerBoltImg from "@/assets/new_tower.jpeg";
 import aldropsImg from "@/assets/aldrops.png";
 import hydraulicImg from "@/assets/hydraulic_hinges.png";
