@@ -169,10 +169,10 @@ function Products() {
       <section className="border-b border-border pt-40 pb-24">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <p className="eyebrow mb-6">The Catalogue</p>
-          <h1 className="max-w-4xl text-6xl leading-[0.95] md:text-8xl">
+          <h1 className="max-w-4xl text-5xl leading-[0.95] md:text-8xl">
             Eight series. <span className="italic text-gradient-mustard">Premium hardware.</span>
           </h1>
-          <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
+          <p className="mt-8 max-w-2xl text-base sm:text-lg text-muted-foreground">
             Browse the complete collection from DRG Hinges (Goel Industries) — engineered to meet strict quality and durability standards across India.
           </p>
         </div>
@@ -192,16 +192,20 @@ function Products() {
           return (
             <div key={c.name} id={sectionId} className="border-b border-border scroll-mt-24">
               <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:gap-20 md:px-10 md:py-32">
+                
+                {/* Product Image Panel Wrapper */}
                 <div className={`relative aspect-[4/5] overflow-hidden rounded-lg ${i % 2 ? "md:order-2" : ""}`}>
                   <img src={c.image} alt={c.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1500ms] hover:scale-105" />
                   <span className="absolute left-6 top-6 rounded-full bg-cream/90 px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] text-mustard-deep backdrop-blur">
                     {c.tag}
                   </span>
                 </div>
-                <div>
+
+                {/* Technical Meta Content Column */}
+                <div className="w-full overflow-hidden">
                   <p className="eyebrow mb-4">{c.tag}</p>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl">{c.name}</h2>
-                  <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{c.desc}</p>
+                  <h2 className="text-3xl sm:text-5xl lg:text-6xl tracking-tight">{c.name}</h2>
+                  <p className="mt-6 text-sm sm:text-base leading-relaxed text-muted-foreground">{c.desc}</p>
 
                   {c.isComplex && c.subsections ? (
                     <div className="mt-6 grid grid-cols-1 gap-4 rounded-md border border-border p-4 bg-muted/20">
@@ -215,33 +219,35 @@ function Products() {
                       ))}
                     </div>
                   ) : (
-                    <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3">
+                    <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-3">
                       {c.items?.map((it) => (
-                        <li key={it} className="flex items-center gap-3 border-b border-border pb-3 text-sm">
-                          <span className="h-1.5 w-1.5 rounded-full bg-mustard" />
-                          {it}
+                        <li key={it} className="flex items-center gap-2 sm:gap-3 border-b border-border pb-3 text-xs sm:text-sm">
+                          <span className="h-1.5 w-1.5 rounded-full bg-mustard shrink-0" />
+                          <span className="truncate">{it}</span>
                         </li>
                       ))}
                     </ul>
                   )}
 
-                  <div className="mt-10 flex flex-wrap items-center gap-4">
-                    <Link to="/contact" className="inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-cream hover:bg-mustard transition-colors duration-300">
+                  {/* Responsive Button Matrix Wrapper */}
+                  <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 relative">
+                    <Link to="/contact" className="inline-flex items-center justify-center gap-3 rounded-full bg-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-cream hover:bg-mustard transition-colors duration-300 w-full sm:w-auto">
                       Request Specification →
                     </Link>
 
-                    <div className="relative">
+                    <div className="relative w-full sm:w-auto">
                       <button 
                         onClick={() => setActiveSizeChart(isChartOpen ? null : c.name)}
-                        className={`inline-flex items-center gap-2 rounded-full border px-6 py-4 text-xs uppercase tracking-[0.3em] transition-colors duration-300 cursor-pointer ${
+                        className={`inline-flex items-center justify-center gap-2 rounded-full border px-6 py-4 text-xs uppercase tracking-[0.3em] transition-colors duration-300 cursor-pointer w-full sm:w-auto ${
                           isChartOpen ? "border-mustard bg-mustard/10 text-mustard-deep" : "border-border bg-transparent text-ink hover:bg-muted/40"
                         }`}
                       >
                         Size Chart {isChartOpen ? "✕" : "→"}
                       </button>
                       
+                      {/* ✨ RE-ENGINEERED MOBILE-SAFE GRID TOOLTIP PANEL */}
                       <div 
-                        className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-30 w-64 p-4 rounded-xl border border-border bg-white shadow-xl transition-all duration-300 ease-out ${
+                        className={`absolute bottom-full left-0 sm:left-1/2 sm:-translate-x-1/2 mb-3 z-30 w-full sm:w-64 p-4 rounded-xl border border-border bg-white shadow-xl transition-all duration-300 ease-out ${
                           isChartOpen 
                             ? "opacity-100 scale-100 pointer-events-auto" 
                             : "opacity-0 scale-95 pointer-events-none"
@@ -253,13 +259,14 @@ function Products() {
                         <ul className="space-y-1">
                           {c.sizesChart?.map((size, sIdx) => (
                             <li key={sIdx} className="text-xs font-semibold text-ink/90 flex items-center gap-2">
-                              <span className="h-1 w-1 rounded-full bg-mustard" />
-                              {size}
+                              <span className="h-1 w-1 rounded-full bg-mustard shrink-0" />
+                              <span>{size}</span>
                             </li>
                           ))}
                         </ul>
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white" />
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-border -z-10 mt-[1px]" />
+                        {/* Indicator triangle hidden on small viewports to maintain boundaries cleanly */}
+                        <div className="hidden sm:block absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white" />
+                        <div className="hidden sm:block absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-border -z-10 mt-[1px]" />
                       </div>
                     </div>
                   </div>
