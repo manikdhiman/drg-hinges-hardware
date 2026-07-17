@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { useState } from "react";
 
 import ballBearingImg from "@/assets/ball_bearing_hinges.png";
 import concealedImg from "@/assets/newaldrops.jpeg";
@@ -159,6 +160,8 @@ const applications = [
 ];
 
 function Products() {
+  const [activeSizeChart, setActiveSizeChart] = useState<string | null>(null);
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
@@ -183,6 +186,8 @@ function Products() {
             .replace(" premium ", "")
             .replace(" telescopic ", "")
             .replace(" ", "-");
+
+          const isChartOpen = activeSizeChart === c.name;
 
           return (
             <div key={c.name} id={sectionId} className="border-b border-border scroll-mt-24">
@@ -225,12 +230,23 @@ function Products() {
                       Request Specification →
                     </Link>
 
-                    <div className="relative group/size">
-                      <button className="inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-6 py-4 text-xs uppercase tracking-[0.3em] text-ink hover:bg-muted/40 transition-colors duration-300 cursor-default">
-                        Size Chart
+                    <div className="relative">
+                      <button 
+                        onClick={() => setActiveSizeChart(isChartOpen ? null : c.name)}
+                        className={`inline-flex items-center gap-2 rounded-full border px-6 py-4 text-xs uppercase tracking-[0.3em] transition-colors duration-300 cursor-pointer ${
+                          isChartOpen ? "border-mustard bg-mustard/10 text-mustard-deep" : "border-border bg-transparent text-ink hover:bg-muted/40"
+                        }`}
+                      >
+                        Size Chart {isChartOpen ? "✕" : "→"}
                       </button>
                       
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-30 w-64 p-4 rounded-xl border border-border bg-white shadow-xl opacity-0 scale-95 pointer-events-none transition-all duration-300 ease-out group-hover/size:opacity-100 group-hover/size:scale-100">
+                      <div 
+                        className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-30 w-64 p-4 rounded-xl border border-border bg-white shadow-xl transition-all duration-300 ease-out ${
+                          isChartOpen 
+                            ? "opacity-100 scale-100 pointer-events-auto" 
+                            : "opacity-0 scale-95 pointer-events-none"
+                        }`}
+                      >
                         <p className="font-mono text-[9px] uppercase tracking-wider text-mustard-deep font-bold mb-2 pb-1 border-b border-border">
                           Technical Blueprint Dimensions
                         </p>
@@ -268,7 +284,7 @@ function Products() {
               <div key={a.t} className="group relative aspect-[4/5] overflow-hidden rounded-lg">
                 <img src={a.img} alt={a.t} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1500ms] group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
-                <h3 className="absolute inset-x-0 bottom-8 px-8 text-3xl text-cream={a.t}">{a.t}</h3>
+                <h3 className="absolute inset-x-0 bottom-8 px-8 text-3xl text-cream">{a.t}</h3>
               </div>
             ))}
           </div>

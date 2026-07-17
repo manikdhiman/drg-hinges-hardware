@@ -5,7 +5,6 @@ import { useState, type FormEvent } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { MapPin, Mail, Globe, Phone, FileText, Clock, ChevronRight } from "lucide-react";
 
-// Synchronized with technical document metrics
 const mainCategories = [
   { 
     name: "Ball Bearing Hinges", 
@@ -246,10 +245,9 @@ function Contact() {
                     <ChevronRight className={`w-4 h-4 text-[#D49A5B] transition-transform duration-300 ${isOpen ? "rotate-90" : ""}`} />
                   </button>
 
-                  {/* Dropdown Specs Info Tray */}
                   <div 
                     className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      isOpen ? "max-h-40 opacity-100 mt-2" : "max-h-0 opacity-0 pointer-events-none"
+                      isOpen ? "max-h-[250px] opacity-100 mt-2" : "max-h-0 opacity-0 pointer-events-none"
                     }`}
                   >
                     <div className="p-4 rounded-xl border border-[#E6E2D8] bg-[#FAF9F5] text-xs leading-relaxed text-[#2B2927] font-medium shadow-inner">
