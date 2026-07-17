@@ -1,3 +1,11 @@
+# Environment Variables (CRITICAL SECURITY FIX)
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+*.env
+
 # Logs
 logs
 *.log
@@ -7,6 +15,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies and Build Outputs
 node_modules
 dist
 dist-ssr
@@ -14,7 +23,6 @@ dist-ssr
 .vinxi
 .tanstack/**
 .nitro
-*.local
 
 # Wrangler / Cloudflare
 .wrangler/
