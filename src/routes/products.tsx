@@ -29,16 +29,13 @@ const collections = [
     name: "Ball Bearing Hinges",
     desc: "Premium ball-bearing hinges designed for smooth, stable, and long-lasting door movement. Manufactured from high-quality stainless steel, they ensure effortless operation and noise-free performance in high-traffic areas.",
     image: ballBearingImg,
-    sizesChart: ["4\" x 3\" x 2.5mm", "4\" x 3\" x 3.0mm", "5\" x 3\" x 3.0mm", "5\" x 4\" x 3.0mm"],
+    sizesChart: ["102 x 76 x 2.5 mm", "102 x 76 x 3.0 mm", "127 x 76 x 3.0 mm", "127 x 89 x 3.0 mm", "127 x 102 x 3.0 mm"],
     items: [
       "Smooth & friction-free door movement",
       "Heavy-duty load-bearing performance",
       "Durable ball-bearing mechanism",
       "Corrosion & rust-resistant finish",
-      "Noise-free and stable operation",
-      "Strong construction for long life",
-      "Suitable for wooden & metal doors",
-      "Easy installation & low maintenance"
+      "Noise-free and stable operation"
     ]
   },
   {
@@ -46,15 +43,12 @@ const collections = [
     name: "Butt Hinges",
     desc: "Designed to provide a clean, modern, and seamless furniture appearance. Hidden entirely inside the cabinet when closed, they enhance the aesthetics of modular interiors, wardrobes, and contemporary kitchens.",
     image: concealedImg,
-    sizesChart: ["3\" x 2\" x 2.0mm", "4\" x 2.5\" x 2.5mm", "4\" x 3\" x 2.5mm"],
+    sizesChart: ["Open Hinge: 110x57x24mm", "Closed Hinge: 62x57x24mm", "Leaf Thickness: Min. 28mm", "Load Capacity: 40 Kg/Pair"],
     items: [
       "Hidden design for elegant appearance",
       "Smooth & effortless door movement",
       "Strong & durable steel construction",
       "Corrosion & rust-resistant finish",
-      "Easy installation & adjustable fitting",
-      "Noise-free opening/closing mechanism",
-      "Ideal for modular kitchens & cabinets",
       "Precision-engineered alignment"
     ]
   },
@@ -64,7 +58,7 @@ const collections = [
     desc: "Reliable, high-strength door and gate locking configurations engineered using premium materials for maximum security in residential and commercial spaces.",
     image: towerBoltImg,
     isComplex: true,
-    sizesChart: ["4 Inch", "6 Inch", "8 Inch", "10 Inch", "12 Inch", "18 Inch", "24 Inch", "36 Inch"],
+    sizesChart: ["Base Length: 200mm", "Usable Rod: 182mm", "Bolt Diameter: Ø16mm", "Base Width: 60mm", "Thickness: 3mm"],
     subsections: [
       {
         title: "Steel Tower Bolts",
@@ -83,8 +77,7 @@ const collections = [
     name: "Aldrops",
     desc: "Premium-quality hardware units explicitly designed to provide enhanced structural security and reliable latching mechanisms for residential and commercial entry doors or structural gates.",
     image: aldropsImg,
-    sizes: "Available Sizes: 8 Inch to 24 Inch",
-    sizesChart: ["8 Inch", "10 Inch", "12 Inch", "14 Inch", "16 Inch", "18 Inch", "24 Inch"],
+    sizesChart: ["Available Variant Range: 8 Inch to 24 Inch Configurations"],
     items: [
       "Strong and durable construction",
       "Easy installation setup",
@@ -98,13 +91,12 @@ const collections = [
     name: "Hydraulic Hinges",
     desc: "Built using advanced soft-close hydraulic damping technology to completely eliminate hard slamming, reduce noise impact, and cushion furniture surfaces during operation.",
     image: hydraulicImg,
-    sizesChart: ["Full Overlay (0 Crank)", "Half Overlay (8 Crank)", "Inset (16 Crank)"],
+    sizesChart: ["Opening Angle: 105°", "Side Adjustment: ±2.0 mm", "Height Adjustment: ±2.0 mm", "Depth Adjustment: ±1.5 mm"],
     items: [
       "Advanced soft-close hydraulic tech",
       "Smooth & noiseless door closing",
       "High-quality stainless steel build",
       "Corrosion and rust-resistant finish",
-      "High load-bearing stability support",
       "Protects delicate furniture surfaces"
     ]
   },
@@ -113,14 +105,13 @@ const collections = [
     name: "Telescopic Drawer Slides",
     desc: "Precision ball-bearing channel infrastructure providing heavy-duty structural load limits alongside quiet, frictionless guidance across premium cabinetry layouts.",
     image: telescopicImg,
-    sizesChart: ["10 Inch (250mm)", "12 Inch (300mm)", "14 Inch (350mm)", "16 Inch (400mm)", "18 Inch (450mm)", "20 Inch (500mm)", "22 Inch (550mm)"],
+    sizesChart: ["Profile Width: 12.7mm", "Pitch Holes Space: 64mm", "End Hole Distance: 35mm"],
     items: [
       "Frictionless sliding mechanism",
       "Heavy-duty load-bearing capacity",
       "Soft close technology integrated",
       "Noise-free & vibration-free travel",
-      "Precision-engineered stability",
-      "Long operational engineering lifespan"
+      "Precision-engineered stability"
     ]
   },
   {
@@ -128,13 +119,12 @@ const collections = [
     name: "Soft Close Channels",
     desc: "Engineered with integrated fluid dampers that provide quiet, controlled drawer closing functionality, adding luxury and modern convenience to any storage system.",
     image: softCloseImg,
-    sizesChart: ["12 Inch", "14 Inch", "16 Inch", "18 Inch", "20 Inch", "22 Inch"],
+    sizesChart: ["Dynamic Specifications Available Upon Request Matrix Alignment"],
     items: [
       "Silent controlled closing action",
       "Prevents hardware impacts & wear",
       "Premium corrosion-resistant treatment",
       "Precision ball-bearing slide path",
-      "Low upkeep & simple installation",
       "Ideal for modern modular setups"
     ]
   },
@@ -143,13 +133,12 @@ const collections = [
     name: "Kitchen Accessories",
     desc: "Smart multi-tier storage configurations, organizers, and dynamic space-saving components engineered specifically to maximize spatial efficiency throughout residential and hotel kitchens.",
     image: kitchenImg,
-    sizesChart: ["Standard 6\" Width", "Standard 8\" Width", "Standard 9\" Width", "Custom Corner Pull-Out Panels"],
+    sizesChart: ["Width Profiles: 6 Inch | 8 Inch | 9 Inch Layout Systems"],
     items: [
       "Space-saving smart storage solutions",
       "Modern and stylish configurations",
       "High-quality durable construction",
       "Corrosion-resistant layer coating",
-      "Smooth and user-friendly operation",
       "Maximizes small corner utility paths"
     ]
   }
@@ -208,10 +197,6 @@ function Products() {
                   <p className="eyebrow mb-4">{c.tag}</p>
                   <h2 className="text-4xl md:text-5xl lg:text-6xl">{c.name}</h2>
                   <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{c.desc}</p>
-                  
-                  {c.sizes && (
-                    <p className="mt-4 text-sm font-semibold text-mustard-deep uppercase tracking-wider">{c.sizes}</p>
-                  )}
 
                   {c.isComplex && c.subsections ? (
                     <div className="mt-6 grid grid-cols-1 gap-4 rounded-md border border-border p-4 bg-muted/20">
@@ -235,32 +220,28 @@ function Products() {
                     </ul>
                   )}
 
-                  {/* Button Action Wrapper Grid */}
                   <div className="mt-10 flex flex-wrap items-center gap-4">
                     <Link to="/contact" className="inline-flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs uppercase tracking-[0.3em] text-cream hover:bg-mustard transition-colors duration-300">
                       Request Specification →
                     </Link>
 
-                    {/* ✨ Size Chart Hover Button with Pure CSS Tooltip Panel */}
                     <div className="relative group/size">
                       <button className="inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-6 py-4 text-xs uppercase tracking-[0.3em] text-ink hover:bg-muted/40 transition-colors duration-300 cursor-default">
                         Size Chart
                       </button>
                       
-                      {/* Tooltip Hover Overlay Canvas */}
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-30 w-56 p-4 rounded-xl border border-border bg-white shadow-xl opacity-0 scale-95 pointer-events-none transition-all duration-300 ease-out group-hover/size:opacity-100 group-hover/size:scale-100">
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-30 w-64 p-4 rounded-xl border border-border bg-white shadow-xl opacity-0 scale-95 pointer-events-none transition-all duration-300 ease-out group-hover/size:opacity-100 group-hover/size:scale-100">
                         <p className="font-mono text-[9px] uppercase tracking-wider text-mustard-deep font-bold mb-2 pb-1 border-b border-border">
-                          Available Specs
+                          Technical Blueprint Dimensions
                         </p>
                         <ul className="space-y-1">
                           {c.sizesChart?.map((size, sIdx) => (
-                            <li key={sIdx} className="text-xs font-medium text-ink/90 flex items-center gap-2">
-                              <span className="h-1 w-1 rounded-full bg-ink/40" />
+                            <li key={sIdx} className="text-xs font-semibold text-ink/90 flex items-center gap-2">
+                              <span className="h-1 w-1 rounded-full bg-mustard" />
                               {size}
                             </li>
                           ))}
                         </ul>
-                        {/* Little triangle pointer at the bottom of the tooltip layout */}
                         <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white" />
                         <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-border -z-10 mt-[1px]" />
                       </div>
@@ -274,7 +255,7 @@ function Products() {
         })}
       </section>
 
-           <section className="py-28 md:py-36">
+      <section className="py-28 md:py-36">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="mb-14 max-w-2xl">
             <p className="eyebrow mb-6">Applications</p>
@@ -287,7 +268,7 @@ function Products() {
               <div key={a.t} className="group relative aspect-[4/5] overflow-hidden rounded-lg">
                 <img src={a.img} alt={a.t} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1500ms] group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
-                <h3 className="absolute inset-x-0 bottom-8 px-8 text-3xl text-cream">{a.t}</h3>
+                <h3 className="absolute inset-x-0 bottom-8 px-8 text-3xl text-cream={a.t}">{a.t}</h3>
               </div>
             ))}
           </div>

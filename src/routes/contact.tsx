@@ -5,14 +5,36 @@ import { useState, type FormEvent } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { MapPin, Mail, Globe, Phone, FileText, Clock, ChevronRight } from "lucide-react";
 
+// Synchronized with technical document metrics
 const mainCategories = [
-  { name: "Ball Bearing Hinges", desc: "4\" x 3\" x 2.5mm | 4\" x 3\" x 3.0mm | 5\" x 3\" x 3.0mm" },
-  { name: "Butt Hinges", desc: "3\" x 2\" x 2.0mm | 4\" x 2.5\" x 2.5mm | 4\" x 3\" x 2.5mm" },
-  { name: "Tower Bolts", desc: "Hex Round | Xylo | Pyramid | Royale | Sizes: 4\"-36\"" },
-  { name: "Aldrops", desc: "8 Inch | 10 Inch | 12 Inch | 14 Inch | 16 Inch | 24 Inch" },
-  { name: "Hydraulic Hinges", desc: "Full Overlay | Half Overlay | Inset (Soft Close)" },
-  { name: "Telescopic Drawer Slides", desc: "10 Inch (250mm) to 22 Inch (550mm) Soft Close" },
-  { name: "Kitchen Accessories", desc: "Space-saving multi-tier smart storage solutions" },
+  { 
+    name: "Ball Bearing Hinges", 
+    desc: "102x76x2.5mm | 102x76x3.0mm | 127x76x3.0mm | 127x89x3.0mm | 127x102x3.0mm" 
+  },
+  { 
+    name: "Butt Hinges", 
+    desc: "Hinge Size (Open): 110x57x24mm | Hinge Size (Closed): 62x57x24mm | Leaf Thickness: Min. 28mm | Load: 40 Kg/Pair" 
+  },
+  { 
+    name: "Hydraulic Hinges", 
+    desc: "Opening Angle: 105° | 3D Adjustable Mechanics: Side ±2.0mm, Height ±2.0mm, Depth ±1.5mm" 
+  },
+  { 
+    name: "Tower Bolts", 
+    desc: "Overall Length: 200mm | Usable Bolt Length: 182mm | Bolt Diameter: Ø16mm | Base Plate Width: 60mm | Thickness: 3mm" 
+  },
+  { 
+    name: "Telescopic Drawer Slides", 
+    desc: "Mounting Width: 12.7mm | Pitch Layout Intervals: 64mm Standard | Offset End Margin: 35mm" 
+  },
+  { 
+    name: "Aldrops", 
+    desc: "Available Series Variant Sizes: 8 Inch to 24 Inch Industrial Locking Units" 
+  },
+  { 
+    name: "Kitchen Accessories", 
+    desc: "Modular Configurations: Available in Standard 6\", 8\", and 9\" Width Profiles" 
+  },
 ];
 
 export const Route = createFileRoute("/contact")({
@@ -247,7 +269,6 @@ function Contact() {
   );
 }
 
-// Fixed Outlined Input Wrapper Component
 function Field({ 
   label, 
   name, 
@@ -281,7 +302,6 @@ function Field({
   );
 }
 
-// Restructured High-Contrast Block Info Layout
 function ContactBlock({ 
   icon, 
   label, 
