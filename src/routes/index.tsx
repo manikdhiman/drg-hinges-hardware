@@ -1,8 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
-import globe from "@/assets/globe.jpg";
-import sustainability from "@/assets/sustainability.jpg";
-import worldMap from "@/assets/world-map.jpg";
+import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { 
@@ -15,13 +12,12 @@ import {
   ShieldCheck 
 } from "lucide-react";
 
-
-
-// Video Import
+// Asset Imports (Standard Images & Video)
+import worldMap from "@/assets/world-map.jpg";
 import silverVideoAsset from "@/assets/finalvideo.mp4"; 
 
-// Hardware Product Image Imports (matching your renamed files)
-import hinges1 from "@/assets/hinges1.png"; // or .jpg / .jpeg depending on your file extension
+// Hardware Product Image Imports
+import hinges1 from "@/assets/hinges1.png";
 import hinges2 from "@/assets/hinges2.jpeg";
 import hinges3 from "@/assets/hinges3.jpeg";
 import hinges4 from "@/assets/hinges4.png";
@@ -35,22 +31,97 @@ import cert1 from "@/assets/certificate1.jpeg";
 import cert2 from "@/assets/certificate2.jpeg";
 import cert3 from "@/assets/certificate3.jpeg";
 
+/**
+ * =========================================================================
+ * ROUTE & SEO METADATA CONFIGURATION
+ * =========================================================================
+ * TanStack Router automatically extracts these tags and places them in the
+ * HTML <head> so Google, Bing, LinkedIn, Facebook, and WhatsApp can parse them.
+ */
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      // 1. Primary Title & Search Engine Result Snippet Description
       { title: "DRG by Goel Industries — Premium Hinges & Architectural Hardware Manufacturer in India" },
       {
         name: "description",
         content:
-          "DRG by Goel Industries is a trusted hardware manufacturer in Bahadurgarh, Haryana. Delivering precision-engineered hinges, hydraulic solutions, ball bearing fittings, and bulk OEM supplies across India.",
+          "Trusted hardware manufacturer in Bahadurgarh, Haryana. Delivering precision-engineered hinges, hydraulic solutions, ball bearing fittings, and bulk OEM supplies across India.",
       },
-      { name: "keywords", content: "hinges manufacturer in India, hardware suppliers in Haryana, architectural hardware manufacturers, bulk hinges supply, Goel Industries, DRG Hinges, door fittings, hydraulic hinges" },
+      // 2. High-Intent Keywords for Search Engines
+      { 
+        name: "keywords", 
+        content: "hinges manufacturer in India, hardware suppliers in Haryana, architectural hardware manufacturers, bulk hinges supply, Goel Industries, DRG Hinges, door fittings, hydraulic hinges, hinges" 
+      },
+      // 3. Open Graph (Used for link previews on WhatsApp, Facebook, LinkedIn)
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.drghinges.co.in/" },
       { property: "og:title", content: "DRG by Goel Industries — Premium Architectural Hardware" },
       { property: "og:description", content: "High-quality door & furniture hardware manufactured in Bahadurgarh, Haryana for residential, commercial & OEM applications." },
+      { property: "og:image", content: "https://www.drghinges.co.in/logo.png" },
+      // 4. Twitter / X Card Tags
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "DRG Hinges by Goel Industries" },
+      { name: "twitter:description", content: "Precision-engineered hinges and architectural fittings manufactured in Haryana, India." },
+      { name: "twitter:image", content: "https://www.drghinges.co.in/logo.png" },
+    ],
+    links: [
+      // Canonical URL: Confirms the authoritative domain to prevent duplicate indexing
+      { rel: "canonical", href: "https://www.drghinges.co.in/" },
     ],
   }),
   component: Home,
 });
+
+/**
+ * =========================================================================
+ * SCHEMA.ORG STRUCTURED DATA (JSON-LD)
+ * =========================================================================
+ * WHY THIS IS USED:
+ * Search engines like Google read this structured script to populate
+ * Google Knowledge Panels, Google Maps info, and verified contact points.
+ */
+function BusinessSchema() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "DRG by Goel Industries",
+    "legalName": "Goel Industries",
+    "url": "https://www.drghinges.co.in",
+    "logo": "https://www.drghinges.co.in/logo.png",
+    "image": "https://www.drghinges.co.in/logo.png",
+    "description": "Manufacturer of precision-engineered hinges, architectural hardware, tower bolts, and hydraulic soft-close fittings based in Bahadurgarh, Haryana.",
+    "telephone": "+91-9080222398",
+    "email": "drghinges@rediffmail.com",
+    "priceRange": "₹₹",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot No. 204, Sector 16, HSIIDC",
+      "addressLocality": "Bahadurgarh",
+      "addressRegion": "Haryana",
+      "postalCode": "124507",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "28.6924",
+      "longitude": "76.9249"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+    />
+  );
+}
 
 const mainCategories = [
   { name: "Ball Bearing Hinges", img: hinges1 },
@@ -123,6 +194,9 @@ const certificates: Certificate[] = [
 function Home() {
   return (
     <div className="min-h-screen bg-background antialiased text-foreground">
+      {/* Search Engine Microdata Injection */}
+      <BusinessSchema />
+
       <SiteHeader />
       <Hero />
       <ValueProposition />
