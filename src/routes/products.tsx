@@ -3,14 +3,14 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { useState } from "react";
 
-import ballBearingImg from "@/assets/ball_bearing_hinges.png";
-import concealedImg from "@/assets/newaldrops.jpeg";
-import towerBoltImg from "@/assets/new_tower.jpeg";
-import aldropsImg from "@/assets/aldrops.png";
-import hydraulicImg from "@/assets/hydraulic_hinges.png";
-import telescopicImg from "@/assets/telescopic.png";
-import softCloseImg from "@/assets/soft_close.png";
-import kitchenImg from "@/assets/kitchen_accessories.jpg";
+import ballBearingImg from "@/assets/hinges1.png";
+import concealedImg from "@/assets/hinges2.jpeg";
+import towerBoltImg from "@/assets/hinges3.jpeg";
+import aldropsImg from "@/assets/hinges4.png";
+import hydraulicImg from "@/assets/hinges_5.png";
+import telescopicImg from "@/assets/hinges6.png";
+import softCloseImg from "@/assets/hinges7.png";
+import kitchenImg from "@/assets/hinges8.jpg";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
