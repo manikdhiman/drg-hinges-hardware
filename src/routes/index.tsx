@@ -15,8 +15,7 @@ import {
   ShieldCheck 
 } from "lucide-react";
 
-// Video Asset Import
-import silverVideoAsset from "@/assets/finalvideo.mp4"; 
+
 
 // Video Import
 import silverVideoAsset from "@/assets/finalvideo.mp4"; 
