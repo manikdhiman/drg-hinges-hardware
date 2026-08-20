@@ -41,34 +41,45 @@ import cert3 from "@/assets/certificate3.jpeg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { property: "og:image", content: "https://www.drghinges.co.in/og-image.jpeg" },    
-      { name: "twitter:image", content: "https://www.drghinges.co.in/og-image.jpg" },
-      // 1. Primary Title & Search Engine Result Snippet Description
-      { title: "DRG by Goel Industries — Premium Hinges & Architectural Hardware Manufacturer in India" },
+      // 1. Primary Title (~58 chars - within Google's 60 char limit)
+      { title: "DRG by Goel Industries | Hinges & Architectural Hardware" },
+
+      // 2. Meta Description (~152 chars - within Google's 150-160 char limit)
       {
         name: "description",
         content:
-          "Trusted hardware manufacturer in Bahadurgarh, Haryana. Delivering precision-engineered hinges, hydraulic solutions, ball bearing fittings, and bulk OEM supplies across India.",
+          "Precision-engineered stainless steel hinges, hydraulic soft-close solutions, and OEM hardware manufactured in Bahadurgarh, Haryana by Goel Industries.",
       },
-      // 2. High-Intent Keywords for Search Engines
+
+      // 3. Target Keywords
       { 
         name: "keywords", 
-        content: "hinges manufacturer in India, hardware suppliers in Haryana, architectural hardware manufacturers, bulk hinges supply, Goel Industries, DRG Hinges, door fittings, hydraulic hinges, hinges" 
+        content: "hinges manufacturer India, hardware suppliers Haryana, hydraulic hinges, ball bearing butt hinges, Goel Industries, DRG Hinges" 
       },
-      // 3. Open Graph (Used for link previews on WhatsApp, Facebook, LinkedIn)
+
+      // 4. Open Graph Tags
+      { property: "og:site_name", content: "DRG Hinges" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.drghinges.co.in/" },
       { property: "og:title", content: "DRG by Goel Industries — Premium Architectural Hardware" },
-      { property: "og:description", content: "High-quality door & furniture hardware manufactured in Bahadurgarh, Haryana for residential, commercial & OEM applications." },
-      { property: "og:image", content: "https://www.drghinges.co.in/logo.png" },
-      // 4. Twitter / X Card Tags
+      { 
+        property: "og:description", 
+        content: "Precision-engineered door hinges, hydraulic fittings, and architectural hardware manufactured in Haryana, India." 
+      },
+      { property: "og:image", content: "https://www.drghinges.co.in/og-image.jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+
+      // 5. Twitter Card Tags
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "DRG Hinges by Goel Industries" },
-      { name: "twitter:description", content: "Precision-engineered hinges and architectural fittings manufactured in Haryana, India." },
-      { name: "twitter:image", content: "https://www.drghinges.co.in/logo.png" },
+      { 
+        name: "twitter:description", 
+        content: "Precision-engineered hinges and architectural door fittings manufactured in Haryana, India." 
+      },
+      { name: "twitter:image", content: "https://www.drghinges.co.in/og-image.jpeg" },
     ],
     links: [
-      // Canonical URL: Confirms the authoritative domain to prevent duplicate indexing
       { rel: "canonical", href: "https://www.drghinges.co.in/" },
     ],
   }),
