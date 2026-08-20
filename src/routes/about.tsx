@@ -5,21 +5,105 @@ import { SiteFooter } from "@/components/site-footer";
 import { ShieldCheck, HardHat, Award } from "lucide-react";
 import globe from "@/assets/globe.jpg";
 import industrial from "@/assets/industrial.jpg";
-
-// 1. Import your uploaded video asset here (adjust the file extension if it's .mov or another format)
 import ideAaVideo from "@/assets/newvideo.mp4"; 
 
+/**
+ * =========================================================================
+ * SEO & HEAD CONFIGURATION FOR /about
+ * =========================================================================
+ * Establishes company authority, manufacturing history since 2020,
+ * factory divisions in Bahadurgarh, and OEM credentials.
+ */
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Goel Industries & Goel Enterprises" },
-      { name: "description", content: "Established in 2020, Goel Industries is a trusted manufacturer and OEM partner in premium architectural hardware, operating out of Bahadurgarh, Haryana." },
-      { property: "og:title", content: "About Goel Industries" },
-      { property: "og:description", content: "Precision engineering, OEM expertise, and premium architectural hardware manufacturing." },
+      // 1. Primary Title & Search Engine Result Description
+      { title: "About Us — Goel Industries & Goel Enterprises | DRG Hinges" },
+      {
+        name: "description",
+        content:
+          "Established in 2020 in Bahadurgarh, Haryana, Goel Industries and Goel Enterprises are premier manufacturers and OEM suppliers of precision architectural door hardware and hydraulic fittings.",
+      },
+      // 2. High-Intent Target Keywords
+      {
+        name: "keywords",
+        content:
+          "Goel Industries Bahadurgarh, Goel Enterprises Haryana, architectural hardware manufacturers India, door hinges OEM factory, DRG hinges infrastructure, HSIIDC Bahadurgarh industry",
+      },
+      // 3. Open Graph (WhatsApp, LinkedIn, Facebook Link Previews)
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.drghinges.co.in/about" },
+      { property: "og:title", content: "About Goel Industries — Precision Hardware Manufacturing" },
+      {
+        property: "og:description",
+        content:
+          "Learn about our precision manufacturing plants, OEM capabilities, and ISO-standard hardware production across Bahadurgarh, Haryana.",
+      },
+      { property: "og:image", content: "https://www.drghinges.co.in/og-image.jpeg" },
+      // 4. Twitter / X Card Tags
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "About Goel Industries & Goel Enterprises" },
+      {
+        name: "twitter:description",
+        content: "Discover our precision engineering legacy and manufacturing infrastructure in Haryana, India.",
+      },
+      { name: "twitter:image", content: "https://www.drghinges.co.in/og-image.jpeg" },
+    ],
+    links: [
+      // Canonical URL: Confirms authoritative domain for search indexers
+      { rel: "canonical", href: "https://www.drghinges.co.in/about" },
     ],
   }),
   component: About,
 });
+
+/**
+ * =========================================================================
+ * SCHEMA.ORG STRUCTURED DATA (JSON-LD AboutPage & Organization)
+ * =========================================================================
+ * Helps Google Knowledge Graph map your founding date, industrial physical
+ * addresses (Plot 204 & Plot 196, HSIIDC), and manufacturing scope.
+ */
+function AboutCompanySchema() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Goel Industries",
+      "alternateName": ["Goel Enterprises", "DRG Hinges"],
+      "url": "https://www.drghinges.co.in",
+      "logo": "https://www.drghinges.co.in/logo.png",
+      "foundingDate": "2020",
+      "description": "Manufacturer and OEM supplier of precision architectural door hardware, hydraulic soft-close hinges, and kitchen fittings.",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Plot No. 204, Sector 16, HSIIDC",
+          "addressLocality": "Bahadurgarh",
+          "addressRegion": "Haryana",
+          "postalCode": "124507",
+          "addressCountry": "IN"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Plot No. 196, HSIIDC",
+          "addressLocality": "Bahadurgarh",
+          "addressRegion": "Haryana",
+          "postalCode": "124507",
+          "addressCountry": "IN"
+        }
+      ]
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+    />
+  );
+}
 
 const timeline = [
   { y: "2020", t: "Foundation", d: "Goel Industries established, rapidly emerging as a trusted architectural hardware manufacturer and OEM partner." },
@@ -40,6 +124,9 @@ function About() {
 
   return (
     <div className="min-h-screen bg-[#FAF9F5] text-[#2B2927] antialiased">
+      {/* Google Structured Data Injection */}
+      <AboutCompanySchema />
+
       <SiteHeader />
 
       {/* --- HERO PROFILE BANNER HEADER --- */}
@@ -164,7 +251,6 @@ function About() {
             </div>
           </div>
           
-          {/* Replaced standard image card with a continuous loop web-optimized video frame */}
           <div className="md:col-span-6">
             <div className="relative aspect-[4/3] overflow-hidden rounded-xs border border-[#E6E2D8] bg-black">
               <video 

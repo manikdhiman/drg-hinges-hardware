@@ -12,17 +12,89 @@ import telescopicImg from "@/assets/hinges6.png";
 import softCloseImg from "@/assets/hinges7.png";
 import kitchenImg from "@/assets/hinges8.jpg";
 
+/**
+ * =========================================================================
+ * SEO & HEAD CONFIGURATION FOR /products
+ * =========================================================================
+ * Tells search engines about your architectural catalogue, dimensions,
+ * and OEM hardware options.
+ */
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Products — DRG Premium SS Hinges & Architectural Hardware" },
-      { name: "description", content: "Explore the premium collection of DRG hardware including Ball Bearing Hinges, Concealed Hinges, Tower Bolts, Aldrops, and Hydraulic fittings." },
-      { property: "og:title", content: "Products — DRG Architectural Hardware" },
-      { property: "og:description", content: "The premium collection from DRG Hinges (Goel Industries)." },
+      // 1. Primary Title & Search Engine Result Snippet Description
+      { title: "Architectural Hardware & Hinges Catalog — DRG by Goel Industries" },
+      {
+        name: "description",
+        content:
+          "Explore DRG's precision hardware catalog: Ball Bearing Hinges, Butt Hinges, Tower Bolts, Aldrops, Hydraulic Soft-Close Hinges, and Telescopic Slides made in Haryana, India.",
+      },
+      // 2. High-Intent Target Keywords
+      {
+        name: "keywords",
+        content:
+          "stainless steel hinges catalog, hydraulic hinges manufacturer, butt hinges, tower bolts India, aldrops suppliers, telescopic drawer slides, soft close channels Haryana",
+      },
+      // 3. Open Graph (WhatsApp, LinkedIn, Facebook Link Previews)
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.drghinges.co.in/products" },
+      { property: "og:title", content: "Hardware & Hinges Catalog — DRG by Goel Industries" },
+      {
+        property: "og:description",
+        content:
+          "Precision-engineered door fittings, soft-close hydraulic solutions, and architectural hardware catalog.",
+      },
+      { property: "og:image", content: "https://www.drghinges.co.in/og-image.jpeg" },
+      // 4. Twitter / X Card Tags
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "DRG Architectural Hardware Catalog" },
+      {
+        name: "twitter:description",
+        content: "Explore stainless steel hinges, tower bolts, and hydraulic fittings catalog from DRG Goel Industries.",
+      },
+      { name: "twitter:image", content: "https://www.drghinges.co.in/og-image.jpeg" },
+    ],
+    links: [
+      // Canonical URL: Identifies the primary URL for Google indexing
+      { rel: "canonical", href: "https://www.drghinges.co.in/products" },
     ],
   }),
   component: Products,
 });
+
+/**
+ * =========================================================================
+ * SCHEMA.ORG STRUCTURED DATA (JSON-LD ItemList)
+ * =========================================================================
+ * Helps Google identify this page as an itemized product catalog
+ * containing 8 distinct hardware collections.
+ */
+function ProductCatalogSchema() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "DRG Hardware Product Collections",
+    "description": "Architectural door hardware, hydraulic hinges, and drawer slide series manufactured by Goel Industries.",
+    "numberOfItems": 8,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ball Bearing Hinges" },
+      { "@type": "ListItem", "position": 2, "name": "Butt Hinges" },
+      { "@type": "ListItem", "position": 3, "name": "Tower Bolts" },
+      { "@type": "ListItem", "position": 4, "name": "Aldrops" },
+      { "@type": "ListItem", "position": 5, "name": "Hydraulic Hinges" },
+      { "@type": "ListItem", "position": 6, "name": "Telescopic Drawer Slides" },
+      { "@type": "ListItem", "position": 7, "name": "Soft Close Channels" },
+      { "@type": "ListItem", "position": 8, "name": "Kitchen & Furniture Accessories" }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+    />
+  );
+}
 
 const collections = [
   {
@@ -164,6 +236,9 @@ function Products() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Search Engine Microdata Injection */}
+      <ProductCatalogSchema />
+
       <SiteHeader />
 
       <section className="border-b border-border pt-40 pb-24">
@@ -245,7 +320,7 @@ function Products() {
                         Size Chart {isChartOpen ? "✕" : "→"}
                       </button>
                       
-                      {/* ✨ RE-ENGINEERED MOBILE-SAFE GRID TOOLTIP PANEL */}
+                      {/* Tooltip Panel */}
                       <div 
                         className={`absolute bottom-full left-0 sm:left-1/2 sm:-translate-x-1/2 mb-3 z-30 w-full sm:w-64 p-4 rounded-xl border border-border bg-white shadow-xl transition-all duration-300 ease-out ${
                           isChartOpen 
@@ -264,7 +339,6 @@ function Products() {
                             </li>
                           ))}
                         </ul>
-                        {/* Indicator triangle hidden on small viewports to maintain boundaries cleanly */}
                         <div className="hidden sm:block absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white" />
                         <div className="hidden sm:block absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-border -z-10 mt-[1px]" />
                       </div>

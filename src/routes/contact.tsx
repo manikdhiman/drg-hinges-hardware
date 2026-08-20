@@ -36,15 +36,105 @@ const mainCategories = [
   },
 ];
 
+/**
+ * =========================================================================
+ * SEO & HEAD CONFIGURATION FOR /contact
+ * =========================================================================
+ * Drives conversions for project developers, wholesale buyers,
+ * and B2B OEM inquiries looking for manufacturer contact details.
+ */
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us — Goel Industries & Goel Enterprises" },
-      { name: "description", content: "Get in touch with DRG for architectural hardware quotes, wholesale custom specifications, and product technical drawings." },
+      // 1. Primary Title & Search Snippet Description
+      { title: "Contact Us — DRG Hinges | Goel Industries & Goel Enterprises" },
+      {
+        name: "description",
+        content:
+          "Connect directly with Goel Industries in Bahadurgarh, Haryana for bulk hinges pricing, custom OEM manufacturing specifications, and wholesale architectural hardware inquiries.",
+      },
+      // 2. High-Intent Commercial Keywords
+      {
+        name: "keywords",
+        content:
+          "contact DRG hinges, Goel Industries phone number, hardware manufacturer Bahadurgarh contact, OEM hinges enquiry, bulk door hardware suppliers India",
+      },
+      // 3. Open Graph (WhatsApp, LinkedIn, Facebook Link Previews)
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.drghinges.co.in/contact" },
+      { property: "og:title", content: "Contact DRG Hinges — Commercial OEM & Bulk Enquiries" },
+      {
+        property: "og:description",
+        content:
+          "Request technical specifications, sample batches, and bulk quotation parameters from our engineering sales desk.",
+      },
+      { property: "og:image", content: "https://www.drghinges.co.in/og-image.jpeg" },
+      // 4. Twitter / X Card Tags
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Contact Goel Industries & Goel Enterprises" },
+      {
+        name: "twitter:description",
+        content: "Speak directly with our architectural hardware desk in Haryana, India.",
+      },
+      { name: "twitter:image", content: "https://www.drghinges.co.in/og-image.jpeg" },
+    ],
+    links: [
+      // Canonical Link to prevent duplicate URL parameters from degrading rank
+      { rel: "canonical", href: "https://www.drghinges.co.in/contact" },
     ],
   }),
   component: Contact,
 });
+
+/**
+ * =========================================================================
+ * SCHEMA.ORG STRUCTURED DATA (JSON-LD ContactPage)
+ * =========================================================================
+ * Tells search engines the direct customer support telephone numbers,
+ * email channels, and physical office hours.
+ */
+function ContactSchema() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "DRG Hinges by Goel Industries",
+      "telephone": "+91-9080222398",
+      "email": "drghinges@rediffmail.com",
+      "url": "https://www.drghinges.co.in/contact",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plot No. 204, Sector 16, HSIIDC",
+        "addressLocality": "Bahadurgarh",
+        "addressRegion": "Haryana",
+        "postalCode": "124507",
+        "addressCountry": "IN"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-9080222398",
+          "contactType": "sales & OEM desk",
+          "availableLanguage": ["en", "hi"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-9812540303",
+          "contactType": "customer service",
+          "availableLanguage": ["en", "hi"]
+        }
+      ]
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+    />
+  );
+}
 
 function Contact() {
   const [sent, setSent] = useState(false);
@@ -72,6 +162,10 @@ function Contact() {
     setErrorMsg(null);
 
     try {
+      if (!supabase) {
+        throw new Error("Supabase client is not initialized.");
+      }
+
       const { error } = await supabase
         .from("contact_submissions")
         .insert([
@@ -99,6 +193,9 @@ function Contact() {
 
   return (
     <div className="min-h-screen bg-[#FAF9F5] text-[#2B2927] antialiased">
+      {/* Contact Schema Injection for Search Engines */}
+      <ContactSchema />
+
       <SiteHeader />
 
       {/* --- PREMIUM INTRO BANNER --- */}
@@ -291,7 +388,7 @@ function Field({
         required 
         type={type} 
         name={name} 
-        value={value}
+        value={value} 
         placeholder={placeholder}
         onChange={onChange}
         className="w-full rounded-xl border border-[#E6E2D8] bg-[#FAF9F5] px-4 py-3.5 text-sm text-[#2B2927] placeholder-[#A69E94] outline-none transition-all focus:border-[#D49A5B] shadow-inner" 

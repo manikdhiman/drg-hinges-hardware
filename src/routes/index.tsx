@@ -41,6 +41,8 @@ import cert3 from "@/assets/certificate3.jpeg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:image", content: "https://www.drghinges.co.in/og-image.jpeg" },    
+      { name: "twitter:image", content: "https://www.drghinges.co.in/og-image.jpg" },
       // 1. Primary Title & Search Engine Result Snippet Description
       { title: "DRG by Goel Industries — Premium Hinges & Architectural Hardware Manufacturer in India" },
       {
