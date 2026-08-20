@@ -18,15 +18,18 @@ import {
 // Video Asset Import
 import silverVideoAsset from "@/assets/finalvideo.mp4"; 
 
-// Hardware Product Image Assets
-import ballBearingImg from "@/assets/ball_bearing_hinges.png";
-import concealedImg from "@/assets/newaldrops.jpeg";
-import towerBoltImg from "@/assets/new_tower.jpeg";
-import aldropsImg from "@/assets/aldrops.png";
-import hydraulicImg from "@/assets/hydraulic_hinges.png";
-import telescopicImg from "@/assets/telescopic.png";
-import softCloseImg from "@/assets/soft_close.png";
-import kitchenImg from "@/assets/kitchen_accessories.jpg";
+// Video Import
+import silverVideoAsset from "@/assets/finalvideo.mp4"; 
+
+// Hardware Product Image Imports (matching your renamed files)
+import hinges1 from "@/assets/hinges1.png"; // or .jpg / .jpeg depending on your file extension
+import hinges2 from "@/assets/hinges2.jpeg";
+import hinges3 from "@/assets/hinges3.jpeg";
+import hinges4 from "@/assets/hinges4.png";
+import hinges5 from "@/assets/hinges_5.png";
+import hinges6 from "@/assets/hinges6.png";
+import hinges7 from "@/assets/hinges7.png";
+import hinges8 from "@/assets/hinges8.jpg";
 
 // Certificate Asset Imports
 import cert1 from "@/assets/certificate1.jpeg";
@@ -51,14 +54,14 @@ export const Route = createFileRoute("/")({
 });
 
 const mainCategories = [
-  { name: "Ball Bearing Hinges", img: ballBearingImg },
-  { name: "Butt Hinges", img: concealedImg },
-  { name: "Tower Bolts", img: towerBoltImg },
-  { name: "Aldrops", img: aldropsImg },
-  { name: "Hydraulic Hinges", img: hydraulicImg },
-  { name: "Telescopic Drawer Slides", img: telescopicImg },
-  { name: "Soft Close Channels", img: softCloseImg },
-  { name: "Kitchen Accessories", img: kitchenImg },
+  { name: "Ball Bearing Hinges", img: hinges1 },
+  { name: "Butt Hinges", img: hinges2 },
+  { name: "Tower Bolts", img: hinges3 },
+  { name: "Aldrops", img: hinges4 },
+  { name: "Hydraulic Hinges", img: hinges5 },
+  { name: "Telescopic Drawer Slides", img: hinges6 },
+  { name: "Soft Close Channels", img: hinges7 },
+  { name: "Kitchen & Furniture Accessories", img: hinges8 },
 ];
 
 const productHighlights = [
