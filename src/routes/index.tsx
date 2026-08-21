@@ -250,7 +250,7 @@ function Hero() {
           className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-2 mb-6 shadow-sm border border-mustard/20" 
         >
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.35em] text-mustard-deep">
-            Premium Door Hardware Manufacturer in India
+            Premium Door Hardware and Hinges Manufacturer in India
           </p>
         </div>
         <h1 className="max-w-5xl text-5xl leading-[0.95] text-cream md:text-7xl lg:text-[8rem] font-black tracking-tight">
@@ -292,13 +292,12 @@ function ValueProposition() {
         <div className="lg:col-span-5 space-y-4">
           <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep">Quality Hardware Performance</span>
           <h2 className="text-3xl md:text-5xl font-black text-ink tracking-tight leading-tight">
-            High-Quality Door Hardware Designed for <span className="italic font-normal text-gradient-mustard">Everyday Use.</span>
+            High-Quality Door Hardware & Hinges Designed for <span className="italic font-normal text-gradient-mustard">Everyday Use.</span>
           </h2>
         </div>
         <div className="lg:col-span-7 space-y-6 text-muted-foreground leading-relaxed text-sm md:text-base">
           <p>
-            A good door or cabinet depends on the quality of the hardware supporting it. At DRG, we manufacture components that combine durability, smooth operation, and clean architectural appeal. Our product range is suitable for modern homes, offices, hotels, modular kitchens, wardrobes, commercial interiors, and other demanding applications.
-          </p>
+          A good door or cabinet depends on the quality of the hardware supporting it. At DRG, we manufacture premium hinges and architectural components that combine durability, smooth operation, and clean visual appeal. Our comprehensive range of door and cabinet hinges is engineered for modern homes, offices, hotels, modular kitchens, wardrobes, commercial interiors, and other demanding applications.</p>
           <p className="border-l-2 border-mustard pl-4 italic text-ink font-medium">
             Every product is designed around real installation and usage requirements. Whether the priority is heavy-load support, quiet movement, corrosion resistance, or soft closing, DRG offers solutions engineered to perform reliably over repeated daily use.
           </p>
@@ -350,10 +349,10 @@ function ProductDeepDive() {
         <div className="max-w-3xl space-y-3">
           <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep">Product Range Highlights</span>
           <h2 className="text-4xl md:text-6xl font-black text-ink tracking-tight">
-            Explore Our Range of <span className="italic font-normal text-gradient-mustard">Door & Furniture Hardware.</span>
+            Explore Our Range of <span className="italic font-normal text-gradient-mustard">Door & Furniture Hardware and Hinges.</span>
           </h2>
           <p className="text-sm md:text-base text-muted-foreground">
-            From stainless steel and ball bearing designs to hydraulic solutions and complementary fittings, our products are developed for smooth movement, dependable strength, and long-term performance.
+            From stainless steel and ball bearing hinges to hydraulic solutions and complementary fittings, our products are developed for smooth movement, dependable strength, and long-term performance.
           </p>
         </div>
 
@@ -389,8 +388,7 @@ function WhyChoose() {
             Why Choose <span className="italic font-normal text-gradient-mustard">DRG Hardware?</span>
           </h2>
           <p className="text-sm md:text-base text-muted-foreground">
-            Choosing the right hardware can improve door alignment, furniture life, user comfort, and overall installation quality. Supported by the manufacturing capabilities of Goel Industries in Bahadurgarh, Haryana.
-          </p>
+Choosing the right hinges improves door alignment, furniture life, user comfort, and overall installation quality. Supported by the advanced manufacturing capabilities of Goel Industries in Bahadurgarh, Haryana.          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -415,14 +413,14 @@ function ApplicationsAndOEM() {
         <div className="lg:col-span-6 space-y-6">
           <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep">Versatile Integration</span>
           <h2 className="text-3xl md:text-5xl font-black text-ink tracking-tight">
-            Hardware for Residential, Commercial & <span className="italic font-normal text-gradient-mustard">Furniture Applications.</span>
+            Hinges for Residential, Commercial & <span className="italic font-normal text-gradient-mustard">Furniture Applications.</span>
           </h2>
           <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
             <p>
               <strong className="text-ink">Residential Projects:</strong> Ideal for main doors, wardrobes, interior cabinets, and modular home setups requiring durability and aesthetic polish.
             </p>
             <p>
-              <strong className="text-ink">Commercial Spaces:</strong> Heavy-duty fittings built to support high-traffic office doors, hospitality environments, and institutional facilities.
+              <strong className="text-ink">Commercial Spaces:</strong> Heavy-duty fittings built to support high-traffic office doors and their hinges, hospitality environments, and institutional facilities.
             </p>
             <p>
               <strong className="text-ink">Furniture & Kitchens:</strong> Specialized hydraulic hardware and concealed channels that deliver smooth, quiet everyday movement for modular kitchens and modern cabinetry.
@@ -464,8 +462,7 @@ function Certifications() {
             Our Official <span className="italic text-gradient-mustard">Certifications.</span>
           </h2>
           <p className="mt-6 max-w-xl text-muted-foreground">
-            At DRG, structural reliability and engineering precision are non-negotiable. 
-            Our hardware undergoes rigorous testing protocols to hit absolute industrial benchmarks.
+            At DRG, structural reliability and engineering precision are non-negotiable. Every hinge undergoes rigorous testing protocols to meet absolute industrial benchmarks.
           </p>
         </div>
 
@@ -559,7 +556,7 @@ function Sustainability() {
           <p className="eyebrow mb-6">Continuous Innovation</p>
           <h2 className="text-5xl md:text-6xl">Advanced Material <span className="italic text-gradient-mustard">Testing.</span></h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Through advanced manufacturing processes and strict hardware testing inspection stages, our team guarantees everyday operational reliability for residential systems.
+            Through advanced manufacturing processes and strict hardware and hinges testing inspection stages, our team guarantees everyday operational reliability for residential systems.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {["High Load Stability", "Modular Kitchen Fits", "Rust Protective Cores", "Noise-Free Mechanisms", "ISO 9001:2015 Inspections"].map((v) => (
