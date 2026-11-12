@@ -2,21 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { 
-  Building2, 
-  Layers, 
-  CheckCircle2, 
-  Settings, 
-  Truck, 
-  ArrowRight, 
-  ShieldCheck 
-} from "lucide-react";
+import { Layers, CheckCircle2, Settings } from "lucide-react";
 
-// Asset Imports (Standard Images & Video)
 import worldMap from "@/assets/world-map.jpg";
-import silverVideoAsset from "@/assets/finalvideo.mp4"; 
+import silverVideoAsset from "@/assets/finalvideo.mp4";
 
-// Hardware Product Image Imports
 import hinges1 from "@/assets/hinges1.png";
 import hinges2 from "@/assets/hinges2.jpeg";
 import hinges3 from "@/assets/hinges3.jpeg";
@@ -26,106 +16,99 @@ import hinges6 from "@/assets/hinges6.png";
 import hinges7 from "@/assets/hinges7.png";
 import hinges8 from "@/assets/hinges8.jpg";
 
-// Certificate Asset Imports
 import cert1 from "@/assets/certificate1.jpeg";
 import cert2 from "@/assets/certificate2.jpeg";
 import cert3 from "@/assets/certificate3.jpeg";
 
-/**
- * =========================================================================
- * ROUTE & SEO METADATA CONFIGURATION
- * =========================================================================
- * TanStack Router automatically extracts these tags and places them in the
- * HTML <head> so Google, Bing, LinkedIn, Facebook, and WhatsApp can parse them.
- */
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      // 1. Primary Title (~58 chars - within Google's 60 char limit)
       { title: "DRG by Goel Industries | Hinges & Architectural Hardware" },
-
-      // 2. Meta Description (~152 chars - within Google's 150-160 char limit)
       {
         name: "description",
         content:
           "Precision-engineered stainless steel hinges, hydraulic soft-close solutions, and OEM hardware manufactured in Bahadurgarh, Haryana by Goel Industries.",
       },
-
-      // 3. Target Keywords
-      { 
-        name: "keywords", 
-        content: "hinges manufacturer India, hardware suppliers Haryana, hydraulic hinges, ball bearing butt hinges, Goel Industries, DRG Hinges" 
+      {
+        name: "keywords",
+        content:
+          "hinges manufacturer India, hardware suppliers Haryana, hydraulic hinges, ball bearing butt hinges, Goel Industries, DRG Hinges",
       },
-
-      // 4. Open Graph Tags
       { property: "og:site_name", content: "DRG Hinges" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.drghinges.co.in/" },
-      { property: "og:title", content: "DRG by Goel Industries — Premium Architectural Hardware" },
-      { 
-        property: "og:description", 
-        content: "Precision-engineered door hinges, hydraulic fittings, and architectural hardware manufactured in Haryana, India." 
+      {
+        property: "og:title",
+        content: "DRG by Goel Industries — Premium Architectural Hardware",
       },
-      { property: "og:image", content: "https://www.drghinges.co.in/og-image.jpeg" },
+      {
+        property: "og:description",
+        content:
+          "Precision-engineered door hinges, hydraulic fittings, and architectural hardware manufactured in Haryana, India.",
+      },
+      {
+        property: "og:image",
+        content: "https://www.drghinges.co.in/og-image.jpeg",
+      },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-
-      // 5. Twitter Card Tags
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "DRG Hinges by Goel Industries" },
-      { 
-        name: "twitter:description", 
-        content: "Precision-engineered hinges and architectural door fittings manufactured in Haryana, India." 
+      {
+        name: "twitter:description",
+        content:
+          "Precision-engineered hinges and architectural door fittings manufactured in Haryana, India.",
       },
-      { name: "twitter:image", content: "https://www.drghinges.co.in/og-image.jpeg" },
+      {
+        name: "twitter:image",
+        content: "https://www.drghinges.co.in/og-image.jpeg",
+      },
     ],
-    links: [
-      { rel: "canonical", href: "https://www.drghinges.co.in/" },
-    ],
+    links: [{ rel: "canonical", href: "https://www.drghinges.co.in/" }],
   }),
   component: Home,
 });
 
-/**
- * =========================================================================
- * SCHEMA.ORG STRUCTURED DATA (JSON-LD)
- * =========================================================================
- * WHY THIS IS USED:
- * Search engines like Google read this structured script to populate
- * Google Knowledge Panels, Google Maps info, and verified contact points.
- */
 function BusinessSchema() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "DRG by Goel Industries",
-    "legalName": "Goel Industries",
-    "url": "https://www.drghinges.co.in",
-    "logo": "https://www.drghinges.co.in/logo.png",
-    "image": "https://www.drghinges.co.in/logo.png",
-    "description": "Manufacturer of precision-engineered hinges, architectural hardware, tower bolts, and hydraulic soft-close fittings based in Bahadurgarh, Haryana.",
-    "telephone": "+91-9080222398",
-    "email": "drghinges@rediffmail.com",
-    "priceRange": "₹₹",
-    "address": {
+    name: "DRG by Goel Industries",
+    legalName: "Goel Industries",
+    url: "https://www.drghinges.co.in",
+    logo: "https://www.drghinges.co.in/logo.png",
+    image: "https://www.drghinges.co.in/og-image.jpeg",
+    description:
+      "Manufacturer of precision-engineered hinges, architectural hardware, tower bolts, and hydraulic soft-close fittings based in Bahadurgarh, Haryana.",
+    telephone: "+91-9812540303",
+    email: "drghinges@rediffmail.com",
+    priceRange: "₹₹",
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": "Plot No. 204, Sector 16, HSIIDC",
-      "addressLocality": "Bahadurgarh",
-      "addressRegion": "Haryana",
-      "postalCode": "124507",
-      "addressCountry": "IN"
+      streetAddress: "Plot No. 204, Sector 16, HSIIDC",
+      addressLocality: "Bahadurgarh",
+      addressRegion: "Haryana",
+      postalCode: "124507",
+      addressCountry: "IN",
     },
-    "geo": {
+    geo: {
       "@type": "GeoCoordinates",
-      "latitude": "28.6924",
-      "longitude": "76.9249"
+      latitude: "28.6924",
+      longitude: "76.9249",
     },
-    "openingHoursSpecification": {
+    openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "09:00",
-      "closes": "19:00"
-    }
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "09:00",
+      closes: "19:00",
+    },
   };
 
   return (
@@ -166,14 +149,38 @@ const productHighlights = [
 ];
 
 const keyAdvantages = [
-  { title: "Precision-Engineered Components", desc: "Crafted for consistent fit, alignment, and long-term smooth movement." },
-  { title: "Corrosion-Resistant Hardware", desc: "Premium stainless steel selection for extended service life in demanding environments." },
-  { title: "Smooth & Low-Noise Operation", desc: "Designed to minimize friction and deliver quiet, effortless door operation." },
-  { title: "Heavy-Duty Load Support", desc: "High-strength engineering suited for high-traffic and heavy commercial doors." },
-  { title: "Soft-Close Hydraulic Technology", desc: "Advanced damping mechanics built specifically for modern furniture and cabinetry." },
-  { title: "Varied Sizes & Specifications", desc: "A comprehensive range of dimensional parameters for diverse project blueprints." },
-  { title: "OEM & Customization Support", desc: "Custom private-label manufacturing tailored to defined commercial specifications." },
-  { title: "Reliable Wholesale Supply", desc: "Dependable nationwide delivery pipelines for distributors, wholesalers, and project buyers." },
+  {
+    title: "Precision-Engineered Components",
+    desc: "Crafted for consistent fit, alignment, and long-term smooth movement.",
+  },
+  {
+    title: "Corrosion-Resistant Hardware",
+    desc: "Premium stainless steel selection for extended service life in demanding environments.",
+  },
+  {
+    title: "Smooth & Low-Noise Operation",
+    desc: "Designed to minimize friction and deliver quiet, effortless door operation.",
+  },
+  {
+    title: "Heavy-Duty Load Support",
+    desc: "High-strength engineering suited for high-traffic and heavy commercial doors.",
+  },
+  {
+    title: "Soft-Close Hydraulic Technology",
+    desc: "Advanced damping mechanics built specifically for modern furniture and cabinetry.",
+  },
+  {
+    title: "Varied Sizes & Specifications",
+    desc: "A comprehensive range of dimensional parameters for diverse project blueprints.",
+  },
+  {
+    title: "OEM & Customization Support",
+    desc: "Custom private-label manufacturing tailored to defined commercial specifications.",
+  },
+  {
+    title: "Reliable Wholesale Supply",
+    desc: "Dependable nationwide delivery pipelines for distributors, wholesalers, and project buyers.",
+  },
 ];
 
 interface Certificate {
@@ -193,13 +200,15 @@ const certificates: Certificate[] = [
   {
     id: 2,
     title: "CE Compliance",
-    description: "Certified conformance with health, safety, and environmental protection standards.",
+    description:
+      "Certified conformance with health, safety, and environmental protection standards.",
     image: cert2,
   },
   {
     id: 3,
     title: "SS Premium Grade Assurance",
-    description: "Material authenticity and high-durability load testing certification.",
+    description:
+      "Material authenticity and high-durability load testing certification.",
     image: cert3,
   },
 ];
@@ -207,13 +216,15 @@ const certificates: Certificate[] = [
 function Home() {
   return (
     <div className="min-h-screen bg-background antialiased text-foreground">
-      {/* Search Engine Microdata Injection */}
       <BusinessSchema />
-
       <SiteHeader />
       <Hero />
       <ValueProposition />
-      <ProductPortfolio tag="Our Product Range" title="Premium Hardware & Furniture Fittings" items={mainCategories} />
+      <ProductPortfolio
+        tag="Our Product Range"
+        title="Premium Hardware & Furniture Fittings"
+        items={mainCategories}
+      />
       <ProductDeepDive />
       <WhyChoose />
       <ApplicationsAndOEM />
@@ -225,8 +236,11 @@ function Home() {
   );
 }
 
-{/* --- HERO SECTION WITH VIDEO BACKGROUND --- */}
 function Hero() {
+  const heroWhatsappUrl = `https://wa.me/919812540303?text=${encodeURIComponent(
+    "Hello DRG Hinges, I have a query regarding your hinges and hardware: "
+  )}`;
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-ink flex flex-col justify-end">
       <video
@@ -240,27 +254,27 @@ function Hero() {
         <source src={silverVideoAsset} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      
-      {/* Dark overlay protection vignette */}
+
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-ink/60 via-ink/30 to-background pointer-events-none" />
 
-      {/* Content Canvas */}
       <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 md:px-10 md:pb-32 flex flex-col items-start">
-        <div 
-          className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-2 mb-6 shadow-sm border border-mustard/20" 
-        >
+        <div className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-2 mb-6 shadow-sm border border-mustard/20">
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.35em] text-mustard-deep">
-            Premium Door Hardware and Hinges Manufacturer in India
+            Premium Door Hardware Manufacturer in India
           </p>
         </div>
         <h1 className="max-w-5xl text-5xl leading-[0.95] text-cream md:text-7xl lg:text-[8rem] font-black tracking-tight">
           Where Metal
           <br />
-          <span className="italic text-gradient-mustard font-normal">meets Craft.</span>
+          <span className="italic text-gradient-mustard font-normal">
+            meets Craft.
+          </span>
         </h1>
 
         <p className="mt-6 max-w-2xl text-sm md:text-base text-cream/80 font-light leading-relaxed">
-          DRG by Goel Industries delivers precision-engineered hinges and architectural fittings for residential, commercial, hospitality, and interior applications. Manufactured in Bahadurgarh, Haryana.
+          DRG by Goel Industries delivers precision-engineered hinges and
+          architectural fittings for residential, commercial, hospitality, and
+          interior applications. Manufactured in Bahadurgarh, Haryana.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-6">
@@ -269,14 +283,21 @@ function Hero() {
             className="group inline-flex items-center gap-3 rounded-full bg-mustard px-8 py-4 text-xs uppercase tracking-[0.3em] text-primary-foreground transition-all hover:bg-cream hover:text-ink shadow-lg font-bold"
           >
             Explore Portfolio
-            <span className="transition-transform group-hover:translate-x-1">→</span>
+            <span className="transition-transform group-hover:translate-x-1">
+              →
+            </span>
           </Link>
-          <Link to="/contact" className="link-underline text-xs uppercase tracking-[0.3em] text-cream font-bold">
+          <a
+            href={heroWhatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-underline text-xs uppercase tracking-[0.3em] text-cream font-bold"
+          >
             Get In Touch
-          </Link>
+          </a>
         </div>
       </div>
-      
+
       <div className="absolute bottom-8 right-8 z-20 hidden items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-cream/60 md:flex">
         <span className="h-px w-10 bg-cream/40" /> Scroll
       </div>
@@ -284,22 +305,35 @@ function Hero() {
   );
 }
 
-{/* --- BRAND VALUE PROPOSITION --- */}
 function ValueProposition() {
   return (
     <section className="py-20 bg-white border-b border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10 grid gap-12 lg:grid-cols-12 items-center">
         <div className="lg:col-span-5 space-y-4">
-          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep">Quality Hardware Performance</span>
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep">
+            Quality Hardware Performance
+          </span>
           <h2 className="text-3xl md:text-5xl font-black text-ink tracking-tight leading-tight">
-            High-Quality Door Hardware & Hinges Designed for <span className="italic font-normal text-gradient-mustard">Everyday Use.</span>
+            High-Quality Door Hardware Designed for{" "}
+            <span className="italic font-normal text-gradient-mustard">
+              Everyday Use.
+            </span>
           </h2>
         </div>
         <div className="lg:col-span-7 space-y-6 text-muted-foreground leading-relaxed text-sm md:text-base">
           <p>
-          A good door or cabinet depends on the quality of the hardware supporting it. At DRG, we manufacture premium hinges and architectural components that combine durability, smooth operation, and clean visual appeal. Our comprehensive range of door and cabinet hinges is engineered for modern homes, offices, hotels, modular kitchens, wardrobes, commercial interiors, and other demanding applications.</p>
+            A good door or cabinet depends on the quality of the hardware
+            supporting it. At DRG, we manufacture components that combine
+            durability, smooth operation, and clean architectural appeal. Our
+            product range is suitable for modern homes, offices, hotels, modular
+            kitchens, wardrobes, commercial interiors, and other demanding
+            applications.
+          </p>
           <p className="border-l-2 border-mustard pl-4 italic text-ink font-medium">
-            Every product is designed around real installation and usage requirements. Whether the priority is heavy-load support, quiet movement, corrosion resistance, or soft closing, DRG offers solutions engineered to perform reliably over repeated daily use.
+            Every product is designed around real installation and usage
+            requirements. Whether the priority is heavy-load support, quiet
+            movement, corrosion resistance, or soft closing, DRG offers
+            solutions engineered to perform reliably over repeated daily use.
           </p>
         </div>
       </div>
@@ -307,8 +341,15 @@ function ValueProposition() {
   );
 }
 
-{/* --- VISUAL PRODUCT PORTFOLIO GRID --- */}
-function ProductPortfolio({ tag, title, items }: { tag: string; title: string; items: { name: string; img: string }[] }) {
+function ProductPortfolio({
+  tag,
+  title,
+  items,
+}: {
+  tag: string;
+  title: string;
+  items: { name: string; img: string }[];
+}) {
   return (
     <section className="py-28 md:py-36 bg-ink text-cream">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
@@ -324,13 +365,20 @@ function ProductPortfolio({ tag, title, items }: { tag: string; title: string; i
               className="group relative overflow-hidden rounded-lg"
             >
               <div className="relative aspect-[4/5] overflow-hidden bg-muted">
-                <img src={it.img} alt={it.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110" />
+                <img
+                  src={it.img}
+                  alt={it.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent opacity-90" />
                 <div className="absolute inset-x-0 bottom-0 p-5">
                   <p className="text-[10px] uppercase tracking-[0.25em] text-mustard opacity-0 -translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 font-bold">
                     View Specs →
                   </p>
-                  <h3 className="mt-1 text-lg text-cream font-bold">{it.name}</h3>
+                  <h3 className="mt-1 text-lg text-cream font-bold">
+                    {it.name}
+                  </h3>
                 </div>
               </div>
             </Link>
@@ -341,32 +389,48 @@ function ProductPortfolio({ tag, title, items }: { tag: string; title: string; i
   );
 }
 
-{/* --- DETAILED PRODUCT DEEP DIVE CARDS --- */}
 function ProductDeepDive() {
   return (
     <section className="py-24 bg-[#FAF9F5] border-b border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10 space-y-16">
         <div className="max-w-3xl space-y-3">
-          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep">Product Range Highlights</span>
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep">
+            Product Range Highlights
+          </span>
           <h2 className="text-4xl md:text-6xl font-black text-ink tracking-tight">
-            Explore Our Range of <span className="italic font-normal text-gradient-mustard">Door & Furniture Hardware and Hinges.</span>
+            Explore Our Range of{" "}
+            <span className="italic font-normal text-gradient-mustard">
+              Door & Furniture Hardware.
+            </span>
           </h2>
           <p className="text-sm md:text-base text-muted-foreground">
-            From stainless steel and ball bearing hinges to hydraulic solutions and complementary fittings, our products are developed for smooth movement, dependable strength, and long-term performance.
+            From stainless steel and ball bearing designs to hydraulic solutions
+            and complementary fittings, our products are developed for smooth
+            movement, dependable strength, and long-term performance.
           </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
           {productHighlights.map((prod) => (
-            <div key={prod.title} className="bg-white border border-border p-8 rounded-xl space-y-4 flex flex-col justify-between hover:border-mustard transition-colors shadow-xs">
+            <div
+              key={prod.title}
+              className="bg-white border border-border p-8 rounded-xl space-y-4 flex flex-col justify-between hover:border-mustard transition-colors shadow-xs"
+            >
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-lg bg-[#FAF9F5] border border-border flex items-center justify-center text-mustard-deep">
                   <Layers className="w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-bold text-ink tracking-tight">{prod.title}</h3>
-                <p className="text-xs md:text-sm text-muted-foreground font-normal leading-relaxed">{prod.desc}</p>
+                <h3 className="text-2xl font-bold text-ink tracking-tight">
+                  {prod.title}
+                </h3>
+                <p className="text-xs md:text-sm text-muted-foreground font-normal leading-relaxed">
+                  {prod.desc}
+                </p>
               </div>
-              <Link to={prod.link} className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-mustard-deep hover:underline pt-4">
+              <Link
+                to={prod.link}
+                className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-mustard-deep hover:underline pt-4"
+              >
                 View Specifications →
               </Link>
             </div>
@@ -377,7 +441,6 @@ function ProductDeepDive() {
   );
 }
 
-{/* --- WHY CHOOSE DRG --- */}
 function WhyChoose() {
   return (
     <section className="py-28 md:py-36 bg-white border-b border-border">
@@ -385,18 +448,30 @@ function WhyChoose() {
         <div className="max-w-3xl space-y-3">
           <p className="eyebrow">The DRG Advantage</p>
           <h2 className="text-4xl md:text-6xl font-black text-ink tracking-tight">
-            Why Choose <span className="italic font-normal text-gradient-mustard">DRG Hardware?</span>
+            Why Choose{" "}
+            <span className="italic font-normal text-gradient-mustard">
+              DRG Hardware?
+            </span>
           </h2>
           <p className="text-sm md:text-base text-muted-foreground">
-Choosing the right hinges improves door alignment, furniture life, user comfort, and overall installation quality. Supported by the advanced manufacturing capabilities of Goel Industries in Bahadurgarh, Haryana.          </p>
+            Choosing the right hardware can improve door alignment, furniture
+            life, user comfort, and overall installation quality. Supported by
+            the manufacturing capabilities of Goel Industries in Bahadurgarh,
+            Haryana.
+          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {keyAdvantages.map((adv) => (
-            <div key={adv.title} className="p-6 rounded-xl border border-border bg-[#FAF9F5]/60 space-y-2">
+            <div
+              key={adv.title}
+              className="p-6 rounded-xl border border-border bg-[#FAF9F5]/60 space-y-2"
+            >
               <CheckCircle2 className="w-5 h-5 text-mustard-deep shrink-0" />
               <h3 className="text-base font-bold text-ink pt-2">{adv.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{adv.desc}</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                {adv.desc}
+              </p>
             </div>
           ))}
         </div>
@@ -405,43 +480,68 @@ Choosing the right hinges improves door alignment, furniture life, user comfort,
   );
 }
 
-{/* --- APPLICATIONS & BULK OEM MANUFACTURING --- */}
 function ApplicationsAndOEM() {
+  const b2bWhatsappUrl = `https://wa.me/919812540303?text=${encodeURIComponent(
+    "Hello Goel Industries, I have a query regarding B2B and wholesale manufacturing: "
+  )}`;
+
   return (
     <section className="py-24 bg-[#FAF9F5] border-b border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10 grid gap-16 lg:grid-cols-12 items-start">
         <div className="lg:col-span-6 space-y-6">
-          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep">Versatile Integration</span>
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep">
+            Versatile Integration
+          </span>
           <h2 className="text-3xl md:text-5xl font-black text-ink tracking-tight">
-            Hinges for Residential, Commercial & <span className="italic font-normal text-gradient-mustard">Furniture Applications.</span>
+            Hardware for Residential, Commercial &{" "}
+            <span className="italic font-normal text-gradient-mustard">
+              Furniture Applications.
+            </span>
           </h2>
           <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
             <p>
-              <strong className="text-ink">Residential Projects:</strong> Ideal for main doors, wardrobes, interior cabinets, and modular home setups requiring durability and aesthetic polish.
+              <strong className="text-ink">Residential Projects:</strong> Ideal
+              for main doors, wardrobes, interior cabinets, and modular home
+              setups requiring durability and aesthetic polish.
             </p>
             <p>
-              <strong className="text-ink">Commercial Spaces:</strong> Heavy-duty fittings built to support high-traffic office doors and their hinges, hospitality environments, and institutional facilities.
+              <strong className="text-ink">Commercial Spaces:</strong>{" "}
+              Heavy-duty fittings built to support high-traffic office doors,
+              hospitality environments, and institutional facilities.
             </p>
             <p>
-              <strong className="text-ink">Furniture & Kitchens:</strong> Specialized hydraulic hardware and concealed channels that deliver smooth, quiet everyday movement for modular kitchens and modern cabinetry.
+              <strong className="text-ink">Furniture & Kitchens:</strong>{" "}
+              Specialized hydraulic hardware and concealed channels that deliver
+              smooth, quiet everyday movement for modular kitchens and modern
+              cabinetry.
             </p>
           </div>
         </div>
 
         <div className="lg:col-span-6 bg-white border border-border rounded-2xl p-8 md:p-10 space-y-6 shadow-sm">
           <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep flex items-center gap-2">
-            <Settings className="w-4 h-4 text-mustard-deep" /> B2B & Wholesale Division
+            <Settings className="w-4 h-4 text-mustard-deep" /> B2B & Wholesale
+            Division
           </span>
           <h3 className="text-2xl md:text-3xl font-bold text-ink">
             Manufacturing for Brands & Bulk Buyers
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Goel Industries collaborates with brands, distributors, wholesalers, and project suppliers requiring hinges manufactured to defined specifications and commercial requirements. We provide long-term support for private-label ranges, repeat bulk supply, and customized product specifications from our Bahadurgarh infrastructure.
+            Goel Industries collaborates with brands, distributors, wholesalers,
+            and project suppliers requiring hinges manufactured to defined
+            specifications and commercial requirements. We provide long-term
+            support for private-label ranges, repeat bulk supply, and customized
+            product specifications from our Bahadurgarh infrastructure.
           </p>
           <div className="pt-2">
-            <Link to="/contact" className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-ink hover:text-mustard-deep transition-colors">
+            <a
+              href={b2bWhatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-ink hover:text-mustard-deep transition-colors"
+            >
               Partner With Our Manufacturing Desk →
-            </Link>
+            </a>
           </div>
         </div>
       </div>
@@ -449,7 +549,6 @@ function ApplicationsAndOEM() {
   );
 }
 
-{/* --- CERTIFICATIONS COMPONENT WITH LIGHTBOX MODAL --- */}
 function Certifications() {
   const [activeCert, setActiveCert] = useState<Certificate | null>(null);
 
@@ -459,10 +558,15 @@ function Certifications() {
         <div className="mb-16 max-w-3xl">
           <p className="eyebrow mb-6">Quality Guaranteed</p>
           <h2 className="text-5xl md:text-6xl">
-            Our Official <span className="italic text-gradient-mustard">Certifications.</span>
+            Our Official{" "}
+            <span className="italic text-gradient-mustard">
+              Certifications.
+            </span>
           </h2>
           <p className="mt-6 max-w-xl text-muted-foreground">
-            At DRG, structural reliability and engineering precision are non-negotiable. Every hinge undergoes rigorous testing protocols to meet absolute industrial benchmarks.
+            At DRG, structural reliability and engineering precision are
+            non-negotiable. Our hardware undergoes rigorous testing protocols to
+            hit absolute industrial benchmarks.
           </p>
         </div>
 
@@ -500,7 +604,6 @@ function Certifications() {
         </div>
       </div>
 
-      {/* Lightbox Modal Layer */}
       {activeCert && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 backdrop-blur-md p-4 transition-opacity duration-300"
@@ -523,8 +626,12 @@ function Certifications() {
               className="w-auto max-h-[70vh] object-contain rounded-lg mx-auto"
             />
             <div className="mt-4 px-4 py-2 text-center">
-              <h4 className="font-display text-2xl text-ink">{activeCert.title}</h4>
-              <p className="text-sm text-muted-foreground mt-1">{activeCert.description}</p>
+              <h4 className="font-display text-2xl text-ink">
+                {activeCert.title}
+              </h4>
+              <p className="text-sm text-muted-foreground mt-1">
+                {activeCert.description}
+              </p>
             </div>
           </div>
         </div>
@@ -533,7 +640,6 @@ function Certifications() {
   );
 }
 
-{/* --- SUSTAINABILITY & CONTINUOUS TESTING WITH SECONDARY VIDEO --- */}
 function Sustainability() {
   return (
     <section className="border-y border-border bg-gradient-cream py-28 md:py-36">
@@ -554,13 +660,27 @@ function Sustainability() {
         </div>
         <div className="md:col-span-6">
           <p className="eyebrow mb-6">Continuous Innovation</p>
-          <h2 className="text-5xl md:text-6xl">Advanced Material <span className="italic text-gradient-mustard">Testing.</span></h2>
+          <h2 className="text-5xl md:text-6xl">
+            Advanced Material{" "}
+            <span className="italic text-gradient-mustard">Testing.</span>
+          </h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Through advanced manufacturing processes and strict hardware and hinges testing inspection stages, our team guarantees everyday operational reliability for residential systems.
+            Through advanced manufacturing processes and strict hardware testing
+            inspection stages, our team guarantees everyday operational
+            reliability for residential systems.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {["High Load Stability", "Modular Kitchen Fits", "Rust Protective Cores", "Noise-Free Mechanisms", "ISO 9001:2015 Inspections"].map((v) => (
-              <li key={v} className="flex items-center gap-3 border-b border-border pb-3 text-sm">
+            {[
+              "High Load Stability",
+              "Modular Kitchen Fits",
+              "Rust Protective Cores",
+              "Noise-Free Mechanisms",
+              "ISO 9001:2015 Inspections",
+            ].map((v) => (
+              <li
+                key={v}
+                className="flex items-center gap-3 border-b border-border pb-3 text-sm"
+              >
                 <span className="h-1.5 w-1.5 rounded-full bg-mustard" /> {v}
               </li>
             ))}
@@ -571,20 +691,33 @@ function Sustainability() {
   );
 }
 
-{/* --- NATIONAL GEOGRAPHIC REACH --- */}
 function GlobalReach() {
   return (
     <section className="relative overflow-hidden py-28 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-14 max-w-3xl">
           <p className="eyebrow mb-6">Our Factory Location</p>
-          <h2 className="text-5xl md:text-6xl">Made in Haryana, <span className="italic text-gradient-mustard">Supplied Across India.</span></h2>
+          <h2 className="text-5xl md:text-6xl">
+            Made in Haryana,{" "}
+            <span className="italic text-gradient-mustard">
+              Supplied Across India.
+            </span>
+          </h2>
           <p className="mt-6 max-w-xl text-muted-foreground">
-            Operating from Bahadurgarh, Haryana—one of North India's established industrial centers—DRG provides a direct manufacturing-focused solution backed by product variety and strict quality control.
+            Operating from Bahadurgarh, Haryana—one of North India's established
+            industrial centers—DRG provides a direct manufacturing-focused
+            solution backed by product variety and strict quality control.
           </p>
         </div>
         <div className="relative overflow-hidden rounded-lg">
-          <img src={worldMap} alt="Domestic layout system map" width={1600} height={900} loading="lazy" className="h-auto w-full object-cover" />
+          <img
+            src={worldMap}
+            alt="Domestic layout system map"
+            width={1600}
+            height={900}
+            loading="lazy"
+            className="h-auto w-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           <div className="absolute inset-0 flex flex-wrap items-end gap-6 p-8 md:p-14">
             <span className="rounded-full bg-ink/80 px-5 py-2 text-xs uppercase tracking-[0.25em] text-cream backdrop-blur font-bold">

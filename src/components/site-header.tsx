@@ -10,6 +10,10 @@ const nav = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
+const WHATSAPP_URL = `https://wa.me/919812540303?text=${encodeURIComponent(
+  "Hello DRG Hinges, I have a query regarding architectural hardware: "
+)}`;
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -40,17 +44,16 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
         {/* Brand Logo & Title */}
         <Link to="/" className="flex items-center gap-3.5 group">
-          <img 
-            src={logoAsset} 
-            alt="DRG Premium SS Hinges Logo" 
-            className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+          <img
+            src={logoAsset}
+            alt="DRG Premium SS Hinges Logo"
+            className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
-          
+
           <span className="flex flex-col leading-snug">
             <span className="font-display text-2xl sm:text-3xl tracking-tight text-[#1C1A19] font-black">
               DRG
             </span>
-            {/* Highly readable, bold subtitle */}
             <span className="text-[11px] sm:text-xs uppercase tracking-wider text-[#4A4540] font-semibold">
               Hinges & Hardware Architecture
             </span>
@@ -63,22 +66,26 @@ export function SiteHeader() {
             <Link
               key={n.to}
               to={n.to}
-              /* Increased to 14px-16px, bold weight, dark solid tone, clear hover effect */
               className="text-sm lg:text-base font-bold uppercase tracking-wider text-[#1C1A19] transition-colors duration-200 hover:text-[#D49A5B] py-1"
-              activeProps={{ className: "text-[#D49A5B] underline underline-offset-8 decoration-2" }}
+              activeProps={{
+                className:
+                  "text-[#D49A5B] underline underline-offset-8 decoration-2",
+              }}
             >
               {n.label}
             </Link>
           ))}
         </nav>
 
-        {/* Desktop CTA Button */}
-        <Link
-          to="/contact"
+        {/* Desktop WhatsApp Enquire CTA */}
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden rounded-full bg-[#1C1A19] px-7 py-3 text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FAF9F5] transition-all duration-300 hover:bg-[#D49A5B] hover:shadow-md md:inline-flex items-center justify-center"
         >
           Enquire
-        </Link>
+        </a>
 
         {/* Mobile Hamburger Button */}
         <button
@@ -87,16 +94,30 @@ export function SiteHeader() {
           aria-label="Toggle Menu"
           aria-expanded={open}
         >
-          <span className={`h-0.5 w-6 bg-[#1C1A19] transition-all duration-300 ${open ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`h-0.5 w-6 bg-[#1C1A19] transition-all duration-300 ${open ? "opacity-0" : ""}`} />
-          <span className={`h-0.5 w-6 bg-[#1C1A19] transition-all duration-300 ${open ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span
+            className={`h-0.5 w-6 bg-[#1C1A19] transition-all duration-300 ${
+              open ? "rotate-45 translate-y-2" : ""
+            }`}
+          />
+          <span
+            className={`h-0.5 w-6 bg-[#1C1A19] transition-all duration-300 ${
+              open ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`h-0.5 w-6 bg-[#1C1A19] transition-all duration-300 ${
+              open ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          />
         </button>
       </div>
 
       {/* Mobile Drawer Overlay */}
       <div
         className={`fixed inset-0 z-40 bg-[#FAF9F5]/98 backdrop-blur-2xl transition-all duration-300 md:hidden flex flex-col justify-center items-center ${
-          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          open
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
       >
         <nav className="flex flex-col items-center gap-7 text-center">
@@ -111,13 +132,15 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
-          <Link
-            to="/contact"
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="mt-4 rounded-full bg-[#1C1A19] px-9 py-3.5 text-sm font-bold uppercase tracking-widest text-[#FAF9F5] shadow-lg transition-all hover:bg-[#D49A5B]"
           >
             Enquire
-          </Link>
+          </a>
         </nav>
       </div>
     </header>
