@@ -297,7 +297,8 @@ function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="none"
+        poster={hinges1}
         className="absolute inset-0 z-0 h-full w-full object-cover pointer-events-none opacity-90"
       >
         <source src={silverVideoAsset} type="video/mp4" />
@@ -435,7 +436,10 @@ function ProductPortfolio({
         </div>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {items.map((it, i) => (
-            <article key={it.name + i} className="group relative overflow-hidden rounded-lg">
+            <article
+              key={it.name + i}
+              className="group relative overflow-hidden rounded-lg"
+            >
               <Link to={it.link} className="block">
                 <div className="relative aspect-[4/5] overflow-hidden bg-muted">
                   <img
@@ -444,6 +448,7 @@ function ProductPortfolio({
                     width={400}
                     height={500}
                     loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent opacity-90" />
@@ -684,6 +689,7 @@ function Certifications() {
                   width={450}
                   height={600}
                   loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-ink/50 backdrop-blur-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">
@@ -753,15 +759,16 @@ function Sustainability() {
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:grid-cols-12 md:px-10">
         <div className="md:col-span-6">
           <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-ink/20 z-10 pointer-events-none" />
-            <video
-              src={silverVideoAsset}
-              autoPlay
-              muted
-              loop
-              playsInline
+            <img
+              src={hinges5}
+              alt="Precision stainless steel hydraulic hinge engineering"
+              width={600}
+              height={750}
+              loading="lazy"
+              decoding="async"
               className="h-full w-full object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-ink/20 pointer-events-none" />
             <div className="absolute inset-0 ring-1 ring-mustard/20" />
           </div>
         </div>
@@ -834,6 +841,7 @@ function GlobalReach() {
             width={1600}
             height={900}
             loading="lazy"
+            decoding="async"
             className="h-auto w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
