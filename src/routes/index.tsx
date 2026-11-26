@@ -23,28 +23,28 @@ import cert3 from "@/assets/certificate3.jpeg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DRG by Goel Industries | Hinges & Architectural Hardware" },
+      { title: "DRG by Goel Industries | Precision Hinges Manufacturer in India" },
       {
         name: "description",
         content:
-          "Precision-engineered stainless steel hinges, hydraulic soft-close solutions, and OEM hardware manufactured in Bahadurgarh, Haryana by Goel Industries.",
+          "Precision-engineered stainless steel hinges, soft-close hydraulic fittings, and custom OEM door solutions manufactured in Bahadurgarh, Haryana by Goel Industries.",
       },
       {
         name: "keywords",
         content:
-          "hinges manufacturer India, hardware suppliers Haryana, hydraulic hinges, ball bearing butt hinges, Goel Industries, DRG Hinges",
+          "hinges manufacturer India, stainless steel hinges, hydraulic hinges, ball bearing butt hinges, door fittings Haryana, Goel Industries, DRG Hinges",
       },
       { property: "og:site_name", content: "DRG Hinges" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.drghinges.co.in/" },
       {
         property: "og:title",
-        content: "DRG by Goel Industries — Premium Architectural Hardware",
+        content: "DRG by Goel Industries — Precision Hinges Manufacturer",
       },
       {
         property: "og:description",
         content:
-          "Precision-engineered door hinges, hydraulic fittings, and architectural hardware manufactured in Haryana, India.",
+          "Precision-engineered stainless steel hinges, soft-close hydraulic fittings, and custom OEM door solutions manufactured in Haryana, India.",
       },
       {
         property: "og:image",
@@ -57,7 +57,7 @@ export const Route = createFileRoute("/")({
       {
         name: "twitter:description",
         content:
-          "Precision-engineered hinges and architectural door fittings manufactured in Haryana, India.",
+          "Precision-engineered stainless steel hinges and door fittings manufactured in Haryana, India.",
       },
       {
         name: "twitter:image",
@@ -79,7 +79,7 @@ function BusinessSchema() {
     logo: "https://www.drghinges.co.in/logo.png",
     image: "https://www.drghinges.co.in/og-image.jpeg",
     description:
-      "Manufacturer of precision-engineered hinges, architectural hardware, tower bolts, and hydraulic soft-close fittings based in Bahadurgarh, Haryana.",
+      "Manufacturer of precision-engineered stainless steel hinges, hydraulic soft-close fittings, tower bolts, and custom door components in Bahadurgarh, Haryana.",
     telephone: "+91-9812540303",
     email: "drghinges@rediffmail.com",
     priceRange: "₹₹",
@@ -120,14 +120,14 @@ function BusinessSchema() {
 }
 
 const mainCategories = [
-  { name: "Ball Bearing Hinges", img: hinges1 },
-  { name: "Butt Hinges", img: hinges2 },
-  { name: "Tower Bolts", img: hinges3 },
-  { name: "Aldrops", img: hinges4 },
-  { name: "Hydraulic Hinges", img: hinges5 },
-  { name: "Telescopic Drawer Slides", img: hinges6 },
-  { name: "Soft Close Channels", img: hinges7 },
-  { name: "Kitchen & Furniture Accessories", img: hinges8 },
+  { name: "Ball Bearing Hinges", img: hinges1, link: "/products#ball-bearing" },
+  { name: "Butt Hinges", img: hinges2, link: "/products#butt" },
+  { name: "Tower Bolts", img: hinges3, link: "/products#tower-bolts" },
+  { name: "Aldrops", img: hinges4, link: "/products#aldrops" },
+  { name: "Hydraulic Hinges", img: hinges5, link: "/products#hydraulic" },
+  { name: "Telescopic Drawer Slides", img: hinges6, link: "/products#drawer-slides" },
+  { name: "Soft Close Channels", img: hinges7, link: "/products#soft-close-channels" },
+  { name: "Kitchen & Furniture Accessories", img: hinges8, link: "/products#kitchen-accessories" },
 ];
 
 const productHighlights = [
@@ -138,7 +138,7 @@ const productHighlights = [
   },
   {
     title: "Butt Hinges",
-    desc: "Provides reliable alignment and controlled movement for door and furniture applications. Built for durability and a clean finish, making them an effective choice for strong, practical hardware needs.",
+    desc: "Provides reliable alignment and controlled movement for door and furniture applications. Built for durability and a clean finish, making them an effective choice for strong, practical installations.",
     link: "/products#butt",
   },
   {
@@ -150,16 +150,16 @@ const productHighlights = [
 
 const keyAdvantages = [
   {
-    title: "Precision-Engineered Components",
-    desc: "Crafted for consistent fit, alignment, and long-term smooth movement.",
+    title: "Precision-Engineered Hinges",
+    desc: "Crafted for consistent fit, alignment, and long-term smooth door movement.",
   },
   {
-    title: "Corrosion-Resistant Hardware",
+    title: "Corrosion-Resistant Steel",
     desc: "Premium stainless steel selection for extended service life in demanding environments.",
   },
   {
     title: "Smooth & Low-Noise Operation",
-    desc: "Designed to minimize friction and deliver quiet, effortless door operation.",
+    desc: "Designed to minimize friction and deliver quiet, effortless opening and closing.",
   },
   {
     title: "Heavy-Duty Load Support",
@@ -175,7 +175,7 @@ const keyAdvantages = [
   },
   {
     title: "OEM & Customization Support",
-    desc: "Custom private-label manufacturing tailored to defined commercial specifications.",
+    desc: "Custom private-label hinge manufacturing tailored to defined commercial specifications.",
   },
   {
     title: "Reliable Wholesale Supply",
@@ -222,7 +222,7 @@ function Home() {
       <ValueProposition />
       <ProductPortfolio
         tag="Our Product Range"
-        title="Premium Hardware & Furniture Fittings"
+        title="Precision Hinges & Door Fittings"
         items={mainCategories}
       />
       <ProductDeepDive />
@@ -238,7 +238,7 @@ function Home() {
 
 function Hero() {
   const heroWhatsappUrl = `https://wa.me/919812540303?text=${encodeURIComponent(
-    "Hello DRG Hinges, I have a query regarding your hinges and hardware: "
+    "Hello DRG Hinges, I have a query regarding your hinges and door fittings: "
   )}`;
 
   return (
@@ -260,21 +260,20 @@ function Hero() {
       <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pb-24 pt-40 md:px-10 md:pb-32 flex flex-col items-start">
         <div className="inline-flex items-center justify-center rounded-full bg-cream px-6 py-2 mb-6 shadow-sm border border-mustard/20">
           <p className="font-sans text-[10px] font-bold uppercase tracking-[0.35em] text-mustard-deep">
-            Premium Door Hardware Manufacturer in India
+            Precision Door Hinges Manufacturer in India
           </p>
         </div>
-        <h1 className="max-w-5xl text-5xl leading-[0.95] text-cream md:text-7xl lg:text-[8rem] font-black tracking-tight">
-          Where Metal
-          <br />
-          <span className="italic text-gradient-mustard font-normal">
-            meets Craft.
+        <h1 className="max-w-5xl text-4xl leading-[1.02] text-cream md:text-6xl lg:text-7xl font-black tracking-tight">
+          Precision-Engineered Hinges{" "}
+          <span className="italic text-gradient-mustard font-normal block sm:inline">
+            Crafted for Lasting Strength.
           </span>
         </h1>
 
         <p className="mt-6 max-w-2xl text-sm md:text-base text-cream/80 font-light leading-relaxed">
-          DRG by Goel Industries delivers precision-engineered hinges and
-          architectural fittings for residential, commercial, hospitality, and
-          interior applications. Manufactured in Bahadurgarh, Haryana.
+          DRG by Goel Industries manufactures stainless steel hinges, hydraulic
+          soft-close fittings, and architectural door components for residential,
+          commercial, and interior projects in Bahadurgarh, Haryana.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-6">
@@ -282,7 +281,7 @@ function Hero() {
             to="/products"
             className="group inline-flex items-center gap-3 rounded-full bg-mustard px-8 py-4 text-xs uppercase tracking-[0.3em] text-primary-foreground transition-all hover:bg-cream hover:text-ink shadow-lg font-bold"
           >
-            Explore Portfolio
+            Explore Hinges Catalog
             <span className="transition-transform group-hover:translate-x-1">
               →
             </span>
@@ -311,10 +310,10 @@ function ValueProposition() {
       <div className="mx-auto max-w-7xl px-6 md:px-10 grid gap-12 lg:grid-cols-12 items-center">
         <div className="lg:col-span-5 space-y-4">
           <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep">
-            Quality Hardware Performance
+            Reliable Hinge Performance
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-ink tracking-tight leading-tight">
-            High-Quality Door Hardware Designed for{" "}
+            High-Quality Door Hinges Designed for{" "}
             <span className="italic font-normal text-gradient-mustard">
               Everyday Use.
             </span>
@@ -322,18 +321,32 @@ function ValueProposition() {
         </div>
         <div className="lg:col-span-7 space-y-6 text-muted-foreground leading-relaxed text-sm md:text-base">
           <p>
-            A good door or cabinet depends on the quality of the hardware
-            supporting it. At DRG, we manufacture components that combine
-            durability, smooth operation, and clean architectural appeal. Our
-            product range is suitable for modern homes, offices, hotels, modular
-            kitchens, wardrobes, commercial interiors, and other demanding
-            applications.
+            Every door or cabinet depends on the strength and precision of the
+            hinges supporting it. At DRG, we manufacture components that combine
+            structural durability, smooth movement, and clean architectural
+            appeal—from heavy-duty{" "}
+            <Link
+              to="/products"
+              hash="ball-bearing"
+              className="text-mustard-deep font-semibold underline underline-offset-4 hover:text-ink transition-colors"
+            >
+              ball bearing hinges
+            </Link>{" "}
+            for main entrances to soft-close{" "}
+            <Link
+              to="/products"
+              hash="hydraulic"
+              className="text-mustard-deep font-semibold underline underline-offset-4 hover:text-ink transition-colors"
+            >
+              hydraulic hinges
+            </Link>{" "}
+            for modular kitchens and wardrobes.
           </p>
           <p className="border-l-2 border-mustard pl-4 italic text-ink font-medium">
-            Every product is designed around real installation and usage
-            requirements. Whether the priority is heavy-load support, quiet
-            movement, corrosion resistance, or soft closing, DRG offers
-            solutions engineered to perform reliably over repeated daily use.
+            Each series is engineered around real installation demands. Whether
+            the priority is heavy-load support, quiet movement, corrosion
+            resistance, or controlled soft closing, DRG delivers hinges built to
+            perform reliably over years of daily operation.
           </p>
         </div>
       </div>
@@ -348,7 +361,7 @@ function ProductPortfolio({
 }: {
   tag: string;
   title: string;
-  items: { name: string; img: string }[];
+  items: { name: string; img: string; link: string }[];
 }) {
   return (
     <section className="py-28 md:py-36 bg-ink text-cream">
@@ -361,7 +374,7 @@ function ProductPortfolio({
           {items.map((it, i) => (
             <Link
               key={it.name + i}
-              to="/products"
+              to={it.link}
               className="group relative overflow-hidden rounded-lg"
             >
               <div className="relative aspect-[4/5] overflow-hidden bg-muted">
@@ -395,18 +408,19 @@ function ProductDeepDive() {
       <div className="mx-auto max-w-7xl px-6 md:px-10 space-y-16">
         <div className="max-w-3xl space-y-3">
           <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-mustard-deep">
-            Product Range Highlights
+            Core Hinge Series
           </span>
           <h2 className="text-4xl md:text-6xl font-black text-ink tracking-tight">
             Explore Our Range of{" "}
             <span className="italic font-normal text-gradient-mustard">
-              Door & Furniture Hardware.
+              Door & Cabinet Hinges.
             </span>
           </h2>
           <p className="text-sm md:text-base text-muted-foreground">
-            From stainless steel and ball bearing designs to hydraulic solutions
-            and complementary fittings, our products are developed for smooth
-            movement, dependable strength, and long-term performance.
+            From stainless steel ball bearing designs to hydraulic soft-close
+            solutions and complementary door fittings, our products are
+            developed for smooth movement, dependable strength, and long-term
+            performance.
           </p>
         </div>
 
@@ -450,12 +464,12 @@ function WhyChoose() {
           <h2 className="text-4xl md:text-6xl font-black text-ink tracking-tight">
             Why Choose{" "}
             <span className="italic font-normal text-gradient-mustard">
-              DRG Hardware?
+              DRG Hinges?
             </span>
           </h2>
           <p className="text-sm md:text-base text-muted-foreground">
-            Choosing the right hardware can improve door alignment, furniture
-            life, user comfort, and overall installation quality. Supported by
+            Choosing precision-built hinges improves door alignment, cabinet
+            longevity, user comfort, and overall installation quality. Backed by
             the manufacturing capabilities of Goel Industries in Bahadurgarh,
             Haryana.
           </p>
@@ -482,7 +496,7 @@ function WhyChoose() {
 
 function ApplicationsAndOEM() {
   const b2bWhatsappUrl = `https://wa.me/919812540303?text=${encodeURIComponent(
-    "Hello Goel Industries, I have a query regarding B2B and wholesale manufacturing: "
+    "Hello Goel Industries, I have a query regarding B2B and wholesale hinge manufacturing: "
   )}`;
 
   return (
@@ -493,7 +507,7 @@ function ApplicationsAndOEM() {
             Versatile Integration
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-ink tracking-tight">
-            Hardware for Residential, Commercial &{" "}
+            Hinges for Residential, Commercial &{" "}
             <span className="italic font-normal text-gradient-mustard">
               Furniture Applications.
             </span>
@@ -506,12 +520,12 @@ function ApplicationsAndOEM() {
             </p>
             <p>
               <strong className="text-ink">Commercial Spaces:</strong>{" "}
-              Heavy-duty fittings built to support high-traffic office doors,
+              Heavy-duty hinges built to support high-traffic office doors,
               hospitality environments, and institutional facilities.
             </p>
             <p>
               <strong className="text-ink">Furniture & Kitchens:</strong>{" "}
-              Specialized hydraulic hardware and concealed channels that deliver
+              Specialized hydraulic hinges and concealed channels that deliver
               smooth, quiet everyday movement for modular kitchens and modern
               cabinetry.
             </p>
@@ -524,12 +538,12 @@ function ApplicationsAndOEM() {
             Division
           </span>
           <h3 className="text-2xl md:text-3xl font-bold text-ink">
-            Manufacturing for Brands & Bulk Buyers
+            OEM Hinge Manufacturing for Brands & Bulk Buyers
           </h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
             Goel Industries collaborates with brands, distributors, wholesalers,
             and project suppliers requiring hinges manufactured to defined
-            specifications and commercial requirements. We provide long-term
+            specifications and commercial standards. We provide long-term
             support for private-label ranges, repeat bulk supply, and customized
             product specifications from our Bahadurgarh infrastructure.
           </p>
@@ -565,8 +579,8 @@ function Certifications() {
           </h2>
           <p className="mt-6 max-w-xl text-muted-foreground">
             At DRG, structural reliability and engineering precision are
-            non-negotiable. Our hardware undergoes rigorous testing protocols to
-            hit absolute industrial benchmarks.
+            non-negotiable. Every batch of hinges undergoes rigorous testing
+            protocols to meet industrial benchmarks.
           </p>
         </div>
 
@@ -626,9 +640,9 @@ function Certifications() {
               className="w-auto max-h-[70vh] object-contain rounded-lg mx-auto"
             />
             <div className="mt-4 px-4 py-2 text-center">
-              <h4 className="font-display text-2xl text-ink">
+              <p className="font-display text-2xl text-ink font-bold">
                 {activeCert.title}
-              </h4>
+              </p>
               <p className="text-sm text-muted-foreground mt-1">
                 {activeCert.description}
               </p>
@@ -665,9 +679,9 @@ function Sustainability() {
             <span className="italic text-gradient-mustard">Testing.</span>
           </h2>
           <p className="mt-6 leading-relaxed text-muted-foreground">
-            Through advanced manufacturing processes and strict hardware testing
-            inspection stages, our team guarantees everyday operational
-            reliability for residential systems.
+            Through precision manufacturing processes and multi-stage load
+            testing inspections, our team guarantees consistent operational
+            reliability for residential and commercial door systems.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {[
@@ -705,8 +719,8 @@ function GlobalReach() {
           </h2>
           <p className="mt-6 max-w-xl text-muted-foreground">
             Operating from Bahadurgarh, Haryana—one of North India's established
-            industrial centers—DRG provides a direct manufacturing-focused
-            solution backed by product variety and strict quality control.
+            industrial centers—DRG provides direct hinge manufacturing backed by
+            broad sizing options and strict quality control.
           </p>
         </div>
         <div className="relative overflow-hidden rounded-lg">
